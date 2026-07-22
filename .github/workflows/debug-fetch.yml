@@ -1,4 +1,4 @@
-name: Debug fetch 8 (temporal)
+name: Debug fetch 9 (temporal)
 
 on:
   workflow_dispatch: {}
@@ -7,36 +7,32 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
-      - name: Probar tiendas nuevas
+      - name: Encontrar URLs reales y estructura
         run: |
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
-          check() {
+          find_links() {
             local name="$1"
             local url="$2"
+            local pattern="$3"
             echo "=================================================="
-            echo "### $name -> $url"
-            code=$(curl -s --compressed -o /tmp/body.html -D /tmp/headers.txt -w "%{http_code}" \
-              -A "$UA" \
-              -H "Accept-Language: es-ES,es;q=0.9" \
-              -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
-              --max-time 15 "$url" || echo "CURL_ERROR")
-            echo "HTTP: $code, tamano: $(wc -c < /tmp/body.html) bytes"
-            grep -iE "^(server|cf-):" /tmp/headers.txt || true
-            grep -oE '__NEXT_DATA__|__NUXT__|window\.__INITIAL_STATE__|"@type":"Product"|"@type": "Product"|application/ld\+json' /tmp/body.html | sort -u | head -5 || true
-            head -c 150 /tmp/body.html
-            echo ""
+            echo "### $name home -> $url"
+            code=$(curl -s -L --compressed -o /tmp/body.html -D /tmp/headers.txt -w "%{http_code}" \
+              -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 "$url")
+            echo "HTTP final: $code, tamano: $(wc -c < /tmp/body.html) bytes"
+            grep -oiE "$pattern" /tmp/body.html | sort -u | head -8 || true
           }
 
-          check "Puma ofertas" "https://es.puma.com/es/es/sale"
-          check "New Balance ofertas" "https://www.newbalance.es/es/sale/"
-          check "Under Armour ofertas" "https://www.underarmour.es/es-es/c/sale/"
-          check "Skechers ofertas" "https://www.skechers.com/es-es/sale/"
-          check "Desigual rebajas" "https://www.desigual.com/es/rebajas/"
-          check "Shein rebajas" "https://es.shein.com/sale-c-2ativity.html"
-          check "Levis rebajas" "https://www.levi.com/ES/es_ES/sale/men/c/es_levi_sale_men"
-          check "ElCorteIngles moda rebajas" "https://www.elcorteingles.es/moda/rebajas/"
-          check "Uniqlo ofertas" "https://www.uniqlo.com/es/es/special-feature/sale"
-          check "Superdry rebajas" "https://www.superdry.com/es/sale"
-          check "JD Sports ofertas" "https://www.jdsports.es/men/mens-sale/"
-          check "Footlocker ofertas" "https://www.footlocker.es/es/sale.html"
+          find_links "Desigual" "https://www.desigual.com/es/" 'href="[^"]*(rebaja|sale|outlet)[^"]*"'
+          find_links "Superdry" "https://www.superdry.com/es/" 'href="[^"]*(sale|rebaja)[^"]*"'
+          find_links "Puma" "https://es.puma.com/" 'href="[^"]*(sale|rebaja|outlet)[^"]*"'
+          find_links "Skechers" "https://www.skechers.com/" 'href="[^"]*(sale|rebaja|outlet)[^"]*"'
+          find_links "Shein" "https://es.shein.com/" 'href="[^"]*(sale|rebaja)[^"]*"'
+
+          echo "=================================================="
+          echo "### Footlocker sale.html: buscar JSON de listado real"
+          curl -s -L --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
+            "https://www.footlocker.es/es/sale.html" -o /tmp/fl.html
+          echo "tamano: $(wc -c < /tmp/fl.html) bytes"
+          grep -oE '"@type":"Product"|"@type": "Product"|window\.__PRELOADED_STATE__|__NEXT_DATA__|"products":\[' /tmp/fl.html | sort -u | head -5 || true
+          grep -c 'productTile\|product-tile\|product-card' /tmp/fl.html || true
