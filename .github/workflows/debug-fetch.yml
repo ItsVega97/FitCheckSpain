@@ -40,12 +40,8 @@ jobs:
                   buf.append(c)
                   i += 1
               captured = "".join(buf)
-              print("Longitud capturada:", len(captured))
-              print("Primeros 200 chars:", captured[:200])
               captured = captured.replace(bs + sq, sq)
-              inner_json_text = json.loads(dq + captured + dq)
-              print("Longitud tras primer decode:", len(inner_json_text))
-              data = json.loads(inner_json_text)
+              data = json.loads(captured)
               print("Claves de primer nivel:", list(data.keys()))
 
               def find_products(obj, path):
