@@ -1,4 +1,12 @@
 {
-  "lastRun": "2026-07-22T00:00:00.000Z",
-  "stores": []
+  "lastRun": "2026-07-22T12:21:08.856Z",
+  "stores": [
+    {
+      "store": "asos",
+      "storeName": "ASOS",
+      "ok": true,
+      "dealsFound": 131,
+      "lastRun": "2026-07-22T12:21:08.856Z"
+    }
+  ]
 }
