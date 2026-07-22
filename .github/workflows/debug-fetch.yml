@@ -12,23 +12,45 @@ jobs:
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
           curl -s -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
-            "https://www.asos.com/es/mujer/" -o /tmp/mujer-home.html
-          echo "--- enlaces rebajas generales (sin a-to-z-of-brands) en portada mujer ---"
-          grep -oiE 'href="[^"]*mujer/rebajas/cat/\?cid=[0-9]+"' /tmp/mujer-home.html | sort -u | head -10 || true
-
-          curl -s -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
             "https://www.asos.com/es/hombre/rebajas/cat/?cid=8409" -o /tmp/asos.html
           echo "tamano: $(wc -c < /tmp/asos.html) bytes"
           python3 -c '
+          import re, json
+          sq = chr(39)
+          dq = chr(34)
           html = open("/tmp/asos.html", encoding="utf-8", errors="replace").read()
-          idx = html.find("plp._data")
-          if idx == -1:
-              print("NO aparece plp._data en absoluto en este HTML")
-              idx2 = html.find("window.asos")
-              print("primera aparicion de window.asos en:", idx2)
-              if idx2 != -1:
-                  print(html[idx2:idx2+400])
+          pattern = "window\\.asos\\.plp\\._data=JSON\\.parse\\(" + sq + "((?:\\\\.|[^" + sq + "\\\\])*)" + sq + "\\)"
+          m = re.search(pattern, html)
+          if not m:
+              print("NO SE ENCONTRO el patron JSON.parse")
           else:
-              print("Contexto alrededor de plp._data (400 antes, 400 despues):")
-              print(html[max(0, idx-400):idx+400])
+              captured = m.group(1).replace("\\" + sq, sq)
+              inner_json_text = json.loads(dq + captured + dq)
+              data = json.loads(inner_json_text)
+              print("Claves de primer nivel:", list(data.keys()))
+
+              def find_products(obj, path):
+                  if isinstance(obj, dict):
+                      for k, v in obj.items():
+                          if k.lower() == "products" and isinstance(v, list) and v:
+                              return (path + "." + k, v)
+                          found = find_products(v, path + "." + k)
+                          if found:
+                              return found
+                  elif isinstance(obj, list):
+                      for i, v in enumerate(obj[:5]):
+                          found = find_products(v, path + "[" + str(i) + "]")
+                          if found:
+                              return found
+                  return None
+
+              result = find_products(data, "data")
+              if not result:
+                  print("No se encontro ninguna clave products en el JSON")
+              else:
+                  path, products = result
+                  print("Encontrado en:", path, "- numero de productos:", len(products))
+                  print("Claves del primer producto:", list(products[0].keys()))
+                  print("Primer producto completo:")
+                  print(json.dumps(products[0], ensure_ascii=False))
           '
