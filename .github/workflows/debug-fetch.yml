@@ -10,8 +10,14 @@ jobs:
       - name: Inspeccionar ASOS
         run: |
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+
           curl -s -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
-            "https://www.asos.com/es/mujer/rebajas/a-to-z-of-brands/cat/?cid=5526" -o /tmp/asos.html
+            "https://www.asos.com/es/mujer/" -o /tmp/mujer-home.html
+          echo "--- enlaces rebajas generales (sin a-to-z-of-brands) en portada mujer ---"
+          grep -oiE 'href="[^"]*mujer/rebajas/cat/\?cid=[0-9]+"' /tmp/mujer-home.html | sort -u | head -10 || true
+
+          curl -s -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
+            "https://www.asos.com/es/hombre/rebajas/cat/?cid=8409" -o /tmp/asos.html
           echo "tamano: $(wc -c < /tmp/asos.html) bytes"
           python3 -c '
           import re, json
