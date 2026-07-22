@@ -10,7 +10,9 @@
     "originalPrice": 32.99,
     "discountPercent": 45,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.423Z",
     "source": "auto"
   },
   {
@@ -24,7 +26,9 @@
     "originalPrice": 49.95,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.423Z",
     "source": "auto"
   },
   {
@@ -38,7 +42,9 @@
     "originalPrice": 136.99,
     "discountPercent": 49,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.423Z",
     "source": "auto"
   },
   {
@@ -52,7 +58,9 @@
     "originalPrice": 41.99,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.423Z",
     "source": "auto"
   },
   {
@@ -66,7 +74,9 @@
     "originalPrice": 69.98,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.424Z",
     "source": "auto"
   },
   {
@@ -80,7 +90,9 @@
     "originalPrice": 35.99,
     "discountPercent": 70,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.424Z",
     "source": "auto"
   },
   {
@@ -94,7 +106,9 @@
     "originalPrice": 65.98,
     "discountPercent": 52,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.424Z",
     "source": "auto"
   },
   {
@@ -108,7 +122,9 @@
     "originalPrice": 198.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Camisas y blusas",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.424Z",
     "source": "auto"
   },
   {
@@ -122,7 +138,9 @@
     "originalPrice": 39.99,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -136,7 +154,9 @@
     "originalPrice": 30.99,
     "discountPercent": 45,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -150,7 +170,9 @@
     "originalPrice": 52.99,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -164,7 +186,9 @@
     "originalPrice": 44.99,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -178,7 +202,9 @@
     "originalPrice": 34.99,
     "discountPercent": 60,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Faldas",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -192,7 +218,9 @@
     "originalPrice": 29.99,
     "discountPercent": 75,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -206,7 +234,9 @@
     "originalPrice": 208.98,
     "discountPercent": 59,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Faldas",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -220,7 +250,9 @@
     "originalPrice": 257.98,
     "discountPercent": 32,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Faldas",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -234,7 +266,9 @@
     "originalPrice": 32.98,
     "discountPercent": 68,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -248,7 +282,9 @@
     "originalPrice": 104.98,
     "discountPercent": 59,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -262,7 +298,9 @@
     "originalPrice": 97.98,
     "discountPercent": 44,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -276,7 +314,9 @@
     "originalPrice": 106.98,
     "discountPercent": 75,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -290,7 +330,9 @@
     "originalPrice": 29.99,
     "discountPercent": 60,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Camisetas y tops",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -304,7 +346,9 @@
     "originalPrice": 62.98,
     "discountPercent": 48,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -318,7 +362,9 @@
     "originalPrice": 72.98,
     "discountPercent": 42,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -332,7 +378,9 @@
     "originalPrice": 72.98,
     "discountPercent": 22,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -346,7 +394,9 @@
     "originalPrice": 29.99,
     "discountPercent": 75,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -360,7 +410,9 @@
     "originalPrice": 64.99,
     "discountPercent": 66,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -374,7 +426,9 @@
     "originalPrice": 30.99,
     "discountPercent": 39,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -388,7 +442,9 @@
     "originalPrice": 44.99,
     "discountPercent": 53,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -402,7 +458,9 @@
     "originalPrice": 199,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -416,7 +474,9 @@
     "originalPrice": 110,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -430,7 +490,9 @@
     "originalPrice": 130,
     "discountPercent": 69,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -444,7 +506,9 @@
     "originalPrice": 34.99,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -458,7 +522,9 @@
     "originalPrice": 130,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -472,7 +538,9 @@
     "originalPrice": 130,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -486,7 +554,9 @@
     "originalPrice": 12,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -500,7 +570,9 @@
     "originalPrice": 11.99,
     "discountPercent": 25,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Camisetas y tops",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -514,7 +586,9 @@
     "originalPrice": 90,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -528,7 +602,9 @@
     "originalPrice": 73.99,
     "discountPercent": 12,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Bolsos y accesorios",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -542,7 +618,9 @@
     "originalPrice": 90,
     "discountPercent": 22,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -556,7 +634,9 @@
     "originalPrice": 31.99,
     "discountPercent": 22,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -570,7 +650,9 @@
     "originalPrice": 109.99,
     "discountPercent": 9,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Camisetas y tops",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -584,7 +666,9 @@
     "originalPrice": 75,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Chaquetas y abrigos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -598,7 +682,9 @@
     "originalPrice": 42.99,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -612,7 +698,9 @@
     "originalPrice": 130.99,
     "discountPercent": 8,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -626,7 +714,9 @@
     "originalPrice": 49.99,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -640,7 +730,9 @@
     "originalPrice": 13,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Ropa de deporte",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -654,7 +746,9 @@
     "originalPrice": 110,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -668,7 +762,9 @@
     "originalPrice": 54.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -682,7 +778,9 @@
     "originalPrice": 90,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -696,7 +794,9 @@
     "originalPrice": 79.99,
     "discountPercent": 55,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Sudaderas y jerséis",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -710,7 +810,9 @@
     "originalPrice": 27.99,
     "discountPercent": 11,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Faldas",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -724,7 +826,9 @@
     "originalPrice": 30.99,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -738,7 +842,9 @@
     "originalPrice": 90,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -752,7 +858,9 @@
     "originalPrice": 120,
     "discountPercent": 67,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -766,7 +874,9 @@
     "originalPrice": 75,
     "discountPercent": 7,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -780,7 +890,9 @@
     "originalPrice": 32.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.969Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -794,7 +906,9 @@
     "originalPrice": 27.99,
     "discountPercent": 15,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Faldas",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -808,7 +922,9 @@
     "originalPrice": 29.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -822,7 +938,9 @@
     "originalPrice": 22.99,
     "discountPercent": 9,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Faldas",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -836,7 +954,9 @@
     "originalPrice": 42.99,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -850,7 +970,9 @@
     "originalPrice": 19.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Bañador y playa",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -864,7 +986,9 @@
     "originalPrice": 85,
     "discountPercent": 35,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -878,7 +1002,9 @@
     "originalPrice": 17.99,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Bolsos y accesorios",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -892,7 +1018,9 @@
     "originalPrice": 32.99,
     "discountPercent": 15,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -906,7 +1034,9 @@
     "originalPrice": 17.99,
     "discountPercent": 11,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Bolsos y accesorios",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -920,7 +1050,9 @@
     "originalPrice": 52.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Faldas",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -934,7 +1066,9 @@
     "originalPrice": 160,
     "discountPercent": 25,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -948,7 +1082,9 @@
     "originalPrice": 80,
     "discountPercent": 25,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -962,7 +1098,9 @@
     "originalPrice": 7.49,
     "discountPercent": 53,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -976,7 +1114,9 @@
     "originalPrice": 19.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Camisetas y tops",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -990,7 +1130,9 @@
     "originalPrice": 75,
     "discountPercent": 27,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Chaquetas y abrigos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.425Z",
     "source": "auto"
   },
   {
@@ -1004,7 +1146,9 @@
     "originalPrice": 56.99,
     "discountPercent": 37,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:15.970Z",
+    "category": "Chaquetas y abrigos",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:02.426Z",
     "source": "auto"
   },
   {
@@ -1018,7 +1162,9 @@
     "originalPrice": 83.98,
     "discountPercent": 55,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1032,7 +1178,9 @@
     "originalPrice": 41.99,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1046,7 +1194,9 @@
     "originalPrice": 41.99,
     "discountPercent": 60,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisas y blusas",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1060,7 +1210,9 @@
     "originalPrice": 41.99,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1074,7 +1226,9 @@
     "originalPrice": 141.6,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1088,7 +1242,9 @@
     "originalPrice": 51.99,
     "discountPercent": 44,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1102,7 +1258,9 @@
     "originalPrice": 49.99,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1116,7 +1274,9 @@
     "originalPrice": 49.99,
     "discountPercent": 70,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1130,7 +1290,9 @@
     "originalPrice": 64.98,
     "discountPercent": 55,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1144,7 +1306,9 @@
     "originalPrice": 57.98,
     "discountPercent": 39,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1158,7 +1322,9 @@
     "originalPrice": 44.99,
     "discountPercent": 55,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisas y blusas",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1172,7 +1338,9 @@
     "originalPrice": 30.99,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisas y blusas",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1186,7 +1354,9 @@
     "originalPrice": 45,
     "discountPercent": 36,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1200,7 +1370,9 @@
     "originalPrice": 52.99,
     "discountPercent": 45,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1214,7 +1386,9 @@
     "originalPrice": 139.99,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1228,7 +1402,9 @@
     "originalPrice": 179.99,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1242,7 +1418,9 @@
     "originalPrice": 19.99,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1256,7 +1434,9 @@
     "originalPrice": 46.99,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1270,7 +1450,9 @@
     "originalPrice": 29.99,
     "discountPercent": 60,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1284,7 +1466,9 @@
     "originalPrice": 29.99,
     "discountPercent": 60,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1298,7 +1482,9 @@
     "originalPrice": 239,
     "discountPercent": 60,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1312,7 +1498,9 @@
     "originalPrice": 332.99,
     "discountPercent": 61,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1326,7 +1514,9 @@
     "originalPrice": 49.99,
     "discountPercent": 35,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1340,7 +1530,9 @@
     "originalPrice": 235,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1354,7 +1546,9 @@
     "originalPrice": 119.98,
     "discountPercent": 61,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1368,7 +1562,9 @@
     "originalPrice": 49.99,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1382,7 +1578,9 @@
     "originalPrice": 74.99,
     "discountPercent": 60,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1396,7 +1594,9 @@
     "originalPrice": 59.99,
     "discountPercent": 45,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1410,7 +1610,9 @@
     "originalPrice": 120,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1424,7 +1626,9 @@
     "originalPrice": 130,
     "discountPercent": 69,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1438,7 +1642,9 @@
     "originalPrice": 119.99,
     "discountPercent": 25,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1452,7 +1658,9 @@
     "originalPrice": 28,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1466,7 +1674,9 @@
     "originalPrice": 13,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1480,7 +1690,9 @@
     "originalPrice": 130,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1494,7 +1706,9 @@
     "originalPrice": 130,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1508,7 +1722,9 @@
     "originalPrice": 12,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1522,7 +1738,9 @@
     "originalPrice": 11.99,
     "discountPercent": 25,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1536,7 +1754,9 @@
     "originalPrice": 33,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1550,7 +1770,9 @@
     "originalPrice": 90,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1564,7 +1786,9 @@
     "originalPrice": 90,
     "discountPercent": 22,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1578,7 +1802,9 @@
     "originalPrice": 75,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Chaquetas y abrigos",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1592,7 +1818,9 @@
     "originalPrice": 13,
     "discountPercent": 50,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Ropa de deporte",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1606,7 +1834,9 @@
     "originalPrice": 110,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1620,7 +1850,9 @@
     "originalPrice": 79,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1634,7 +1866,9 @@
     "originalPrice": 23,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1648,7 +1882,9 @@
     "originalPrice": 90,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1662,7 +1898,9 @@
     "originalPrice": 90,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1676,7 +1914,9 @@
     "originalPrice": 75,
     "discountPercent": 7,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1690,7 +1930,9 @@
     "originalPrice": 30,
     "discountPercent": 13,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Bolsos y accesorios",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1704,7 +1946,9 @@
     "originalPrice": 75,
     "discountPercent": 29,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Sudaderas y jerséis",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1718,7 +1962,9 @@
     "originalPrice": 29.99,
     "discountPercent": 7,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1732,7 +1978,9 @@
     "originalPrice": 29,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Bolsos y accesorios",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1746,7 +1994,9 @@
     "originalPrice": 48,
     "discountPercent": 4,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1760,7 +2010,9 @@
     "originalPrice": 65,
     "discountPercent": 23,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1774,7 +2026,9 @@
     "originalPrice": 75,
     "discountPercent": 27,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Chaquetas y abrigos",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1788,7 +2042,9 @@
     "originalPrice": 31.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1802,7 +2058,9 @@
     "originalPrice": 30,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1816,7 +2074,9 @@
     "originalPrice": 37.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1830,7 +2090,9 @@
     "originalPrice": 30,
     "discountPercent": 13,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1844,7 +2106,9 @@
     "originalPrice": 39,
     "discountPercent": 15,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1858,7 +2122,9 @@
     "originalPrice": 35,
     "discountPercent": 26,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1872,7 +2138,9 @@
     "originalPrice": 32.99,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1886,7 +2154,9 @@
     "originalPrice": 44.9,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1900,7 +2170,9 @@
     "originalPrice": 34.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1914,7 +2186,9 @@
     "originalPrice": 65,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Sudaderas y jerséis",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1928,7 +2202,9 @@
     "originalPrice": 65,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Pantalones y vaqueros",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1942,7 +2218,9 @@
     "originalPrice": 24.99,
     "discountPercent": 35,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1956,7 +2234,9 @@
     "originalPrice": 90,
     "discountPercent": 22,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1970,7 +2250,9 @@
     "originalPrice": 85,
     "discountPercent": 40,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1984,7 +2266,9 @@
     "originalPrice": 18,
     "discountPercent": 22,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Bolsos y accesorios",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -1998,7 +2282,9 @@
     "originalPrice": 11.99,
     "discountPercent": 25,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -2012,7 +2298,9 @@
     "originalPrice": 17.99,
     "discountPercent": 10,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:18.009Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:03.845Z",
     "source": "auto"
   },
   {
@@ -2026,7 +2314,9 @@
     "originalPrice": 159.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2040,7 +2330,9 @@
     "originalPrice": 164.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2054,7 +2346,9 @@
     "originalPrice": 169.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2068,7 +2362,9 @@
     "originalPrice": 159.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2082,7 +2378,9 @@
     "originalPrice": 159.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2096,7 +2394,9 @@
     "originalPrice": 159.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2110,7 +2410,9 @@
     "originalPrice": 159.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2124,7 +2426,9 @@
     "originalPrice": 209.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2138,7 +2442,9 @@
     "originalPrice": 219.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2152,7 +2458,9 @@
     "originalPrice": 219.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2166,7 +2474,9 @@
     "originalPrice": 209.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2180,7 +2490,9 @@
     "originalPrice": 219.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2194,7 +2506,9 @@
     "originalPrice": 209.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2208,7 +2522,9 @@
     "originalPrice": 209.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2222,7 +2538,9 @@
     "originalPrice": 209.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2236,7 +2554,9 @@
     "originalPrice": 209.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.513Z",
     "source": "auto"
   },
   {
@@ -2250,7 +2570,8 @@
     "originalPrice": 89.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2264,7 +2585,8 @@
     "originalPrice": 89.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2278,7 +2600,8 @@
     "originalPrice": 84.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2292,7 +2615,8 @@
     "originalPrice": 94.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2306,7 +2630,8 @@
     "originalPrice": 89.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2320,7 +2645,8 @@
     "originalPrice": 89.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2334,7 +2660,8 @@
     "originalPrice": 89.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2348,7 +2675,8 @@
     "originalPrice": 89.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2362,7 +2690,8 @@
     "originalPrice": 99.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2376,7 +2705,9 @@
     "originalPrice": 79.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2390,7 +2721,9 @@
     "originalPrice": 79.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2404,7 +2737,9 @@
     "originalPrice": 79.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2418,7 +2753,9 @@
     "originalPrice": 109.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2432,7 +2769,8 @@
     "originalPrice": 99.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2446,7 +2784,8 @@
     "originalPrice": 99.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2460,7 +2799,8 @@
     "originalPrice": 109.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2474,7 +2814,8 @@
     "originalPrice": 109.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2488,7 +2829,8 @@
     "originalPrice": 99.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2502,7 +2844,8 @@
     "originalPrice": 99.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2516,7 +2859,8 @@
     "originalPrice": 109.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2530,7 +2874,8 @@
     "originalPrice": 99.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2544,7 +2889,8 @@
     "originalPrice": 24.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2558,7 +2904,8 @@
     "originalPrice": 99.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2572,7 +2919,8 @@
     "originalPrice": 29.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2586,7 +2934,8 @@
     "originalPrice": 29.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2600,7 +2949,8 @@
     "originalPrice": 29.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2614,7 +2964,9 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2628,7 +2980,9 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2642,7 +2996,9 @@
     "originalPrice": 124.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2656,7 +3012,9 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2670,7 +3028,8 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2684,7 +3043,8 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2698,7 +3058,8 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2712,7 +3073,8 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2726,7 +3088,8 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2740,7 +3103,8 @@
     "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2754,7 +3118,9 @@
     "originalPrice": 89.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2768,7 +3134,9 @@
     "originalPrice": 94.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2782,7 +3150,9 @@
     "originalPrice": 129.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2796,7 +3166,9 @@
     "originalPrice": 129.99,
     "discountPercent": 20,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2810,7 +3182,9 @@
     "originalPrice": 129.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2824,7 +3198,9 @@
     "originalPrice": 179.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2838,7 +3214,9 @@
     "originalPrice": 169.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2852,7 +3230,9 @@
     "originalPrice": 169.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2866,7 +3246,9 @@
     "originalPrice": 169.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2880,7 +3262,9 @@
     "originalPrice": 169.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2894,7 +3278,9 @@
     "originalPrice": 84.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2908,7 +3294,9 @@
     "originalPrice": 89.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2922,7 +3310,9 @@
     "originalPrice": 139.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2936,7 +3326,9 @@
     "originalPrice": 169.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2950,7 +3342,9 @@
     "originalPrice": 24.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Camisetas y tops",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2964,7 +3358,9 @@
     "originalPrice": 59.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   },
   {
@@ -2978,7 +3374,9 @@
     "originalPrice": 79.99,
     "discountPercent": 30,
     "currency": "EUR",
-    "scrapedAt": "2026-07-22T13:02:19.540Z",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-07-22T13:17:04.514Z",
     "source": "auto"
   }
 ]
