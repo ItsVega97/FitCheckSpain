@@ -1,0 +1,38 @@
+name: Debug fetch 2 (temporal)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probar agregadores y tiendas no verificadas
+        run: |
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+
+          check() {
+            local name="$1"
+            local url="$2"
+            echo "=================================================="
+            echo "### $name -> $url"
+            code=$(curl -s -o /tmp/body.html -D /tmp/headers.txt -w "%{http_code}" \
+              -A "$UA" \
+              -H "Accept-Language: es-ES,es;q=0.9" \
+              -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+              --max-time 15 "$url" || echo "CURL_ERROR")
+            echo "HTTP: $code, tamano: $(wc -c < /tmp/body.html) bytes"
+            grep -iE "^(server|cf-):" /tmp/headers.txt || true
+            head -c 200 /tmp/body.html
+            echo ""
+          }
+
+          check "Chollometro ropa" "https://www.chollometro.com/categorias/ropa"
+          check "Dealabs moda" "https://www.dealabs.com/groupe/moda"
+          check "Promodescuentos moda" "https://www.promodescuentos.com/moda"
+          check "Blogdechollos moda" "https://www.blogdechollos.com/moda/"
+          check "Zara rebajas" "https://www.zara.com/es/es/mujer-special-prices-l1309.html"
+          check "Nike ofertas" "https://www.nike.com/es/w/ofertas-3yaep"
+          check "Adidas ofertas" "https://www.adidas.es/ofertas"
+          check "Bershka rebajas" "https://www.bershka.com/es/rebajas-c1010276000.html"
+          check "PullBear rebajas" "https://www.pullandbear.com/es/rebajas-c1030006000.html"
