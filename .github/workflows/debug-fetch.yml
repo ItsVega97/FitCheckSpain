@@ -1,4 +1,4 @@
-name: Debug fetch 5 (temporal)
+name: Debug fetch 6 (temporal)
 
 on:
   workflow_dispatch: {}
@@ -7,40 +7,17 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
-      - name: Adidas, imagenes y categorias
+      - name: Buscar Adidas en agregadores y resolver enlace real
         run: |
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-          MOBILE_UA="Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1"
-
-          check() {
-            local name="$1"
-            local url="$2"
-            local ua="$3"
-            echo "=================================================="
-            echo "### $name -> $url"
-            code=$(curl -s -o /tmp/body.html -D /tmp/headers.txt -w "%{http_code}" \
-              -A "$ua" \
-              -H "Accept-Language: es-ES,es;q=0.9" \
-              -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
-              --max-time 15 "$url" || echo "CURL_ERROR")
-            echo "HTTP: $code, tamano: $(wc -c < /tmp/body.html) bytes"
-            grep -iE "^(server|cf-):" /tmp/headers.txt || true
-            head -c 200 /tmp/body.html
-            echo ""
-          }
-
-          check "Adidas home .es UA desktop" "https://www.adidas.es/" "$UA"
-          check "Adidas home .es UA movil" "https://www.adidas.es/" "$MOBILE_UA"
-          check "Adidas hombre categoria" "https://www.adidas.es/hombre-ropa" "$UA"
-          check "Adidas .com global" "https://www.adidas.com/us/men-sale" "$UA"
-          check "Adidas API PLP" "https://www.adidas.es/api/plp/content-engine?query=ofertas&sitePath=es" "$UA"
 
           echo "=================================================="
-          echo "### Verificar que las imagenes de ASOS y Nike cargan de verdad"
-          for imgurl in \
-            "https://images.asos-media.com/products/vestido-corto-blanco-con-cuello-ancho-y-cintura-plisada-de-asos-design/207853358-1-white" \
-            "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/535bfe0d-989b-4ee1-b5ec-ea887d185822/NIKE+VOMERO+18.png" ; do
-            code=$(curl -s -o /dev/null -D /tmp/imgheaders.txt -w "%{http_code}" -A "$UA" --max-time 15 "$imgurl")
-            ctype=$(grep -i "^content-type:" /tmp/imgheaders.txt || echo "sin content-type")
-            echo "$imgurl -> HTTP $code, $ctype"
-          done
+          echo "### Chollometro busqueda adidas"
+          curl -s --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
+            "https://www.chollometro.com/buscar?q=adidas" -o /tmp/search.html -w "HTTP: %{http_code}\n"
+          echo "tamano: $(wc -c < /tmp/search.html) bytes"
+          python3 -c '
+          html = open("/tmp/search.html", encoding="utf-8", errors="replace").read()
+          idx = html.find("threadListCard")
+          print(html[max(0,idx-100):idx+2500] if idx != -1 else "no se encontro threadListCard")
+          '
