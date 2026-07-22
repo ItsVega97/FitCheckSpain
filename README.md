@@ -23,22 +23,20 @@ proyecto es 100% gratuito (Vercel Hobby + GitHub Actions gratis).
 ## Tiendas incluidas
 
 Estado verificado ejecutando el scraper de verdad en GitHub Actions (con
-internet real, no simulado) el 22/07/2026:
+internet real, no simulado), última comprobación 22/07/2026:
 
 | Tienda | Estado | Notas |
 |---|---|---|
-| ASOS | ✅ Automático | Sin protección anti-bot; scraper especializado que lee el JSON de producto embebido en la página (ver `scripts/scrapers/asos.ts`) |
-| H&M | ⚠️ Manual | Confirmado: Akamai bloquea con 403 hasta la portada, no solo la página de rebajas |
-| Decathlon | ⚠️ Manual | Confirmado: Cloudflare devuelve el challenge "Just a moment..." hasta en la portada |
-| Zalando | ⚠️ Manual | Confirmado: bloqueo Akamai (403) hasta en la portada |
+| ASOS | ✅ Automático | Sin protección anti-bot; lee el JSON de producto embebido en la página (`scripts/scrapers/asos.ts`) |
+| Nike | ✅ Automático | Sin protección anti-bot; lee el `__NEXT_DATA__` estándar de Next.js (`scripts/scrapers/nike.ts`) |
+| H&M, Decathlon, Zalando, Adidas | ⚠️ Manual | Confirmado 403 (Akamai / Cloudflare) hasta en la portada, no solo en la página de rebajas |
+| Zara, Bershka, Pull&Bear | ⚠️ Manual | Confirmado: sirven una página de redirección/verificación anti-bot (Akamai Bot Manager) en vez del contenido real |
 | Mango | ⚠️ Manual | La portada carga, pero el listado de rebajas se renderiza con JavaScript en el cliente (Next.js); un fetch simple nunca ve productos aunque la URL sea correcta |
-| Zara, Bershka, Pull&Bear | ⚠️ Manual | Mismo grupo Inditex, protección anti-bot fuerte conocida |
-| Nike, Adidas | ⚠️ Manual | Akamai Bot Manager bloquea peticiones simples |
 | Privalia | ⚠️ Manual | Club de venta privada, el catálogo requiere login |
 
-En resumen: de las tiendas que se pidieron, **solo ASOS es scrapeable de
-forma fiable con peticiones HTTP simples** (que es lo que un proyecto
-gratuito sin servidor propio puede hacer). El resto usan protección
+En resumen: **ASOS y Nike son scrapeables de forma fiable con peticiones
+HTTP simples** (que es lo que un proyecto gratuito sin servidor propio
+puede hacer) y se actualizan solos cada día. El resto usan protección
 anti-bot de nivel empresarial (Akamai, Cloudflare) que bloquea hasta la
 portada, o renderizan el listado en el cliente vía JavaScript — ambas cosas
 requerirían un navegador headless con proxies residenciales para sortearse,

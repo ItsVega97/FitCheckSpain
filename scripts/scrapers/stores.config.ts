@@ -4,28 +4,29 @@ import type { StoreConfig } from "./types";
  * Configuración de tiendas para el scraper.
  *
  * Estado verificado ejecutando el scraper de verdad en GitHub Actions
- * (con acceso a internet real) el 22/07/2026:
+ * (con acceso a internet real), última comprobación 22/07/2026:
  *
- * - ASOS: única tienda con scraping automático fiable. No tiene protección
- *   anti-bot para peticiones simples y expone un JSON completo de producto
- *   embebido en la página de listado (ver scripts/scrapers/asos.ts).
- * - H&M, Decathlon, Zalando: bloquean con un 403 (Akamai / Cloudflare)
- *   incluso la portada, no solo la página de rebajas. No es un problema de
- *   URL ni de selectores: hace falta un navegador real (headless) para
- *   sortear el challenge, lo cual queda fuera del alcance de un scraper
- *   gratuito por fetch simple.
+ * - ASOS y Nike: scraping automático fiable, sin protección anti-bot para
+ *   peticiones simples. Ambas exponen el estado de la página en JSON
+ *   embebido (ver scripts/scrapers/asos.ts y scripts/scrapers/nike.ts).
+ * - H&M, Decathlon, Zalando, Adidas: 403 (Akamai / Cloudflare) confirmado
+ *   incluso en la portada, no solo en la página de rebajas.
+ * - Zara, Bershka, Pull&Bear (Inditex): confirmado que sirven una página
+ *   de redirección/verificación (meta-refresh o parámetro bm-verify de
+ *   Akamai Bot Manager) en vez del contenido real a peticiones sin
+ *   JavaScript.
  * - Mango: la portada carga bien, pero las rutas de rebajas devuelven la
- *   página de error de Next.js (__next_error__) incluso con la URL
- *   corregida; el listado se pinta por JavaScript en el cliente, así que un
- *   fetch simple nunca vería productos aunque la URL fuera exacta.
- * - Zara, Bershka, Pull&Bear (Inditex), Nike, Adidas, Privalia: no
- *   verificadas de nuevo aquí, pero por el mismo motivo (protección
- *   anti-bot fuerte conocida, o catálogo tras login en el caso de
- *   Privalia) se mantienen desactivadas.
+ *   página de error de Next.js (__next_error__); el listado se pinta por
+ *   JavaScript en el cliente, así que un fetch simple nunca ve productos
+ *   aunque la URL sea exacta.
+ * - Privalia: catálogo tras login, no hay nada público que rastrear.
  *
- * Para todas las desactivadas usa `npm run add-deal -- <url>` — añadir a
- * mano una oferta puntual sí funciona bien, ya que es una sola petición
- * ocasional, no un rastreo repetido.
+ * Ninguno de estos bloqueos es un problema de selectores o de URL: hace
+ * falta un navegador real (headless) con gestión de cookies/JS para
+ * sortearlos, lo cual queda fuera del alcance de un scraper gratuito por
+ * fetch simple. Para todas las desactivadas usa `npm run add-deal -- <url>`
+ * — añadir a mano una oferta puntual sí funciona bien, ya que es una sola
+ * petición ocasional, no un rastreo repetido.
  */
 export const STORE_CONFIGS: StoreConfig[] = [
   {
@@ -110,6 +111,23 @@ export const STORE_CONFIGS: StoreConfig[] = [
     notes: "Desactivado: confirmado bloqueo Akamai (403) incluso en la portada. Usa 'npm run add-deal'.",
   },
   {
+    id: "nike",
+    name: "Nike",
+    enabled: true,
+    // La URL de listado está hardcodeada en scripts/scrapers/nike.ts; este
+    // campo no se usa (Nike tiene un scraper especializado), se deja solo
+    // a título informativo.
+    listingUrls: ["https://www.nike.com/es/w/ofertas-3yaep"],
+    selectors: {
+      card: "",
+      link: "",
+      title: "",
+      image: "",
+      price: "",
+    },
+    notes: "Scraper especializado (JSON __NEXT_DATA__), ver scripts/scrapers/nike.ts. Confirmado funcionando.",
+  },
+  {
     id: "zara",
     name: "Zara",
     enabled: false,
@@ -123,7 +141,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='old-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado por defecto: Zara (Inditex) usa protección anti-bot fuerte y renderizado por JavaScript. Usa 'npm run add-deal' para estas ofertas.",
+    notes: "Desactivado: confirmado que sirve una página de redirección meta-refresh (interstitial anti-bot) a peticiones sin JavaScript. Usa 'npm run add-deal'.",
   },
   {
     id: "bershka",
@@ -139,7 +157,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='old-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado por defecto: mismo grupo Inditex que Zara, misma protección anti-bot esperada.",
+    notes: "Desactivado: confirmado el mismo interstitial anti-bot que Zara (mismo grupo Inditex). Usa 'npm run add-deal'.",
   },
   {
     id: "pullbear",
@@ -155,23 +173,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='old-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado por defecto: mismo grupo Inditex que Zara, misma protección anti-bot esperada.",
-  },
-  {
-    id: "nike",
-    name: "Nike",
-    enabled: false,
-    listingUrls: ["https://www.nike.com/es/w/ofertas-3yaep"],
-    selectors: {
-      card: "[data-testid='product-card']",
-      link: "a[href*='/t/']",
-      title: "[data-testid='product-card__title']",
-      image: "img",
-      price: "[data-testid='product-price']",
-      originalPrice: "[data-testid='product-price__original']",
-    },
-    maxProducts: 24,
-    notes: "Desactivado por defecto: Nike usa Akamai Bot Manager, un fetch simple normalmente es bloqueado. Usa 'npm run add-deal' para estas ofertas.",
+    notes: "Desactivado: confirmado el parámetro bm-verify de Akamai Bot Manager en la respuesta (interstitial anti-bot). Usa 'npm run add-deal'.",
   },
   {
     id: "adidas",
@@ -187,7 +189,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[data-testid='gl-price-item--crossed']",
     },
     maxProducts: 24,
-    notes: "Desactivado por defecto: protección anti-bot equivalente a Nike. Usa 'npm run add-deal' para estas ofertas.",
+    notes: "Desactivado: confirmado 403 de AkamaiNetStorage incluso en la portada. Usa 'npm run add-deal'.",
   },
   {
     id: "privalia",
