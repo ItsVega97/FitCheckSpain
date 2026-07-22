@@ -41,31 +41,40 @@ jobs:
                   i += 1
               captured = "".join(buf)
               captured = captured.replace(bs + sq, sq)
-              data = json.loads(captured)
-              print("Claves de primer nivel:", list(data.keys()))
+              try:
+                  data = json.loads(captured)
+                  print("Claves de primer nivel:", list(data.keys()))
+              except Exception as e:
+                  print("Fallo al parsear:", e)
+                  pos = getattr(e, "pos", None)
+                  if pos is not None:
+                      print("Contexto alrededor del fallo:")
+                      print(repr(captured[max(0, pos - 150):pos + 150]))
+                  data = None
 
-              def find_products(obj, path):
-                  if isinstance(obj, dict):
-                      for k, v in obj.items():
-                          if k.lower() == "products" and isinstance(v, list) and v:
-                              return (path + "." + k, v)
-                          found = find_products(v, path + "." + k)
-                          if found:
-                              return found
-                  elif isinstance(obj, list):
-                      for i, v in enumerate(obj[:5]):
-                          found = find_products(v, path + "[" + str(i) + "]")
-                          if found:
-                              return found
-                  return None
+              if data is not None:
+                  def find_products(obj, path):
+                      if isinstance(obj, dict):
+                          for k, v in obj.items():
+                              if k.lower() == "products" and isinstance(v, list) and v:
+                                  return (path + "." + k, v)
+                              found = find_products(v, path + "." + k)
+                              if found:
+                                  return found
+                      elif isinstance(obj, list):
+                          for i, v in enumerate(obj[:5]):
+                              found = find_products(v, path + "[" + str(i) + "]")
+                              if found:
+                                  return found
+                      return None
 
-              result = find_products(data, "data")
-              if not result:
-                  print("No se encontro ninguna clave products en el JSON")
-              else:
-                  path, products = result
-                  print("Encontrado en:", path, "- numero de productos:", len(products))
-                  print("Claves del primer producto:", list(products[0].keys()))
-                  print("Primer producto completo:")
-                  print(json.dumps(products[0], ensure_ascii=False))
+                  result = find_products(data, "data")
+                  if not result:
+                      print("No se encontro ninguna clave products en el JSON")
+                  else:
+                      path, products = result
+                      print("Encontrado en:", path, "- numero de productos:", len(products))
+                      print("Claves del primer producto:", list(products[0].keys()))
+                      print("Primer producto completo:")
+                      print(json.dumps(products[0], ensure_ascii=False))
           '
