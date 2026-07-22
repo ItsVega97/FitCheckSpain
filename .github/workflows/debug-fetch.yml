@@ -1,4 +1,4 @@
-name: Debug fetch 2 (temporal)
+name: Debug fetch 3 (temporal)
 
 on:
   workflow_dispatch: {}
@@ -7,32 +7,37 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
-      - name: Probar agregadores y tiendas no verificadas
+      - name: Investigar Nike y agregadores
         run: |
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 
-          check() {
-            local name="$1"
-            local url="$2"
-            echo "=================================================="
-            echo "### $name -> $url"
-            code=$(curl -s -o /tmp/body.html -D /tmp/headers.txt -w "%{http_code}" \
-              -A "$UA" \
-              -H "Accept-Language: es-ES,es;q=0.9" \
-              -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
-              --max-time 15 "$url" || echo "CURL_ERROR")
-            echo "HTTP: $code, tamano: $(wc -c < /tmp/body.html) bytes"
-            grep -iE "^(server|cf-):" /tmp/headers.txt || true
-            head -c 200 /tmp/body.html
-            echo ""
-          }
+          echo "=================================================="
+          echo "### NIKE: buscar JSON embebido o tarjetas de producto"
+          curl -s --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
+            "https://www.nike.com/es/w/ofertas-3yaep" -o /tmp/nike.html
+          echo "tamano: $(wc -c < /tmp/nike.html) bytes"
+          grep -oE '__NEXT_DATA__|window\.INITIAL_REDUX_STATE|"products":\[|data-testid="product-card"' /tmp/nike.html | sort -u | head -10 || true
 
-          check "Chollometro ropa" "https://www.chollometro.com/categorias/ropa"
-          check "Dealabs moda" "https://www.dealabs.com/groupe/moda"
-          check "Promodescuentos moda" "https://www.promodescuentos.com/moda"
-          check "Blogdechollos moda" "https://www.blogdechollos.com/moda/"
-          check "Zara rebajas" "https://www.zara.com/es/es/mujer-special-prices-l1309.html"
-          check "Nike ofertas" "https://www.nike.com/es/w/ofertas-3yaep"
-          check "Adidas ofertas" "https://www.adidas.es/ofertas"
-          check "Bershka rebajas" "https://www.bershka.com/es/rebajas-c1010276000.html"
-          check "PullBear rebajas" "https://www.pullandbear.com/es/rebajas-c1030006000.html"
+          echo "=================================================="
+          echo "### PULL&BEAR con --compressed y siguiendo redirects"
+          curl -s -L --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
+            "https://www.pullandbear.com/es/rebajas-c1030006000.html" -o /tmp/pb.html -w "HTTP final: %{http_code}\n"
+          echo "tamano: $(wc -c < /tmp/pb.html) bytes"
+          head -c 300 /tmp/pb.html
+          echo ""
+
+          echo "=================================================="
+          echo "### CHOLLOMETRO ropa: estructura de tarjetas de oferta"
+          curl -s --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
+            "https://www.chollometro.com/categorias/ropa" -o /tmp/chollometro.html
+          echo "tamano: $(wc -c < /tmp/chollometro.html) bytes"
+          grep -oE 'data-t="[a-zA-Z]*"|class="[a-zA-Z0-9_-]*threadListCard[a-zA-Z0-9_-]*"|class="[a-zA-Z0-9_-]*thread[a-zA-Z0-9_-]*"' /tmp/chollometro.html | sort -u | head -20 || true
+          echo "--- enlaces salientes a tiendas conocidas ---"
+          grep -oiE 'href="https?://(www\.)?(zara|nike|adidas|hm\.com|mango|bershka|pullandbear|decathlon|asos|zalando)[^"]*"' /tmp/chollometro.html | sort -u | head -10 || true
+
+          echo "=================================================="
+          echo "### BLOGDECHOLLOS moda: estructura"
+          curl -s --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
+            "https://www.blogdechollos.com/moda/" -o /tmp/blog.html
+          echo "tamano: $(wc -c < /tmp/blog.html) bytes"
+          grep -oiE 'href="https?://(www\.)?(zara|nike|adidas|hm\.com|mango|bershka|pullandbear|decathlon|asos|zalando)[^"]*"' /tmp/blog.html | sort -u | head -10 || true
