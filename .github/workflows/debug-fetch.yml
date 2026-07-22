@@ -1,4 +1,4 @@
-name: Debug fetch 6 (temporal)
+name: Debug fetch 7 (temporal)
 
 on:
   workflow_dispatch: {}
@@ -7,17 +7,9 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
-      - name: Buscar Adidas en agregadores y resolver enlace real
+      - name: Buscar ruta de busqueda correcta en Chollometro
         run: |
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-
-          echo "=================================================="
-          echo "### Chollometro busqueda adidas"
           curl -s --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
-            "https://www.chollometro.com/buscar?q=adidas" -o /tmp/search.html -w "HTTP: %{http_code}\n"
-          echo "tamano: $(wc -c < /tmp/search.html) bytes"
-          python3 -c '
-          html = open("/tmp/search.html", encoding="utf-8", errors="replace").read()
-          idx = html.find("threadListCard")
-          print(html[max(0,idx-100):idx+2500] if idx != -1 else "no se encontro threadListCard")
-          '
+            "https://www.chollometro.com/" -o /tmp/home.html -w "HTTP: %{http_code}\n"
+          grep -oiE 'action="[^"]*"|href="[^"]*search[^"]*"|href="[^"]*buscar[^"]*"' /tmp/home.html | sort -u | head -10
