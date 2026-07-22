@@ -12,6 +12,8 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
   const [activeStores, setActiveStores] = useState<Set<StoreId>>(new Set());
   const [activeCategories, setActiveCategories] = useState<Set<string>>(new Set());
   const [minDiscount, setMinDiscount] = useState(0);
+  const [minPrice, setMinPrice] = useState<string>("");
+  const [maxPrice, setMaxPrice] = useState<string>("");
   const [sort, setSort] = useState<SortMode>("discount");
 
   const storesPresent = useMemo(() => {
@@ -43,10 +45,15 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
   }
 
   const filtered = useMemo(() => {
+    const min = minPrice.trim() ? Number(minPrice) : null;
+    const max = maxPrice.trim() ? Number(maxPrice) : null;
+
     let result = deals.filter((d) => {
       if (activeStores.size > 0 && !activeStores.has(d.store)) return false;
       if (activeCategories.size > 0 && !(d.category && activeCategories.has(d.category))) return false;
       if ((d.discountPercent ?? 0) < minDiscount) return false;
+      if (min !== null && (d.price ?? Infinity) < min) return false;
+      if (max !== null && (d.price ?? -Infinity) > max) return false;
       if (query.trim()) {
         const q = query.trim().toLowerCase();
         if (!d.title.toLowerCase().includes(q)) return false;
@@ -61,7 +68,7 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
     });
 
     return result;
-  }, [deals, activeStores, activeCategories, minDiscount, query, sort]);
+  }, [deals, activeStores, activeCategories, minDiscount, minPrice, maxPrice, query, sort]);
 
   return (
     <div>
@@ -86,6 +93,26 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
               </option>
             ))}
           </select>
+          <label className="text-sm text-neutral-500">Precio</label>
+          <input
+            type="number"
+            inputMode="decimal"
+            min={0}
+            placeholder="mín."
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+            className="w-20 rounded-lg border border-neutral-300 bg-transparent px-2 py-2 text-sm outline-none focus:border-brand-500 dark:border-neutral-700"
+          />
+          <span className="text-neutral-400">–</span>
+          <input
+            type="number"
+            inputMode="decimal"
+            min={0}
+            placeholder="máx."
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value)}
+            className="w-20 rounded-lg border border-neutral-300 bg-transparent px-2 py-2 text-sm outline-none focus:border-brand-500 dark:border-neutral-700"
+          />
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as SortMode)}

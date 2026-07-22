@@ -1,4 +1,4 @@
-# FashionVega
+# FitCheckSpain
 
 Web personal que recopila ofertas de ropa de varias tiendas, las cataloga en una
 sola pantalla con filtros (tienda, descuento mínimo, búsqueda) y da un enlace

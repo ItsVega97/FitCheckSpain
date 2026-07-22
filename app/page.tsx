@@ -18,7 +18,7 @@ export default async function Home() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-8">
       <header className="mb-8">
-        <h1 className="text-2xl font-bold sm:text-3xl">FashionVega</h1>
+        <h1 className="text-2xl font-bold sm:text-3xl">FitCheckSpain</h1>
         <p className="mt-1 text-neutral-500">
           Ofertas y descuentos de ropa recopilados automáticamente, con enlace directo al producto.
         </p>

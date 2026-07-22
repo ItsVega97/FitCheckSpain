@@ -9,8 +9,8 @@ const nextConfig = {
   ...(isGithubPages
     ? {
         output: "export",
-        basePath: "/FashionVega",
-        assetPrefix: "/FashionVega/",
+        basePath: "/FitCheckSpain",
+        assetPrefix: "/FitCheckSpain/",
       }
     : {}),
 };

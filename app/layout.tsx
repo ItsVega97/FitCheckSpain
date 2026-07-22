@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FashionVega — Ofertas de ropa",
+  title: "FitCheckSpain — Ofertas de ropa",
   description: "Catálogo personal de ofertas y descuentos de ropa recopilados automáticamente",
 };
 
