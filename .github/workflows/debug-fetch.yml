@@ -41,6 +41,10 @@ jobs:
                   i += 1
               captured = "".join(buf)
               captured = captured.replace(bs + sq, sq)
+              overescaped = bs + bs + dq
+              proper = bs + dq
+              while overescaped in captured:
+                  captured = captured.replace(overescaped, proper)
               try:
                   data = json.loads(captured)
                   print("Claves de primer nivel:", list(data.keys()))
