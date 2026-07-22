@@ -32,17 +32,18 @@ jobs:
             echo ""
           }
 
-          check "H&M home" "https://www2.hm.com/es_es/index.html"
-          check "H&M sale (configurada)" "https://www2.hm.com/es_es/sale/viewall.html"
+          check "Mango rebajas mujer (es/es)" "https://shop.mango.com/es/es/mujer/rebajas"
 
-          check "Mango home" "https://shop.mango.com/es"
-          check "Mango rebajas (configurada)" "https://shop.mango.com/es/mujer/rebajas"
-
-          check "Decathlon home" "https://www.decathlon.es/"
-          check "Decathlon promos (configurada)" "https://www.decathlon.es/browse/~/promociones"
-
-          check "ASOS home" "https://www.asos.com/es/"
-          check "ASOS ofertas (configurada)" "https://www.asos.com/es/ofertas/rebajas/cat/?cid=15078"
-
-          check "Zalando home" "https://www.zalando.es/"
-          check "Zalando outlet (configurada)" "https://www.zalando.es/outlet/"
+          echo "=================================================="
+          echo "### ASOS rebajas hombre cid=8409 - buscar link a mujer y JSON embebido"
+          curl -s -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 15 \
+            "https://www.asos.com/es/hombre/rebajas/cat/?cid=8409" -o /tmp/asos.html
+          echo "tamaño: $(wc -c < /tmp/asos.html) bytes"
+          echo "--- links a categoría mujer / rebajas mujer ---"
+          grep -oiE 'href="[^"]*mujer[^"]*rebaja[^"]*"|href="[^"]*rebaja[^"]*mujer[^"]*"' /tmp/asos.html | sort -u | head -10 || true
+          echo "--- ¿hay JSON de estado embebido? ---"
+          grep -oE '(window\.asos[a-zA-Z_.]*|__NEXT_DATA__|__INITIAL_STATE__|"products":\[)' /tmp/asos.html | sort -u | head -10 || true
+          echo "--- ¿hay etiquetas de producto (data-testid, class product) ---"
+          grep -oE 'data-testid="[a-zA-Z-]*product[a-zA-Z-]*"|data-auto-id="[a-zA-Z-]*"' /tmp/asos.html | sort -u | head -15 || true
+          echo "--- fragmento alrededor de la primera aparición de \"price\" ---"
+          grep -oE '.{80}price.{80}' /tmp/asos.html | head -5 || true
