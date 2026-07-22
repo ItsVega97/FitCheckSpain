@@ -29,21 +29,24 @@ internet real, no simulado), última comprobación 22/07/2026:
 |---|---|---|
 | ASOS | ✅ Automático | Sin protección anti-bot; lee el JSON de producto embebido en la página (`scripts/scrapers/asos.ts`) |
 | Nike | ✅ Automático | Sin protección anti-bot; lee el `__NEXT_DATA__` estándar de Next.js (`scripts/scrapers/nike.ts`) |
+| Puma | ✅ Automático | Sin protección anti-bot; lee el JSON-LD (`ItemList`/`Product`) estándar de la página de ofertas (`scripts/scrapers/puma.ts`). Solo trae el precio ya rebajado, no el precio original ni el % de descuento |
 | H&M, Decathlon, Zalando, Adidas | ⚠️ Manual | Confirmado 403 (Akamai / Cloudflare) hasta en la portada, no solo en la página de rebajas |
 | Zara, Bershka, Pull&Bear | ⚠️ Manual | Confirmado: sirven una página de redirección/verificación anti-bot (Akamai Bot Manager) en vez del contenido real |
 | Mango | ⚠️ Manual | La portada carga, pero el listado de rebajas se renderiza con JavaScript en el cliente (Next.js); un fetch simple nunca ve productos aunque la URL sea correcta |
+| Superdry, Skechers | ⚠️ Manual | HTTP 200 pero su JSON-LD solo trae `BreadcrumbList`/datos de organización, no el listado de productos; haría falta parsear las tarjetas HTML directamente |
 | Privalia | ⚠️ Manual | Club de venta privada, el catálogo requiere login |
 
-En resumen: **ASOS y Nike son scrapeables de forma fiable con peticiones
-HTTP simples** (que es lo que un proyecto gratuito sin servidor propio
-puede hacer) y se actualizan solos cada día. El resto usan protección
-anti-bot de nivel empresarial (Akamai, Cloudflare) que bloquea hasta la
-portada, o renderizan el listado en el cliente vía JavaScript — ambas cosas
-requerirían un navegador headless con proxies residenciales para sortearse,
-lo cual queda fuera de alcance de un scraper personal gratuito. Para esas
-tiendas, usa el añadido manual: tarda 10 segundos por oferta y no depende
-de vencer ninguna protección, porque es una única petición ocasional que
-haces tú, no un rastreo repetido.
+En resumen: **ASOS, Nike y Puma son scrapeables de forma fiable con
+peticiones HTTP simples** (que es lo que un proyecto gratuito sin servidor
+propio puede hacer) y se actualizan solos cada día. El resto usan
+protección anti-bot de nivel empresarial (Akamai, Cloudflare) que bloquea
+hasta la portada, renderizan el listado en el cliente vía JavaScript, o
+exponen JSON-LD sin datos de producto — todo eso requeriría un navegador
+headless con proxies residenciales para sortearse, lo cual queda fuera de
+alcance de un scraper personal gratuito. Para esas tiendas, usa el añadido
+manual: tarda 10 segundos por oferta y no depende de vencer ninguna
+protección, porque es una única petición ocasional que haces tú, no un
+rastreo repetido.
 
 ## Uso en local
 
