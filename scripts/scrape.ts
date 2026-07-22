@@ -1,10 +1,15 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { STORE_CONFIGS } from "./scrapers/stores.config";
-import { scrapeStore } from "./scrapers/engine";
-import type { Deal, StoreStatus } from "../lib/types";
+import { scrapeStore, type ScrapeOutcome } from "./scrapers/engine";
+import { scrapeAsos } from "./scrapers/asos";
+import type { Deal, StoreId, StoreStatus } from "../lib/types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
+
+const SPECIALIZED_SCRAPERS: Partial<Record<StoreId, () => Promise<ScrapeOutcome>>> = {
+  asos: scrapeAsos,
+};
 
 async function main() {
   const allDeals: Deal[] = [];
@@ -19,7 +24,8 @@ async function main() {
 
     console.log(`[scrape] ${config.name}...`);
     try {
-      const { deals, cardsFound } = await scrapeStore(config);
+      const specialized = SPECIALIZED_SCRAPERS[config.id];
+      const { deals, cardsFound } = specialized ? await specialized() : await scrapeStore(config);
       allDeals.push(...deals);
       statuses.push({
         store: config.id,
