@@ -93,12 +93,17 @@ async function scrapeListing(listingUrl: string): Promise<{ deals: Deal[]; cards
 
     const productUrl = `https://www.asos.com/es/${p.url}`;
     const discountPercent = Math.round(((p.price - p.reducedPrice) / p.price) * 100);
+    const description = p.description ?? "";
+    const title =
+      p.brandName && !description.toLowerCase().startsWith(p.brandName.toLowerCase())
+        ? `${p.brandName} - ${description}`.trim()
+        : description || "Producto sin título";
 
     deals.push({
       id: `asos-${hashId(productUrl)}`,
       store: "asos",
       storeName: "ASOS",
-      title: p.brandName ? `${p.brandName} - ${p.description ?? ""}`.trim() : (p.description ?? "Producto sin título"),
+      title,
       imageUrl: p.image ? `https://${p.image}` : null,
       productUrl,
       price: p.reducedPrice,
