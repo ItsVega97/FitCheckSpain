@@ -1,0 +1,42 @@
+name: Actualizar ofertas
+
+on:
+  schedule:
+    # Cada día a las 06:00 UTC. Los "schedule" de GitHub Actions solo se
+    # disparan desde la rama por defecto del repositorio.
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar scraper
+        run: npm run scrape
+
+      - name: Commitear cambios si los hay
+        run: |
+          git config user.name "fashionvega-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- data/deals.json data/scrape-log.json; then
+            echo "Sin cambios en las ofertas."
+          else
+            git add data/deals.json data/scrape-log.json
+            git commit -m "chore: actualizar ofertas ($(date -u +%Y-%m-%d))"
+            git push
+          fi
