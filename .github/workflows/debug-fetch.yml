@@ -1,0 +1,48 @@
+name: Debug fetch (temporal)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probar URLs de tiendas
+        run: |
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+
+          check() {
+            local name="$1"
+            local url="$2"
+            echo "=================================================="
+            echo "### $name -> $url"
+            code=$(curl -s -o /tmp/body.html -D /tmp/headers.txt -w "%{http_code}" \
+              -A "$UA" \
+              -H "Accept-Language: es-ES,es;q=0.9" \
+              -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+              --max-time 15 "$url" || echo "CURL_ERROR")
+            echo "HTTP: $code"
+            echo "--- headers relevantes ---"
+            grep -iE "^(server|cf-|x-akamai|x-cache|location|content-type):" /tmp/headers.txt || true
+            echo "--- primeros 300 chars body ---"
+            head -c 300 /tmp/body.html
+            echo ""
+            echo "--- posibles enlaces de rebajas/outlet en el HTML ---"
+            grep -oiE 'href="[^"]*(sale|rebaja|outlet|promo|descuento)[^"]*"' /tmp/body.html | sort -u | head -15 || true
+            echo ""
+          }
+
+          check "H&M home" "https://www2.hm.com/es_es/index.html"
+          check "H&M sale (configurada)" "https://www2.hm.com/es_es/sale/viewall.html"
+
+          check "Mango home" "https://shop.mango.com/es"
+          check "Mango rebajas (configurada)" "https://shop.mango.com/es/mujer/rebajas"
+
+          check "Decathlon home" "https://www.decathlon.es/"
+          check "Decathlon promos (configurada)" "https://www.decathlon.es/browse/~/promociones"
+
+          check "ASOS home" "https://www.asos.com/es/"
+          check "ASOS ofertas (configurada)" "https://www.asos.com/es/ofertas/rebajas/cat/?cid=15078"
+
+          check "Zalando home" "https://www.zalando.es/"
+          check "Zalando outlet (configurada)" "https://www.zalando.es/outlet/"
