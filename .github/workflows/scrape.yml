@@ -3,7 +3,7 @@ name: Actualizar ofertas
 on:
   schedule:
     # Cada día a las 06:00 UTC. Los "schedule" de GitHub Actions solo se
-    # disparan desde la rama por defecto del repositorio.
+    # disparan desde la rama por defecto del repositorio. Hhuhuh
     - cron: "0 6 * * *"
   workflow_dispatch: {}
 
