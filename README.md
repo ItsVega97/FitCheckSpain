@@ -22,33 +22,30 @@ proyecto es 100% gratuito (Vercel Hobby + GitHub Actions gratis).
 
 ## Tiendas incluidas
 
+Estado verificado ejecutando el scraper de verdad en GitHub Actions (con
+internet real, no simulado) el 22/07/2026:
+
 | Tienda | Estado | Notas |
 |---|---|---|
-| H&M | ✅ Automático | |
-| Mango | ✅ Automático | |
-| Decathlon | ✅ Automático | |
-| ASOS | ✅ Automático | puede renderizar con JS; si falla, ver más abajo |
-| Zalando | ✅ Automático | |
-| Zara | ⚠️ Manual | Inditex tiene protección anti-bot fuerte |
-| Bershka | ⚠️ Manual | Inditex, igual que Zara |
-| Pull&Bear | ⚠️ Manual | Inditex, igual que Zara |
-| Nike | ⚠️ Manual | Akamai Bot Manager bloquea peticiones simples |
-| Adidas | ⚠️ Manual | protección anti-bot equivalente a Nike |
-| Privalia | ⚠️ Manual | club privado, el catálogo requiere login |
+| ASOS | ✅ Automático | Sin protección anti-bot; scraper especializado que lee el JSON de producto embebido en la página (ver `scripts/scrapers/asos.ts`) |
+| H&M | ⚠️ Manual | Confirmado: Akamai bloquea con 403 hasta la portada, no solo la página de rebajas |
+| Decathlon | ⚠️ Manual | Confirmado: Cloudflare devuelve el challenge "Just a moment..." hasta en la portada |
+| Zalando | ⚠️ Manual | Confirmado: bloqueo Akamai (403) hasta en la portada |
+| Mango | ⚠️ Manual | La portada carga, pero el listado de rebajas se renderiza con JavaScript en el cliente (Next.js); un fetch simple nunca ve productos aunque la URL sea correcta |
+| Zara, Bershka, Pull&Bear | ⚠️ Manual | Mismo grupo Inditex, protección anti-bot fuerte conocida |
+| Nike, Adidas | ⚠️ Manual | Akamai Bot Manager bloquea peticiones simples |
+| Privalia | ⚠️ Manual | Club de venta privada, el catálogo requiere login |
 
-**Importante — limitación honesta:** este proyecto se generó en un entorno
-sin acceso general a internet, así que los selectores del scraper (en
-`scripts/scrapers/stores.config.ts`) son un punto de partida razonable, no
-código probado contra las webs reales. Es muy normal que alguno necesite un
-pequeño ajuste tras la primera ejecución — es el mantenimiento habitual de
-cualquier scraper personal, ya que las tiendas cambian su HTML de vez en
-cuando. Cada ejecución dejará constancia en `data/scrape-log.json` y en los
-logs de la Action de qué tienda ha fallado o ha encontrado 0 productos, así
-sabrás exactamente qué mirar.
-
-Para las tiendas marcadas como "Manual" (o cualquier oferta puntual que veas
-tú mismo navegando), usa el añadido manual — tarda 10 segundos y no depende
-de que el scraper automático funcione contra sitios con mucha protección.
+En resumen: de las tiendas que se pidieron, **solo ASOS es scrapeable de
+forma fiable con peticiones HTTP simples** (que es lo que un proyecto
+gratuito sin servidor propio puede hacer). El resto usan protección
+anti-bot de nivel empresarial (Akamai, Cloudflare) que bloquea hasta la
+portada, o renderizan el listado en el cliente vía JavaScript — ambas cosas
+requerirían un navegador headless con proxies residenciales para sortearse,
+lo cual queda fuera de alcance de un scraper personal gratuito. Para esas
+tiendas, usa el añadido manual: tarda 10 segundos por oferta y no depende
+de vencer ninguna protección, porque es una única petición ocasional que
+haces tú, no un rastreo repetido.
 
 ## Uso en local
 
