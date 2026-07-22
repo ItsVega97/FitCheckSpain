@@ -6,9 +6,14 @@ import type { StoreConfig } from "./types";
  * Estado verificado ejecutando el scraper de verdad en GitHub Actions
  * (con acceso a internet real), última comprobación 22/07/2026:
  *
- * - ASOS y Nike: scraping automático fiable, sin protección anti-bot para
- *   peticiones simples. Ambas exponen el estado de la página en JSON
- *   embebido (ver scripts/scrapers/asos.ts y scripts/scrapers/nike.ts).
+ * - ASOS, Nike y Puma: scraping automático fiable, sin protección anti-bot
+ *   para peticiones simples. Las tres exponen el listado en JSON embebido
+ *   (ver scripts/scrapers/asos.ts, nike.ts y puma.ts). Puma no incluye
+ *   precio original en su JSON-LD, solo el precio ya rebajado.
+ * - Superdry y Skechers: HTTP 200 pero su JSON-LD solo trae
+ *   BreadcrumbList/datos de la organización, no el listado de productos;
+ *   haría falta parsear las tarjetas HTML directamente (no investigado
+ *   todavía).
  * - H&M, Decathlon, Zalando, Adidas: 403 (Akamai / Cloudflare) confirmado
  *   incluso en la portada, no solo en la página de rebajas.
  * - Zara, Bershka, Pull&Bear (Inditex): confirmado que sirven una página
@@ -204,5 +209,22 @@ export const STORE_CONFIGS: StoreConfig[] = [
       price: "",
     },
     notes: "Privalia es un club de venta privada: la mayoría del catálogo solo es visible tras iniciar sesión, así que no es viable un scraper público. Usa 'npm run add-deal' pegando el enlace de un producto concreto si tienes cuenta.",
+  },
+  {
+    id: "puma",
+    name: "Puma",
+    enabled: true,
+    // La URL de listado está hardcodeada en scripts/scrapers/puma.ts; este
+    // campo no se usa (Puma tiene un scraper especializado), se deja solo
+    // a título informativo.
+    listingUrls: ["https://es.puma.com/es/es/sale"],
+    selectors: {
+      card: "",
+      link: "",
+      title: "",
+      image: "",
+      price: "",
+    },
+    notes: "Scraper especializado (JSON-LD ItemList), ver scripts/scrapers/puma.ts. Sin precio original en la fuente, solo precio ya rebajado. Confirmado funcionando.",
   },
 ];

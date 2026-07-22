@@ -4,6 +4,7 @@ import { STORE_CONFIGS } from "./scrapers/stores.config";
 import { scrapeStore, type ScrapeOutcome } from "./scrapers/engine";
 import { scrapeAsos } from "./scrapers/asos";
 import { scrapeNike } from "./scrapers/nike";
+import { scrapePuma } from "./scrapers/puma";
 import type { Deal, StoreId, StoreStatus } from "../lib/types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -11,6 +12,7 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const SPECIALIZED_SCRAPERS: Partial<Record<StoreId, () => Promise<ScrapeOutcome>>> = {
   asos: scrapeAsos,
   nike: scrapeNike,
+  puma: scrapePuma,
 };
 
 async function main() {

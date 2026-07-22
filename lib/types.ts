@@ -10,6 +10,7 @@ export type StoreId =
   | "asos"
   | "zalando"
   | "privalia"
+  | "puma"
   | "otros";
 
 export interface Deal {
