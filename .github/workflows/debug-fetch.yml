@@ -1,4 +1,4 @@
-name: Debug fetch 13 (temporal)
+name: Debug fetch 14 (temporal)
 
 on:
   workflow_dispatch: {}
@@ -7,37 +7,14 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
-      - name: Buscar precio original en Puma y Desigual (SFCC)
+      - name: Contexto salePrice en Puma
         run: |
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-
-          fetch() {
-            curl -s -L --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 20 "$1" -o "$2" -w "HTTP: %{http_code}\n"
-            echo "tamano: $(wc -c < "$2") bytes"
-          }
-
-          echo "=================================================="
-          echo "### Puma: buscar campos de precio original"
-          fetch "https://es.puma.com/es/es/sale" /tmp/puma.html
-          grep -oE '"salePrice"|"listPrice"|"basePrice"|"originalPrice"|"discountPercentage"|"pricePerUnit"|data-price|"strikeThrough[a-zA-Z]*"|"percentage"' /tmp/puma.html | sort | uniq -c | sort -rn | head -20
+          curl -s -L --compressed -A "$UA" -H "Accept-Language: es-ES,es;q=0.9" --max-time 20 \
+            "https://es.puma.com/es/es/sale" -o /tmp/puma.html -w "HTTP: %{http_code}\n"
+          echo "tamano: $(wc -c < /tmp/puma.html) bytes"
           python3 -c '
           html = open("/tmp/puma.html", encoding="utf-8", errors="replace").read()
-          idx = html.find("listPrice")
-          if idx == -1:
-              idx = html.find("basePrice")
-          print("--- contexto listPrice/basePrice ---")
-          print(html[max(0,idx-400):idx+800] if idx != -1 else "no encontrado")
-          '
-
-          echo "=================================================="
-          echo "### Desigual: buscar campos de precio"
-          fetch "https://www.desigual.com/es_ES/rebajas/" /tmp/desigual.html
-          grep -oE '"salePrice"|"listPrice"|"basePrice"|"originalPrice"|"discountPercentage"|"pricePerUnit"|data-price|"strikeThrough[a-zA-Z]*"|"percentage"|"sales":\{|"prices":\{' /tmp/desigual.html | sort | uniq -c | sort -rn | head -20
-          python3 -c '
-          html = open("/tmp/desigual.html", encoding="utf-8", errors="replace").read()
-          idx = html.find("\"sales\":{")
-          if idx == -1:
-              idx = html.find("salePrice")
-          print("--- contexto precio desigual ---")
-          print(html[max(0,idx-400):idx+800] if idx != -1 else "no encontrado")
+          idx = html.find("salePrice")
+          print(html[max(0,idx-600):idx+1000])
           '
