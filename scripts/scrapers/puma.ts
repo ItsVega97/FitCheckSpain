@@ -12,6 +12,7 @@ import type { Deal } from "../../lib/types";
  */
 function extractProductItemList(html: string): PumaListItem[] {
   const blocks = [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
+  let best: PumaListItem[] = [];
   for (const [, raw] of blocks) {
     let data: unknown;
     try {
@@ -24,13 +25,17 @@ function extractProductItemList(html: string): PumaListItem[] {
       (obj.mainEntity as Record<string, unknown> | undefined)?.itemListElement) as
       | PumaListItem[]
       | undefined;
-    if (Array.isArray(items) && items.length > 0) return items;
+    if (!Array.isArray(items) || items.length === 0) continue;
+    // Descarta bloques como BreadcrumbList (sus itemListElement no son Product)
+    const looksLikeProducts = items.some((i) => i.item?.["@type"] === "Product" || i.item?.offers);
+    if (looksLikeProducts && items.length > best.length) best = items;
   }
-  return [];
+  return best;
 }
 
 interface PumaListItem {
   item?: {
+    "@type"?: string;
     name?: string;
     url?: string;
     image?: string;
