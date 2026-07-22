@@ -38,5 +38,6 @@ jobs:
           else
             git add data/deals.json data/scrape-log.json
             git commit -m "chore: actualizar ofertas ($(date -u +%Y-%m-%d))"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi
