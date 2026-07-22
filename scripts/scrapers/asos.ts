@@ -129,12 +129,21 @@ const LISTING_URLS: { url: string; gender: "hombre" | "mujer" }[] = [
 ];
 
 export async function scrapeAsos(): Promise<{ deals: Deal[]; cardsFound: number }> {
-  const allDeals: Deal[] = [];
+  const byId = new Map<string, Deal>();
   let totalCards = 0;
   for (const { url, gender } of LISTING_URLS) {
     const { deals, cardsFound } = await scrapeListing(url, gender);
-    allDeals.push(...deals);
     totalCards += cardsFound;
+    for (const deal of deals) {
+      // Algunos productos aparecen en ambos listados (mujer y hombre) porque
+      // son unisex; el id sale del hash de la URL, así que sin deduplicar
+      // acabarían con id repetido, rompiendo la key de React en la UI.
+      if (byId.has(deal.id)) {
+        byId.get(deal.id)!.gender = "unisex";
+      } else {
+        byId.set(deal.id, deal);
+      }
+    }
   }
-  return { deals: allDeals, cardsFound: totalCards };
+  return { deals: [...byId.values()], cardsFound: totalCards };
 }

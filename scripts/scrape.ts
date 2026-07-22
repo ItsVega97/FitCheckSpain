@@ -60,9 +60,20 @@ async function main() {
     }
   }
 
+  // Salvaguarda: un id duplicado (aunque venga de una sola tienda) rompe la
+  // key de React en la UI y provoca que el filtrado muestre tarjetas de
+  // otra tienda. Cada scraper ya debería devolver ids únicos, pero esto
+  // evita que un futuro bug de scraping se cuele hasta la web.
+  const uniqueDeals = [...new Map(allDeals.map((d) => [d.id, d])).values()];
+  if (uniqueDeals.length !== allDeals.length) {
+    console.warn(
+      `[warn] ${allDeals.length - uniqueDeals.length} oferta(s) con id duplicado descartadas antes de guardar.`,
+    );
+  }
+
   await fs.writeFile(
     path.join(DATA_DIR, "deals.json"),
-    JSON.stringify(allDeals, null, 2),
+    JSON.stringify(uniqueDeals, null, 2),
     "utf-8",
   );
   await fs.writeFile(
@@ -71,7 +82,7 @@ async function main() {
     "utf-8",
   );
 
-  console.log(`\nTotal: ${allDeals.length} ofertas guardadas en data/deals.json`);
+  console.log(`\nTotal: ${uniqueDeals.length} ofertas guardadas en data/deals.json`);
 }
 
 main().catch((err) => {

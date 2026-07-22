@@ -7,6 +7,7 @@
 const RULES: [string, RegExp][] = [
   ["Calzado", /zapatilla|sneaker|zapato|bota|sandalia|chancla|mocas[ií]n|náutico|derby|running|mule/i],
   ["Vestidos", /vestido/i],
+  ["Monos y conjuntos", /\bmono\b|\bmonos\b|jumpsuit|\bpeto\b/i],
   ["Faldas", /falda/i],
   ["Pantalones y vaqueros", /pantal[oó]n|vaquer|jean|legging|short|bermuda/i],
   ["Camisetas y tops", /camiseta|top\b|body\b|polo\b/i],
