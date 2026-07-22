@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { fetchHtml } from "./engine";
+import { categorize } from "./categorize";
 import type { Deal } from "../../lib/types";
 
 /**
@@ -78,7 +79,10 @@ function hashId(input: string): string {
   return createHash("sha256").update(input).digest("base64url").slice(0, 16);
 }
 
-async function scrapeListing(listingUrl: string): Promise<{ deals: Deal[]; cardsFound: number }> {
+async function scrapeListing(
+  listingUrl: string,
+  gender: "hombre" | "mujer",
+): Promise<{ deals: Deal[]; cardsFound: number }> {
   const html = await fetchHtml(listingUrl);
   const data = extractPlpData(html);
   if (!data) return { deals: [], cardsFound: 0 };
@@ -110,6 +114,8 @@ async function scrapeListing(listingUrl: string): Promise<{ deals: Deal[]; cards
       originalPrice: p.price,
       discountPercent,
       currency: "EUR",
+      category: categorize(title),
+      gender,
       scrapedAt: new Date().toISOString(),
       source: "auto",
     });
@@ -117,16 +123,16 @@ async function scrapeListing(listingUrl: string): Promise<{ deals: Deal[]; cards
   return { deals, cardsFound: products.length };
 }
 
-const LISTING_URLS = [
-  "https://www.asos.com/es/mujer/rebajas/cat/?cid=7046",
-  "https://www.asos.com/es/hombre/rebajas/cat/?cid=8409",
+const LISTING_URLS: { url: string; gender: "hombre" | "mujer" }[] = [
+  { url: "https://www.asos.com/es/mujer/rebajas/cat/?cid=7046", gender: "mujer" },
+  { url: "https://www.asos.com/es/hombre/rebajas/cat/?cid=8409", gender: "hombre" },
 ];
 
 export async function scrapeAsos(): Promise<{ deals: Deal[]; cardsFound: number }> {
   const allDeals: Deal[] = [];
   let totalCards = 0;
-  for (const url of LISTING_URLS) {
-    const { deals, cardsFound } = await scrapeListing(url);
+  for (const { url, gender } of LISTING_URLS) {
+    const { deals, cardsFound } = await scrapeListing(url, gender);
     allDeals.push(...deals);
     totalCards += cardsFound;
   }

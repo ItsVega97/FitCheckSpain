@@ -43,6 +43,12 @@ export default function DealCard({ deal }: { deal: Deal }) {
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-1 p-3">
+        {deal.category ? (
+          <span className="text-[11px] font-medium uppercase tracking-wide text-neutral-400">
+            {deal.category}
+            {deal.gender ? ` · ${deal.gender}` : ""}
+          </span>
+        ) : null}
         <h3 className="line-clamp-2 text-sm font-medium text-neutral-800 dark:text-neutral-100">
           {deal.title}
         </h3>

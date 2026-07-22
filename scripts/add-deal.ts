@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import * as cheerio from "cheerio";
 import { fetchHtml, parsePrice } from "./scrapers/engine";
+import { categorize, detectGender } from "./scrapers/categorize";
 import type { Deal, StoreId } from "../lib/types";
 import { STORES } from "../lib/stores";
 
@@ -81,6 +82,8 @@ async function main() {
     originalPrice,
     discountPercent,
     currency: "EUR",
+    category: categorize(title),
+    gender: detectGender(title),
     scrapedAt: new Date().toISOString(),
     source: "manual",
   };

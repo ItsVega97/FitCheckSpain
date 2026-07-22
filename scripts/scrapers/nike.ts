@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { fetchHtml } from "./engine";
+import { categorize, detectGender } from "./categorize";
 import type { Deal } from "../../lib/types";
 
 /**
@@ -34,6 +35,7 @@ interface NikeProduct {
   };
   colorwayImages?: { portraitURL?: string; squarishURL?: string };
   pdpUrl?: { url?: string };
+  productType?: string;
 }
 
 function hashId(input: string): string {
@@ -74,6 +76,7 @@ export async function scrapeNike(): Promise<{ deals: Deal[]; cardsFound: number 
         : Math.round(((initial - current) / initial) * 100);
 
     const title = [p.copy?.title, p.copy?.subTitle].filter(Boolean).join(" - ");
+    const category = p.productType === "FOOTWEAR" ? "Calzado" : categorize(title);
 
     deals.push({
       id: `nike-${hashId(url)}`,
@@ -86,6 +89,8 @@ export async function scrapeNike(): Promise<{ deals: Deal[]; cardsFound: number 
       originalPrice: initial,
       discountPercent,
       currency: p.prices?.currency ?? "EUR",
+      category,
+      gender: detectGender(p.copy?.subTitle ?? ""),
       scrapedAt: new Date().toISOString(),
       source: "auto",
     });

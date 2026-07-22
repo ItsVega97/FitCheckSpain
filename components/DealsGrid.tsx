@@ -10,12 +10,18 @@ type SortMode = "discount" | "price-asc" | "price-desc";
 export default function DealsGrid({ deals }: { deals: Deal[] }) {
   const [query, setQuery] = useState("");
   const [activeStores, setActiveStores] = useState<Set<StoreId>>(new Set());
+  const [activeCategories, setActiveCategories] = useState<Set<string>>(new Set());
   const [minDiscount, setMinDiscount] = useState(0);
   const [sort, setSort] = useState<SortMode>("discount");
 
   const storesPresent = useMemo(() => {
     const ids = new Set(deals.map((d) => d.store));
     return STORES.filter((s) => ids.has(s.id));
+  }, [deals]);
+
+  const categoriesPresent = useMemo(() => {
+    const cats = new Set(deals.map((d) => d.category).filter((c): c is string => Boolean(c)));
+    return Array.from(cats).sort((a, b) => a.localeCompare(b, "es"));
   }, [deals]);
 
   function toggleStore(id: StoreId) {
@@ -27,9 +33,19 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
     });
   }
 
+  function toggleCategory(category: string) {
+    setActiveCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(category)) next.delete(category);
+      else next.add(category);
+      return next;
+    });
+  }
+
   const filtered = useMemo(() => {
     let result = deals.filter((d) => {
       if (activeStores.size > 0 && !activeStores.has(d.store)) return false;
+      if (activeCategories.size > 0 && !(d.category && activeCategories.has(d.category))) return false;
       if ((d.discountPercent ?? 0) < minDiscount) return false;
       if (query.trim()) {
         const q = query.trim().toLowerCase();
@@ -45,7 +61,7 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
     });
 
     return result;
-  }, [deals, activeStores, minDiscount, query, sort]);
+  }, [deals, activeStores, activeCategories, minDiscount, query, sort]);
 
   return (
     <div>
@@ -82,7 +98,7 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
         </div>
       </div>
 
-      <div className="mb-6 flex flex-wrap gap-2">
+      <div className="mb-3 flex flex-wrap gap-2">
         {storesPresent.map((s) => (
           <button
             key={s.id}
@@ -97,6 +113,24 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
           </button>
         ))}
       </div>
+
+      {categoriesPresent.length > 0 ? (
+        <div className="mb-6 flex flex-wrap gap-2">
+          {categoriesPresent.map((c) => (
+            <button
+              key={c}
+              onClick={() => toggleCategory(c)}
+              className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                activeCategories.has(c)
+                  ? "border-neutral-800 bg-neutral-800 text-white dark:border-neutral-200 dark:bg-neutral-200 dark:text-neutral-900"
+                  : "border-neutral-200 text-neutral-500 hover:border-neutral-400 dark:border-neutral-800 dark:text-neutral-400"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+      ) : null}
 
       {filtered.length === 0 ? (
         <p className="py-16 text-center text-neutral-500">
