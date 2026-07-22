@@ -20,25 +20,15 @@ jobs:
             "https://www.asos.com/es/hombre/rebajas/cat/?cid=8409" -o /tmp/asos.html
           echo "tamano: $(wc -c < /tmp/asos.html) bytes"
           python3 -c '
-          import re, json
           html = open("/tmp/asos.html", encoding="utf-8", errors="replace").read()
-          m = re.search(r"window\.asos\.plp\._data\s*=\s*(\{.*?\});", html, re.DOTALL)
-          if not m:
-              print("NO SE ENCONTRO el bloque window.asos.plp._data")
+          idx = html.find("plp._data")
+          if idx == -1:
+              print("NO aparece plp._data en absoluto en este HTML")
+              idx2 = html.find("window.asos")
+              print("primera aparicion de window.asos en:", idx2)
+              if idx2 != -1:
+                  print(html[idx2:idx2+400])
           else:
-              blob = m.group(1)
-              print("Longitud del bloque JSON:", len(blob))
-              try:
-                  data = json.loads(blob)
-                  print("Claves de primer nivel:", list(data.keys())[:20])
-                  products = data.get("products") or data.get("Products")
-                  if products:
-                      print("Numero de productos:", len(products))
-                      print("Claves del primer producto:", list(products[0].keys()))
-                      print("Primer producto:", json.dumps(products[0], ensure_ascii=False)[:1500])
-                  else:
-                      print(json.dumps(data, ensure_ascii=False)[:1500])
-              except Exception as e:
-                  print("Fallo al parsear JSON:", e)
-                  print(blob[:1500])
+              print("Contexto alrededor de plp._data (400 antes, 400 despues):")
+              print(html[max(0, idx-400):idx+400])
           '
