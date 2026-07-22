@@ -15,17 +15,36 @@ jobs:
             "https://www.asos.com/es/hombre/rebajas/cat/?cid=8409" -o /tmp/asos.html
           echo "tamano: $(wc -c < /tmp/asos.html) bytes"
           python3 -c '
-          import re, json
+          import json
           sq = chr(39)
           dq = chr(34)
+          bs = chr(92)
           html = open("/tmp/asos.html", encoding="utf-8", errors="replace").read()
-          pattern = "window\\.asos\\.plp\\._data=JSON\\.parse\\(" + sq + "((?:\\\\.|[^" + sq + "\\\\])*)" + sq + "\\)"
-          m = re.search(pattern, html)
-          if not m:
-              print("NO SE ENCONTRO el patron JSON.parse")
+          marker = "window.asos.plp._data=JSON.parse(" + sq
+          start = html.find(marker)
+          if start == -1:
+              print("NO SE ENCONTRO el marcador JSON.parse")
           else:
-              captured = m.group(1).replace("\\" + sq, sq)
+              i = start + len(marker)
+              buf = []
+              n = len(html)
+              while i < n:
+                  c = html[i]
+                  if c == bs and i + 1 < n:
+                      buf.append(c)
+                      buf.append(html[i + 1])
+                      i += 2
+                      continue
+                  if c == sq:
+                      break
+                  buf.append(c)
+                  i += 1
+              captured = "".join(buf)
+              print("Longitud capturada:", len(captured))
+              print("Primeros 200 chars:", captured[:200])
+              captured = captured.replace(bs + sq, sq)
               inner_json_text = json.loads(dq + captured + dq)
+              print("Longitud tras primer decode:", len(inner_json_text))
               data = json.loads(inner_json_text)
               print("Claves de primer nivel:", list(data.keys()))
 
