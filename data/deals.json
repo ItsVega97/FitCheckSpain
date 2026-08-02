@@ -12,7 +12,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.470Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -28,7 +28,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.470Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -44,7 +44,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.470Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -60,7 +60,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.470Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -76,7 +76,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -92,7 +92,7 @@
     "currency": "EUR",
     "category": "Camisas y blusas",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -108,7 +108,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -124,7 +124,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -140,23 +140,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-u-tSP_kW36dB45jm",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "ASOS DESIGN - Vestido corto amarillo pastel con cintura baja y falda de algodón rugoso",
-    "imageUrl": "https://images.asos-media.com/products/asos-design-vestido-corto-amarillo-pastel-con-cintura-baja-y-falda-de-algodon-rugoso/210092571-1-buttermilk",
-    "productUrl": "https://www.asos.com/es/asos-design/asos-design-vestido-corto-amarillo-pastel-con-cintura-baja-y-falda-de-algodon-rugoso/prd/210092571#colourWayId-210092572",
-    "price": 16.99,
-    "originalPrice": 34.99,
-    "discountPercent": 51,
-    "currency": "EUR",
-    "category": "Vestidos",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -172,7 +156,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -188,7 +172,23 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-bvX2Gy3kQb9mMhnT",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "ASOS DESIGN - Vestido corto de tirantes con estampado de palmeras tropicales y pecho moldeado de algodón y lino de ASOS DESIGN",
+    "imageUrl": "https://images.asos-media.com/products/vestido-corto-de-tirantes-con-estampado-de-palmeras-tropicales-y-pecho-moldeado-de-algodon-y-lino-de-asos-design/209864378-1-tropicalpalmprint",
+    "productUrl": "https://www.asos.com/es/asos-design/vestido-corto-de-tirantes-con-estampado-de-palmeras-tropicales-y-pecho-moldeado-de-algodon-y-lino-de-asos-design/prd/209864378#colourWayId-209864391",
+    "price": 15.99,
+    "originalPrice": 27.99,
+    "discountPercent": 43,
+    "currency": "EUR",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -204,7 +204,23 @@
     "currency": "EUR",
     "category": "Faldas",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-d9s5E3wgotIskA5e",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "ASOS DESIGN - Falda playera con rayas monocromáticas de mezcla de lino Belle de ASOS DESIGN",
+    "imageUrl": "https://images.asos-media.com/products/falda-playera-con-rayas-monocromaticas-de-mezcla-de-lino-belle-de-asos-design/207649748-1-monostripe",
+    "productUrl": "https://www.asos.com/es/asos-design/asos-design-belle-conjunto-playero/grp/211039128#colourWayId-207649753&productId-207649748",
+    "price": 13.99,
+    "originalPrice": 34.99,
+    "discountPercent": 60,
+    "currency": "EUR",
+    "category": "Faldas",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -220,7 +236,7 @@
     "currency": "EUR",
     "category": "Faldas",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -236,23 +252,7 @@
     "currency": "EUR",
     "category": "Faldas",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-0djqHBCrftT5sio8",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "Topshop - minifalda vaquera de Topshop en lavado índigo",
-    "imageUrl": "https://images.asos-media.com/products/topshop-minifalda-vaquera-de-topshop-en-lavado-indigo/210944441-1-indigorinse",
-    "productUrl": "https://www.asos.com/es/topshop/topshop-minifalda-vaquera-de-topshop-en-lavado-indigo/prd/210944441#colourWayId-210944444",
-    "price": 25.99,
-    "originalPrice": 44.99,
-    "discountPercent": 42,
-    "currency": "EUR",
-    "category": "Faldas",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.015Z",
     "source": "auto"
   },
   {
@@ -268,7 +268,7 @@
     "currency": "EUR",
     "category": "Otros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -284,7 +284,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -300,23 +300,23 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
-    "id": "asos-kCqFMNZMmHEjIzD3",
+    "id": "asos-f2mvfwrXcU3gRfJ5",
     "store": "asos",
     "storeName": "ASOS",
-    "title": "Miss Selfridge - Pantalones muy cortos color crema con volantes de mezcla de encaje de Miss Selfridge",
-    "imageUrl": "https://images.asos-media.com/products/pantalones-muy-cortos-color-crema-con-volantes-de-mezcla-de-encaje-de-miss-selfridge/209971846-1-cream",
-    "productUrl": "https://www.asos.com/es/miss-selfridge/pantalones-muy-cortos-color-crema-con-volantes-de-mezcla-de-encaje-de-miss-selfridge/prd/209971846#colourWayId-209971873",
-    "price": 20.99,
-    "originalPrice": 42.99,
-    "discountPercent": 51,
+    "title": "Collusion - Pantalones cortos playeros color crema con volantes de COLLUSION (parte de un conjunto)",
+    "imageUrl": "https://images.asos-media.com/products/pantalones-cortos-playeros-color-crema-con-volantes-de-collusion-parte-de-un-conjunto/209990280-1-cream",
+    "productUrl": "https://www.asos.com/es/collusion/conjunto-playero-a-cuadros-vichy-amarillo-limon-con-ribete-de-volante-de-collusion/grp/210633247#colourWayId-209990282&productId-209990280",
+    "price": 7.99,
+    "originalPrice": 32.99,
+    "discountPercent": 76,
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.471Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -332,7 +332,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -348,7 +348,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -364,7 +364,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -380,7 +380,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -396,7 +396,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -412,7 +412,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -428,7 +428,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -444,7 +444,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -460,7 +460,7 @@
     "currency": "EUR",
     "category": "Bolsos y accesorios",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -476,39 +476,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-c3k7L9rzbwE6DzI_",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "ASOS DESIGN - Pantalones a rayas caquis de pernera recta de sirsaca de ASOS DESIGN (parte de un conjunto)",
-    "imageUrl": "https://images.asos-media.com/products/pantalones-a-rayas-caquis-de-pernera-recta-de-sirsaca-de-asos-design-parte-de-un-conjunto/207731336-1-khakicreamstripe",
-    "productUrl": "https://www.asos.com/es/asos-design/pantalones-a-rayas-caquis-de-pernera-recta-de-sirsaca-de-asos-design-parte-de-un-conjunto/prd/207731336#colourWayId-207731358",
-    "price": 22.99,
-    "originalPrice": 34.99,
-    "discountPercent": 34,
-    "currency": "EUR",
-    "category": "Pantalones y vaqueros",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-GwJM7zgK9ZKg9edu",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "New Balance - Zapatillas de deporte color avena 530 de New Balance",
-    "imageUrl": "https://images.asos-media.com/products/zapatillas-de-deporte-color-avena-530-de-new-balance/204470623-1-oatmeal",
-    "productUrl": "https://www.asos.com/es/new-balance/zapatillas-de-deporte-color-avena-530-de-new-balance/prd/204470623#colourWayId-204470635",
-    "price": 89.99,
-    "originalPrice": 120,
-    "discountPercent": 25,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -524,7 +492,39 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-c3k7L9rzbwE6DzI_",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "ASOS DESIGN - Pantalones a rayas caquis de pernera recta de sirsaca de ASOS DESIGN (parte de un conjunto)",
+    "imageUrl": "https://images.asos-media.com/products/pantalones-a-rayas-caquis-de-pernera-recta-de-sirsaca-de-asos-design-parte-de-un-conjunto/207731336-1-khakicreamstripe",
+    "productUrl": "https://www.asos.com/es/asos-design/pantalones-a-rayas-caquis-de-pernera-recta-de-sirsaca-de-asos-design-parte-de-un-conjunto/prd/207731336#colourWayId-207731358",
+    "price": 22.99,
+    "originalPrice": 34.99,
+    "discountPercent": 34,
+    "currency": "EUR",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-GwJM7zgK9ZKg9edu",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "New Balance - Zapatillas de deporte color avena 530 de New Balance",
+    "imageUrl": "https://images.asos-media.com/products/zapatillas-de-deporte-color-avena-530-de-new-balance/204470623-1-oatmeal",
+    "productUrl": "https://www.asos.com/es/new-balance/zapatillas-de-deporte-color-avena-530-de-new-balance/prd/204470623#colourWayId-204470635",
+    "price": 89.99,
+    "originalPrice": 120,
+    "discountPercent": 25,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "unisex",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -540,7 +540,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -556,23 +556,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-_-ISq1NaeBMN7kE6",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "Vila - Vestido largo azul pálido con cuello desbocado de satén de VILA",
-    "imageUrl": "https://images.asos-media.com/products/vestido-largo-azul-palido-con-cuello-desbocado-de-saten-de-vila/207402522-1-blissfulblue",
-    "productUrl": "https://www.asos.com/es/vila/vestido-largo-azul-palido-con-cuello-desbocado-de-saten-de-vila/prd/207402522#colourWayId-207402523",
-    "price": 42.29,
-    "originalPrice": 46.99,
-    "discountPercent": 10,
-    "currency": "EUR",
-    "category": "Vestidos",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -588,7 +572,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -604,7 +588,7 @@
     "currency": "EUR",
     "category": "Otros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -620,7 +604,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -636,23 +620,7 @@
     "currency": "EUR",
     "category": "Otros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-lKqjwrU3gz7FTPjD",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "ASOS DESIGN - Vestido midi amarillo mostaza estilo corsé con detalle bordado en el pecho de sarga de algodón de ASOS DESIGN",
-    "imageUrl": "https://images.asos-media.com/products/vestido-midi-amarillo-mostaza-estilo-corse-con-detalle-bordado-en-el-pecho-de-sarga-de-algodon-de-asos-design/208251867-1-mustard",
-    "productUrl": "https://www.asos.com/es/asos-design/vestido-midi-amarillo-mostaza-estilo-corse-con-detalle-bordado-en-el-pecho-de-sarga-de-algodon-de-asos-design/prd/208251867#colourWayId-208251868",
-    "price": 31.49,
-    "originalPrice": 69.99,
-    "discountPercent": 55,
-    "currency": "EUR",
-    "category": "Vestidos",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -668,7 +636,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -684,7 +652,7 @@
     "currency": "EUR",
     "category": "Bolsos y accesorios",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -700,7 +668,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -716,7 +684,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -732,7 +700,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -748,7 +716,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -764,7 +732,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -780,7 +748,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -796,7 +764,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -812,7 +780,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -828,7 +796,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -844,7 +812,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -860,7 +828,23 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-GmH78dnEt6Uq6zwD",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "Vans - Zapatillas de deporte negras con plataforma Old Skool de Vans",
+    "imageUrl": "https://images.asos-media.com/products/zapatillas-de-deporte-negras-con-plataforma-old-skool-de-vans/204294118-1-black",
+    "productUrl": "https://www.asos.com/es/vans/zapatillas-de-deporte-negras-con-plataforma-old-skool-de-vans/prd/204294118#colourWayId-204294119",
+    "price": 57,
+    "originalPrice": 95,
+    "discountPercent": 40,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "unisex",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -876,7 +860,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -892,7 +876,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -908,55 +892,23 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
-    "id": "asos-_gTck66SCea3NfKx",
+    "id": "asos-TZ413J3IGbrPLTkt",
     "store": "asos",
     "storeName": "ASOS",
-    "title": "ASOS DESIGN - Collar dorado cepillado de cadena gruesa con colgante de sol de ASOS DESIGN",
-    "imageUrl": "https://images.asos-media.com/products/collar-dorado-cepillado-de-cadena-gruesa-con-colgante-de-sol-de-asos-design/208070123-1-gold",
-    "productUrl": "https://www.asos.com/es/asos-design/collar-dorado-cepillado-de-cadena-gruesa-con-colgante-de-sol-de-asos-design/prd/208070123#colourWayId-208070128",
-    "price": 7.99,
-    "originalPrice": 12.99,
-    "discountPercent": 38,
+    "title": "ASOS DESIGN - Vaqueros elásticos de pernera recta cómodos con acabado enjuagado de ASOS DESIGN",
+    "imageUrl": "https://images.asos-media.com/products/vaqueros-elasticos-de-pernera-recta-comodos-con-acabado-enjuagado-de-asos-design/207826820-1-rinse",
+    "productUrl": "https://www.asos.com/es/asos-design/vaqueros-elasticos-de-pernera-recta-comodos-con-acabado-enjuagado-de-asos-design/prd/207826820#colourWayId-207826821",
+    "price": 24.99,
+    "originalPrice": 31.99,
+    "discountPercent": 22,
     "currency": "EUR",
-    "category": "Bolsos y accesorios",
+    "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-nJ1MHBSk4FadX1oC",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "ARRANGE - Vestido largo color melocotón de tirantes con diseño superpuesto de lentejuelas grandes de ARRANGE",
-    "imageUrl": "https://images.asos-media.com/products/vestido-largo-color-melocoton-de-tirantes-con-diseno-superpuesto-de-lentejuelas-grandes-de-arrange/207317654-1-peach",
-    "productUrl": "https://www.asos.com/es/arrange/vestido-largo-color-melocoton-de-tirantes-con-diseno-superpuesto-de-lentejuelas-grandes-de-arrange/prd/207317654#colourWayId-207317655",
-    "price": 106.39,
-    "originalPrice": 265.99,
-    "discountPercent": 60,
-    "currency": "EUR",
-    "category": "Vestidos",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-pUGmb3xBIpc_jhCv",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "ASOS LUXE - Vestido largo rosa con volantes escalonados de organza de ASOS LUXE",
-    "imageUrl": "https://images.asos-media.com/products/vestido-largo-rosa-con-volantes-escalonados-de-organza-de-asos-luxe/207659105-1-pink",
-    "productUrl": "https://www.asos.com/es/asos-luxe/vestido-largo-rosa-con-volantes-escalonados-de-organza-de-asos-luxe/prd/207659105#colourWayId-207659110",
-    "price": 119.19,
-    "originalPrice": 148.99,
-    "discountPercent": 20,
-    "currency": "EUR",
-    "category": "Vestidos",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -972,7 +924,7 @@
     "currency": "EUR",
     "category": "Otros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -988,23 +940,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-t__UErCm1BA1ZJ66",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "ASOS DESIGN - Braguitas de bikini a rayas burdeos anudadas a los lados de sirsaca Anna de ASOS DESIGN",
-    "imageUrl": "https://images.asos-media.com/products/braguitas-de-bikini-a-rayas-burdeos-anudadas-a-los-lados-de-sirsaca-anna-de-asos-design/207776480-1-burgundystripe",
-    "productUrl": "https://www.asos.com/es/asos-design/bikini-a-rayas-burdeos-de-sirsaca-anna-de-asos-design/grp/208552954#colourWayId-207776502&productId-207776480",
-    "price": 13.99,
-    "originalPrice": 22.99,
-    "discountPercent": 39,
-    "currency": "EUR",
-    "category": "Bañador y playa",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -1020,7 +956,7 @@
     "currency": "EUR",
     "category": "Bañador y playa",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -1036,7 +972,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -1052,23 +988,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-8bUao8Kw9OeolWod",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "ASOS DESIGN - Pantalones a rayas azules y rojas con cinturilla fruncida de ASOS DESIGN (parte de un conjunto)",
-    "imageUrl": "https://images.asos-media.com/products/pantalones-a-rayas-azules-y-rojas-con-cinturilla-fruncida-de-asos-design-parte-de-un-conjunto/207652831-1-blueredstripe",
-    "productUrl": "https://www.asos.com/es/asos-design/pantalones-a-rayas-azules-y-rojas-con-cinturilla-fruncida-de-asos-design-parte-de-un-conjunto/prd/207652831#colourWayId-207652832",
-    "price": 17.09,
-    "originalPrice": 37.99,
-    "discountPercent": 55,
-    "currency": "EUR",
-    "category": "Pantalones y vaqueros",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -1084,23 +1004,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-bFuGGkS8JY8iymtu",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "ASOS DESIGN - Vestido largo a rayas monocromáticas sin mangas con detalle retorcido de ASOS DESIGN",
-    "imageUrl": "https://images.asos-media.com/products/vestido-largo-a-rayas-monocromaticas-sin-mangas-con-detalle-retorcido-de-asos-design/208444706-1-multi",
-    "productUrl": "https://www.asos.com/es/asos-design/vestido-largo-a-rayas-monocromaticas-sin-mangas-con-detalle-retorcido-de-asos-design/prd/208444706#colourWayId-208444707",
-    "price": 33.99,
-    "originalPrice": 39.99,
-    "discountPercent": 15,
-    "currency": "EUR",
-    "category": "Vestidos",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -1116,7 +1020,7 @@
     "currency": "EUR",
     "category": "Vestidos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -1132,7 +1036,7 @@
     "currency": "EUR",
     "category": "Monos y conjuntos",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -1148,23 +1052,103 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:36.472Z",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
-    "id": "asos-M0mZUsxSQMijJiOe",
+    "id": "asos-Bx-rdQRdTXI5xmTT",
     "store": "asos",
     "storeName": "ASOS",
-    "title": "BLEND - Camisa color arena descolorido de corte estándar de sirsaca de 100% algodón",
-    "imageUrl": "https://images.asos-media.com/products/blend-camisa-color-arena-descolorido-de-corte-estandar-de-sirsaca-de-100-algodon/210742258-1-bleachedsand",
-    "productUrl": "https://www.asos.com/es/blend/blend-camisa-color-arena-descolorido-de-corte-estandar-de-sirsaca-de-100-algodon/prd/210742258#colourWayId-210742262",
-    "price": 18.99,
-    "originalPrice": 53.99,
-    "discountPercent": 65,
+    "title": "Maybelline - Barra de labios efecto mate Maybe It's Serum de Maybelline: Tono 007 Avenue A",
+    "imageUrl": "https://images.asos-media.com/products/barra-de-labios-efecto-mate-maybe-its-serum-de-maybelline-tono-007-avenue-a/210257703-1-avenuea",
+    "productUrl": "https://www.asos.com/es/maybelline/barra-de-labios-efecto-mate-maybe-its-serum-de-maybelline-tono-007-avenue-a/prd/210257703#colourWayId-210257705",
+    "price": 10.79,
+    "originalPrice": 13.49,
+    "discountPercent": 20,
+    "currency": "EUR",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-XQ758r7kBXlMgXeI",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "Cotton On - blusa Greta con volante a cuadros soleados",
+    "imageUrl": "https://images.asos-media.com/products/cotton-on-blusa-greta-con-volante-a-cuadros-soleados/210507107-1-sunnycheck",
+    "productUrl": "https://www.asos.com/es/cotton-on/cotton-on-blusa-greta-con-volante-a-cuadros-soleados/prd/210507107#colourWayId-210507109",
+    "price": 25.99,
+    "originalPrice": 36.99,
+    "discountPercent": 30,
     "currency": "EUR",
     "category": "Camisas y blusas",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-2PbLyCtTgkUu_ICP",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "Topshop - Vestido midi amarillo limón con pecho plisado e inserto color melocotón de encaje de Topshop",
+    "imageUrl": "https://images.asos-media.com/products/vestido-midi-amarillo-limon-con-pecho-plisado-e-inserto-color-melocoton-de-encaje-de-topshop/207426157-1-yellow",
+    "productUrl": "https://www.asos.com/es/topshop/vestido-midi-amarillo-limon-con-pecho-plisado-e-inserto-color-melocoton-de-encaje-de-topshop/prd/207426157#colourWayId-207426158",
+    "price": 49.19,
+    "originalPrice": 81.99,
+    "discountPercent": 40,
+    "currency": "EUR",
+    "category": "Vestidos",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-xQm0h5J64acU2Ok6",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "Cernucci - shorts de punto con rayas para poner en azul claro",
+    "imageUrl": "https://images.asos-media.com/products/cernucci-shorts-de-punto-con-rayas-para-poner-en-azul-claro/211080593-1-lightblue",
+    "productUrl": "https://www.asos.com/es/cernucci/cernucci-shorts-de-punto-con-rayas-para-poner-en-azul-claro/prd/211080593#colourWayId-211080599",
+    "price": 42.99,
+    "originalPrice": 60.38,
+    "discountPercent": 29,
+    "currency": "EUR",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-e5ObnK3KFavntsr8",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "ASOS DESIGN - Camiseta corta blanca de corte cuadrado con estampado gráfico \"I love Brazil\"",
+    "imageUrl": "https://images.asos-media.com/products/asos-design-camiseta-corta-blanca-de-corte-cuadrado-con-estampado-grafico-i-love-brazil/210671281-1-white",
+    "productUrl": "https://www.asos.com/es/asos-design/asos-design-camiseta-corta-blanca-de-corte-cuadrado-con-estampado-grafico-i-love-brazil/prd/210671281#colourWayId-210671283",
+    "price": 16.99,
+    "originalPrice": 24.99,
+    "discountPercent": 32,
+    "currency": "EUR",
+    "category": "Camisetas y tops",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-IcwpfeX1-VogIjMm",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "Beauty of Joseon - Mascarilla refrescante para poros Red Bean de Beauty of Joseon",
+    "imageUrl": "https://images.asos-media.com/products/mascarilla-refrescante-para-poros-red-bean-de-beauty-of-joseon/210136971-1-nocolour",
+    "productUrl": "https://www.asos.com/es/beauty-of-joseon/mascarilla-refrescante-para-poros-red-bean-de-beauty-of-joseon/prd/210136971#colourWayId-210136979",
+    "price": 24.99,
+    "originalPrice": 30.99,
+    "discountPercent": 19,
+    "currency": "EUR",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:30.016Z",
     "source": "auto"
   },
   {
@@ -1180,7 +1164,7 @@
     "currency": "EUR",
     "category": "Camisas y blusas",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1196,7 +1180,7 @@
     "currency": "EUR",
     "category": "Camisas y blusas",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1212,7 +1196,23 @@
     "currency": "EUR",
     "category": "Camisas y blusas",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-9jTJLMpoWjVmzFeY",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "Good For Nothing - Conjunto negro de sirsaca",
+    "imageUrl": "https://images.asos-media.com/products/good-for-nothing-conjunto-negro-de-sirsaca/209895782-2",
+    "productUrl": "https://www.asos.com/es/good-for-nothing/good-for-nothing-conjunto-negro-de-sirsaca/grp/211118917#colourWayId-209895743",
+    "price": 51.49,
+    "originalPrice": 115,
+    "discountPercent": 55,
+    "currency": "EUR",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1228,7 +1228,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1244,7 +1244,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1260,7 +1260,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1276,7 +1276,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1292,7 +1292,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1308,7 +1308,23 @@
     "currency": "EUR",
     "category": "Camisas y blusas",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-3KYfoCqxaFu-4VpQ",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "ASOS DESIGN - Camisa negra holgada con bordado floral de terciopelo de ASOS DESIGN",
+    "imageUrl": "https://images.asos-media.com/products/camisa-negra-holgada-con-bordado-floral-de-terciopelo-de-asos-design/209481239-1-black",
+    "productUrl": "https://www.asos.com/es/asos-design/camisa-negra-holgada-con-bordado-floral-de-terciopelo-de-asos-design/prd/209481239#colourWayId-209481242",
+    "price": 23.99,
+    "originalPrice": 47.99,
+    "discountPercent": 50,
+    "currency": "EUR",
+    "category": "Camisas y blusas",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1324,23 +1340,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-eAriwmiYVy-8fkCf",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "Weekday - Camisa extragrande a cuadros blancos y negros",
-    "imageUrl": "https://images.asos-media.com/products/weekday-camisa-extragrande-a-cuadros-blancos-y-negros/210806865-1-black",
-    "productUrl": "https://www.asos.com/es/weekday/weekday-camisa-extragrande-a-cuadros-blancos-y-negros/prd/210806865#colourWayId-210806867",
-    "price": 22.99,
-    "originalPrice": 45.99,
-    "discountPercent": 50,
-    "currency": "EUR",
-    "category": "Camisas y blusas",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1356,7 +1356,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1372,23 +1372,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-RnNNbPlhfZwCDU7W",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "Nike - Zapatillas de deporte negras y grises con detalles reflectantes Ava Rover de Nike",
-    "imageUrl": "https://images.asos-media.com/products/zapatillas-de-deporte-negras-y-grises-con-detalles-reflectantes-ava-rover-de-nike/208581325-1-black",
-    "productUrl": "https://www.asos.com/es/nike/zapatillas-de-deporte-negras-y-grises-con-detalles-reflectantes-ava-rover-de-nike/prd/208581325#colourWayId-208581338",
-    "price": 89.99,
-    "originalPrice": 139.99,
-    "discountPercent": 36,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1404,7 +1388,23 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-aGMLWtuybGH0hAZq",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "Nike - Zapatillas de deporte negro triple unisex Air Max Muse de Nike",
+    "imageUrl": "https://images.asos-media.com/products/zapatillas-de-deporte-negro-triple-unisex-air-max-muse-de-nike/207490218-1-black",
+    "productUrl": "https://www.asos.com/es/nike/zapatillas-de-deporte-negro-triple-unisex-air-max-muse-de-nike/prd/207490218#colourWayId-207490219",
+    "price": 89.99,
+    "originalPrice": 159.99,
+    "discountPercent": 44,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1420,7 +1420,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1436,7 +1436,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1452,7 +1452,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1468,7 +1468,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1484,7 +1484,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1500,7 +1500,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1516,7 +1516,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1532,7 +1532,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1548,23 +1548,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-BgZYmLpG_0sx9oX5",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "Topman - Pantalones color crema holgados con bolsillos laterales de Topman",
-    "imageUrl": "https://images.asos-media.com/products/pantalones-color-crema-holgados-con-bolsillos-laterales-de-topman/209543536-1-cream",
-    "productUrl": "https://www.asos.com/es/topman/pantalones-color-crema-holgados-con-bolsillos-laterales-de-topman/prd/209543536#colourWayId-209543558",
-    "price": 24.99,
-    "originalPrice": 61.99,
-    "discountPercent": 60,
-    "currency": "EUR",
-    "category": "Pantalones y vaqueros",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1580,23 +1564,39 @@
     "currency": "EUR",
     "category": "Otros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
-    "id": "asos-cTXTZCDUve4wqKBG",
+    "id": "asos-enOvZx8UaaEPyNtB",
     "store": "asos",
     "storeName": "ASOS",
-    "title": "Topman - Pantalones de vestir gris carbón de pernera ancha con cinturón y bolsillos laterales de Topman",
-    "imageUrl": "https://images.asos-media.com/products/pantalones-de-vestir-gris-carbon-de-pernera-ancha-con-cinturon-y-bolsillos-laterales-de-topman/209779317-1-charcoal",
-    "productUrl": "https://www.asos.com/es/topman/pantalones-de-vestir-gris-carbon-de-pernera-ancha-con-cinturon-y-bolsillos-laterales-de-topman/prd/209779317#colourWayId-209779320",
-    "price": 16.24,
-    "originalPrice": 64.99,
-    "discountPercent": 75,
+    "title": "ASOS DESIGN - Conjunto Harrington de vestir caqui claro de ASOS DESIGN",
+    "imageUrl": "https://images.asos-media.com/products/conjunto-harrington-de-vestir-caqui-claro-de-asos-design/209364587-2",
+    "productUrl": "https://www.asos.com/es/asos-design/conjunto-harrington-de-vestir-caqui-claro-de-asos-design/grp/210686565",
+    "price": 46.98,
+    "originalPrice": 119.98,
+    "discountPercent": 61,
+    "currency": "EUR",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-DCnBKQqI97T0Ynv6",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "Collusion - Vaqueros de corte bombacho extragrande con pinzas y lavado enjuagado de COLLUSION Circular Design Collection",
+    "imageUrl": "https://images.asos-media.com/products/vaqueros-de-corte-bombacho-extragrande-con-pinzas-y-lavado-enjuagado-de-collusion-circular-design-collection/209573692-1-rinse",
+    "productUrl": "https://www.asos.com/es/collusion/vaqueros-de-corte-bombacho-extragrande-con-pinzas-y-lavado-enjuagado-de-collusion-circular-design-collection/prd/209573692#colourWayId-209573693",
+    "price": 16.49,
+    "originalPrice": 54.99,
+    "discountPercent": 70,
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1612,7 +1612,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1628,7 +1628,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1644,7 +1644,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1660,7 +1660,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1676,7 +1676,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1692,7 +1692,7 @@
     "currency": "EUR",
     "category": "Chaquetas y abrigos",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1708,7 +1708,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1724,7 +1724,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1740,7 +1740,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.415Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1756,7 +1756,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1772,7 +1772,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1788,7 +1788,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1804,7 +1804,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1820,7 +1820,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1836,7 +1836,7 @@
     "currency": "EUR",
     "category": "Sudaderas y jerséis",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1852,7 +1852,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1868,7 +1868,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1884,7 +1884,7 @@
     "currency": "EUR",
     "category": "Bañador y playa",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1900,7 +1900,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1916,7 +1916,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1932,23 +1932,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-I2qqtIJBi3vmcLpq",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "Belier - Pantalones cortos color avena sin cierres de mezcla de lino",
-    "imageUrl": "https://images.asos-media.com/products/belier-pantalones-cortos-color-avena-sin-cierres-de-mezcla-de-lino/211072645-1-oatmeal",
-    "productUrl": "https://www.asos.com/es/belier/belier-pantalones-cortos-color-avena-sin-cierres-de-mezcla-de-lino/prd/211072645#colourWayId-211072647",
-    "price": 49.99,
-    "originalPrice": 70,
-    "discountPercent": 29,
-    "currency": "EUR",
-    "category": "Pantalones y vaqueros",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1964,7 +1948,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1980,7 +1964,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -1996,7 +1980,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2012,7 +1996,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2028,7 +2012,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2044,7 +2028,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2060,7 +2044,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2076,7 +2060,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2092,7 +2076,7 @@
     "currency": "EUR",
     "category": "Otros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2108,7 +2092,7 @@
     "currency": "EUR",
     "category": "Camisas y blusas",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2124,7 +2108,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2140,23 +2124,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
-    "source": "auto"
-  },
-  {
-    "id": "asos-B3wbHqDEYznXeApv",
-    "store": "asos",
-    "storeName": "ASOS",
-    "title": "New Balance - Pack de 2 pares de calcetines deportivos de color azul marino y marrón claro de canalé de New Balance",
-    "imageUrl": "https://images.asos-media.com/products/pack-de-2pares-de-calcetines-deportivos-de-color-azul-marino-y-marron-claro-de-canale-de-new-balance/207281108-1-multi",
-    "productUrl": "https://www.asos.com/es/new-balance/pack-de-2pares-de-calcetines-deportivos-de-color-azul-marino-y-marron-claro-de-canale-de-new-balance/prd/207281108#colourWayId-207281111",
-    "price": 14.4,
-    "originalPrice": 16,
-    "discountPercent": 10,
-    "currency": "EUR",
-    "category": "Otros",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2172,7 +2140,23 @@
     "currency": "EUR",
     "category": "Ropa de deporte",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
+    "source": "auto"
+  },
+  {
+    "id": "asos-B3wbHqDEYznXeApv",
+    "store": "asos",
+    "storeName": "ASOS",
+    "title": "New Balance - Pack de 2 pares de calcetines deportivos de color azul marino y marrón claro de canalé de New Balance",
+    "imageUrl": "https://images.asos-media.com/products/pack-de-2pares-de-calcetines-deportivos-de-color-azul-marino-y-marron-claro-de-canale-de-new-balance/207281108-1-multi",
+    "productUrl": "https://www.asos.com/es/new-balance/pack-de-2pares-de-calcetines-deportivos-de-color-azul-marino-y-marron-claro-de-canale-de-new-balance/prd/207281108#colourWayId-207281111",
+    "price": 14.4,
+    "originalPrice": 16,
+    "discountPercent": 10,
+    "currency": "EUR",
+    "category": "Otros",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2188,7 +2172,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:37.416Z",
+    "scrapedAt": "2026-08-02T08:15:31.467Z",
     "source": "auto"
   },
   {
@@ -2204,39 +2188,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-PwVFiz43O66rW7ND",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Vomero 18 - Zapatillas de running para asfalto - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/b63d034e-aaed-4ccd-a525-48671f12ee9e/NIKE+VOMERO+18.png",
-    "productUrl": "https://www.nike.com/es/t/vomero-18-zapatillas-de-running-para-asfalto-hombre-SMtmxlKz/IR1812-012",
-    "price": 118.99,
-    "originalPrice": 169.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-tI8_NaTZPaMzodmY",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Vomero 18 SE - Zapatillas de running para asfalto - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/0ca77756-999a-4212-bd0e-0695656b2f0a/NIKE+VOMERO+18+SE.png",
-    "productUrl": "https://www.nike.com/es/t/vomero-18-se-zapatillas-de-running-para-asfalto-hombre-SMtmxlKz/IQ3413-704",
-    "price": 111.99,
-    "originalPrice": 159.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2252,7 +2204,39 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-PwVFiz43O66rW7ND",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike Vomero 18 - Zapatillas de running para asfalto - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/b63d034e-aaed-4ccd-a525-48671f12ee9e/NIKE+VOMERO+18.png",
+    "productUrl": "https://www.nike.com/es/t/vomero-18-zapatillas-de-running-para-asfalto-hombre-SMtmxlKz/IR1812-012",
+    "price": 118.99,
+    "originalPrice": 169.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-tI8_NaTZPaMzodmY",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike Vomero 18 SE - Zapatillas de running para asfalto - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/0ca77756-999a-4212-bd0e-0695656b2f0a/NIKE+VOMERO+18+SE.png",
+    "productUrl": "https://www.nike.com/es/t/vomero-18-se-zapatillas-de-running-para-asfalto-hombre-SMtmxlKz/IQ3413-704",
+    "price": 111.99,
+    "originalPrice": 159.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2268,7 +2252,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2284,7 +2268,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2300,7 +2284,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2316,7 +2300,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2332,7 +2316,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2348,7 +2332,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2364,7 +2348,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2380,7 +2364,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2396,7 +2380,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2412,7 +2396,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2428,7 +2412,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2444,7 +2428,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.121Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2460,7 +2444,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2476,7 +2460,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
@@ -2491,39 +2475,22 @@
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.006Z",
     "source": "auto"
   },
   {
-    "id": "nike-D483o3YsOPCJvjw9",
+    "id": "nike-dXYq9JQXoAzar-U3",
     "store": "nike",
     "storeName": "Nike",
-    "title": "Nike Air Force 1 '07 LV8 - Zapatillas - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/a765cff6-66ca-44b8-b119-2bd285dd6b69/AIR+FORCE+1+%2707+LV8.png",
-    "productUrl": "https://www.nike.com/es/t/air-force-1-07-lv8-zapatillas-hombre-jPCFIKqG/II9807-001",
-    "price": 83.99,
-    "originalPrice": 119.99,
+    "title": "Jordan Franchise - Chanclas - Niño/a",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6bd0c272-4e10-4d2b-9c95-445dc0ba7da2/JORDAN+FRANCHISE+SLIDE+%28GS%29.png",
+    "productUrl": "https://www.nike.com/es/t/jordan-franchise-chanclas-nino-a-fZdWUXIb/HF4490-301",
+    "price": 17.49,
+    "originalPrice": 24.99,
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-mLY4YCEvJpENgFNY",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Air Force 1 '07 LV8 - Zapatillas - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6d62cf92-c3c6-43ec-818e-e77b60cc6b3d/AIR+FORCE+1+%2707+LV8.png",
-    "productUrl": "https://www.nike.com/es/t/air-force-1-07-lv8-zapatillas-hombre-jPCFIKqG/II9807-300",
-    "price": 83.99,
-    "originalPrice": 119.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2539,119 +2506,39 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
-    "id": "nike-6xWCnzvWLjiP6zR2",
+    "id": "nike-D483o3YsOPCJvjw9",
     "store": "nike",
     "storeName": "Nike",
-    "title": "Nike Initiator - Zapatillas de running - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0433f384-a222-41c8-a274-58357fdaccef/NIKE+INITIATOR.png",
-    "productUrl": "https://www.nike.com/es/t/initiator-zapatillas-de-running-hombre-ZGSIrvgl/HQ1179-001",
-    "price": 59.49,
-    "originalPrice": 84.99,
+    "title": "Nike Air Force 1 '07 LV8 - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/a765cff6-66ca-44b8-b119-2bd285dd6b69/AIR+FORCE+1+%2707+LV8.png",
+    "productUrl": "https://www.nike.com/es/t/air-force-1-07-lv8-zapatillas-hombre-jPCFIKqG/II9807-001",
+    "price": 83.99,
+    "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
-    "id": "nike-xRRx2echjzplHUKy",
+    "id": "nike-mLY4YCEvJpENgFNY",
     "store": "nike",
     "storeName": "Nike",
-    "title": "Nike ReactX Rejuven8 - Zapatillas - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/bcf66973-771a-48a1-8b01-9f73f410f8fc/NIKE+REACTX+REJUVEN8.png",
-    "productUrl": "https://www.nike.com/es/t/reactx-rejuven8-zapatillas-hombre-YiVrJ2n9/HV5060-005",
-    "price": 48.99,
-    "originalPrice": 69.99,
+    "title": "Nike Air Force 1 '07 LV8 - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6d62cf92-c3c6-43ec-818e-e77b60cc6b3d/AIR+FORCE+1+%2707+LV8.png",
+    "productUrl": "https://www.nike.com/es/t/air-force-1-07-lv8-zapatillas-hombre-jPCFIKqG/II9807-300",
+    "price": 83.99,
+    "originalPrice": 119.99,
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-mVzfW9bEuVaVfAfz",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike ReactX Rejuven8 - Zapatillas - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d63389dc-cc9a-46a2-9cc4-b6ed4ba1fe57/NIKE+REACTX+REJUVEN8.png",
-    "productUrl": "https://www.nike.com/es/t/reactx-rejuven8-zapatillas-hombre-YiVrJ2n9/HV5060-200",
-    "price": 48.99,
-    "originalPrice": 69.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-aC_l9tmYL5nRKqxt",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Reax 8 TR - Zapatillas de training - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/17335cd9-deca-414b-b79c-2b9d2d19050c/NIKE+REAX+8+TR+MESH.png",
-    "productUrl": "https://www.nike.com/es/t/reax-8-tr-zapatillas-de-training-hombre-1Rb3b0/621716-022",
-    "price": 62.99,
-    "originalPrice": 89.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-wPzmy8invUgwiLNi",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Reax 8 TR - Zapatillas de training - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/92a069fb-4a44-48be-8531-7c38f374c845/NIKE+REAX+8+TR+MESH.png",
-    "productUrl": "https://www.nike.com/es/t/reax-8-tr-zapatillas-de-training-hombre-1Rb3b0/621716-039",
-    "price": 66.49,
-    "originalPrice": 94.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-8m7cAIe2BKMxUenD",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Shox R4 - Zapatillas - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/71001b6f-1be8-4fed-8c4c-956ec491dcd7/NIKE+SHOX+R4.png",
-    "productUrl": "https://www.nike.com/es/t/shox-r4-zapatillas-hombre-HlaPisQZ/HQ1988-101",
-    "price": 104.99,
-    "originalPrice": 149.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-acV70OBOMgiym-vr",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Shox R4 - Zapatillas - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/acf0beb1-6ced-4ac1-b36f-dae423fbc57a/NIKE+SHOX+R4.png",
-    "productUrl": "https://www.nike.com/es/t/shox-r4-zapatillas-hombre-HlaPisQZ/HQ1988-001",
-    "price": 104.99,
-    "originalPrice": 149.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2667,7 +2554,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2683,7 +2570,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2699,7 +2586,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2715,23 +2602,71 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
-    "id": "nike-0aDXDeGNfj0tWvAO",
+    "id": "nike-8m7cAIe2BKMxUenD",
     "store": "nike",
     "storeName": "Nike",
-    "title": "Nike Court Vision Low Premium - Zapatillas - Mujer",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/224736e7-16a8-4a11-a0eb-180818d97bac/W+NIKE+COURT+VISION+LO+PRM.png",
-    "productUrl": "https://www.nike.com/es/t/court-vision-low-premium-zapatillas-para-mujer-VujmYkUW/IO0463-102",
-    "price": 55.99,
-    "originalPrice": 79.99,
+    "title": "Nike Shox R4 - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/71001b6f-1be8-4fed-8c4c-956ec491dcd7/NIKE+SHOX+R4.png",
+    "productUrl": "https://www.nike.com/es/t/shox-r4-zapatillas-hombre-HlaPisQZ/HQ1988-101",
+    "price": 104.99,
+    "originalPrice": 149.99,
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-acV70OBOMgiym-vr",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike Shox R4 - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/acf0beb1-6ced-4ac1-b36f-dae423fbc57a/NIKE+SHOX+R4.png",
+    "productUrl": "https://www.nike.com/es/t/shox-r4-zapatillas-hombre-HlaPisQZ/HQ1988-001",
+    "price": 104.99,
+    "originalPrice": 149.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-6xWCnzvWLjiP6zR2",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike Initiator - Zapatillas de running - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0433f384-a222-41c8-a274-58357fdaccef/NIKE+INITIATOR.png",
+    "productUrl": "https://www.nike.com/es/t/initiator-zapatillas-de-running-hombre-ZGSIrvgl/HQ1179-001",
+    "price": 59.49,
+    "originalPrice": 84.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-aC_l9tmYL5nRKqxt",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike Reax 8 TR - Zapatillas de training - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/17335cd9-deca-414b-b79c-2b9d2d19050c/NIKE+REAX+8+TR+MESH.png",
+    "productUrl": "https://www.nike.com/es/t/reax-8-tr-zapatillas-de-training-hombre-1Rb3b0/621716-022",
+    "price": 62.99,
+    "originalPrice": 89.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2746,23 +2681,39 @@
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
-    "id": "nike-jlq0JkS7IGIoTyCt",
+    "id": "nike-xRRx2echjzplHUKy",
     "store": "nike",
     "storeName": "Nike",
-    "title": "Air Jordan 1 Mid - Zapatillas - Mujer",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/e4502ae2-844a-4b08-a5b6-997c92820a50/WMNS+AIR+JORDAN+1+MID.png",
-    "productUrl": "https://www.nike.com/es/t/air-jordan-1-mid-zapatillas-mujer-oHSk2eAR/DV0991-101",
-    "price": 97.99,
-    "originalPrice": 139.99,
+    "title": "Nike ReactX Rejuven8 - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/bcf66973-771a-48a1-8b01-9f73f410f8fc/NIKE+REACTX+REJUVEN8.png",
+    "productUrl": "https://www.nike.com/es/t/reactx-rejuven8-zapatillas-hombre-YiVrJ2n9/HV5060-005",
+    "price": 48.99,
+    "originalPrice": 69.99,
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-mVzfW9bEuVaVfAfz",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike ReactX Rejuven8 - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d63389dc-cc9a-46a2-9cc4-b6ed4ba1fe57/NIKE+REACTX+REJUVEN8.png",
+    "productUrl": "https://www.nike.com/es/t/reactx-rejuven8-zapatillas-hombre-YiVrJ2n9/HV5060-200",
+    "price": 48.99,
+    "originalPrice": 69.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2778,7 +2729,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2794,7 +2745,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2809,7 +2760,7 @@
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2824,7 +2775,23 @@
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-jlq0JkS7IGIoTyCt",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Air Jordan 1 Mid - Zapatillas - Mujer",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/e4502ae2-844a-4b08-a5b6-997c92820a50/WMNS+AIR+JORDAN+1+MID.png",
+    "productUrl": "https://www.nike.com/es/t/air-jordan-1-mid-zapatillas-mujer-oHSk2eAR/DV0991-101",
+    "price": 97.99,
+    "originalPrice": 139.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2840,39 +2807,7 @@
     "currency": "EUR",
     "category": "Pantalones y vaqueros",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-BYO01dVN__NWcONV",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Precision 7 - Zapatillas de baloncesto - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b0b122fc-133b-48fb-86ad-3d2db31eda09/NIKE+PRECISION+VII.png",
-    "productUrl": "https://www.nike.com/es/t/precision-7-zapatillas-de-baloncesto-hombre-sgMnSD/FN4322-101",
-    "price": 52.49,
-    "originalPrice": 74.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-BLiXkhx0SihFizS3",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Pegasus Trail 5 GORE-TEX - Zapatillas de trail running impermeables - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/34fc040a-8e53-4415-804f-d3852a679e9c/NIKE+PEGASUS+TRAIL+5+GTX.png",
-    "productUrl": "https://www.nike.com/es/t/pegasus-trail-5-gore-tex-zapatillas-de-trail-running-impermeables-hombre-LPtVP4/FQ0908-002",
-    "price": 111.99,
-    "originalPrice": 159.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2888,39 +2823,23 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
-    "id": "nike-AWVUVp1ATTqq8dSH",
+    "id": "nike-ebTmp6bUKEHQEsI_",
     "store": "nike",
     "storeName": "Nike",
-    "title": "Nike Dunk Low Retro - Zapatillas - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6c888e0c-44c5-433c-b2ab-acb9e83e1c10/NIKE+DUNK+LOW+RETRO.png",
-    "productUrl": "https://www.nike.com/es/t/dunk-low-retro-zapatillas-hombre-uMd2FCSS/IH1940-001",
-    "price": 83.99,
-    "originalPrice": 119.99,
+    "title": "Air Jordan 1 Low SE - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8434b551-a256-4dfc-9aa1-bb4d17d049fc/AIR+JORDAN+1+LOW+SE.png",
+    "productUrl": "https://www.nike.com/es/t/air-jordan-1-low-se-zapatillas-hombre-rhSOKGkR/HV4089-201",
+    "price": 97.99,
+    "originalPrice": 139.99,
     "discountPercent": 30,
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
-    "source": "auto"
-  },
-  {
-    "id": "nike-bkmqKWR4T5xpKio2",
-    "store": "nike",
-    "storeName": "Nike",
-    "title": "Nike Dunk Low Retro - Zapatillas - Hombre",
-    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/eccf7789-c30a-4fe5-88bd-36cf25a9e323/NIKE+DUNK+LOW+RETRO.png",
-    "productUrl": "https://www.nike.com/es/t/dunk-low-retro-zapatillas-hombre-uMd2FCSS/IH1940-002",
-    "price": 83.99,
-    "originalPrice": 119.99,
-    "discountPercent": 30,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2936,7 +2855,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2952,7 +2871,55 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.122Z",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-BLiXkhx0SihFizS3",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike Pegasus Trail 5 GORE-TEX - Zapatillas de trail running impermeables - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/34fc040a-8e53-4415-804f-d3852a679e9c/NIKE+PEGASUS+TRAIL+5+GTX.png",
+    "productUrl": "https://www.nike.com/es/t/pegasus-trail-5-gore-tex-zapatillas-de-trail-running-impermeables-hombre-LPtVP4/FQ0908-002",
+    "price": 111.99,
+    "originalPrice": 159.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-AWVUVp1ATTqq8dSH",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike Dunk Low Retro - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6c888e0c-44c5-433c-b2ab-acb9e83e1c10/NIKE+DUNK+LOW+RETRO.png",
+    "productUrl": "https://www.nike.com/es/t/dunk-low-retro-zapatillas-hombre-uMd2FCSS/IH1940-001",
+    "price": 83.99,
+    "originalPrice": 119.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
+    "source": "auto"
+  },
+  {
+    "id": "nike-bkmqKWR4T5xpKio2",
+    "store": "nike",
+    "storeName": "Nike",
+    "title": "Nike Dunk Low Retro - Zapatillas - Hombre",
+    "imageUrl": "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/eccf7789-c30a-4fe5-88bd-36cf25a9e323/NIKE+DUNK+LOW+RETRO.png",
+    "productUrl": "https://www.nike.com/es/t/dunk-low-retro-zapatillas-hombre-uMd2FCSS/IH1940-002",
+    "price": 83.99,
+    "originalPrice": 119.99,
+    "discountPercent": 30,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "hombre",
+    "scrapedAt": "2026-08-02T08:15:32.007Z",
     "source": "auto"
   },
   {
@@ -2968,23 +2935,22 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
     "source": "auto"
   },
   {
-    "id": "puma-6IcFAwx9VvEmaduc",
+    "id": "puma-nO_l40nYdlrG16_5",
     "store": "puma",
     "storeName": "Puma",
-    "title": "Zapatillas Palermo Premium unisex",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/401744/02/sv01/fnd/EEA/fmt/png/Zapatillas-Palermo-Premium-unisex",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-palermo-premium-unisex/401744?swatch=02",
-    "price": 50,
+    "title": "Zapatillas GV Special",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398374/01/sv01/fnd/EEA/fmt/png/Zapatillas-GV-Special",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-gv-special/398374?swatch=01",
+    "price": 44,
     "originalPrice": null,
     "discountPercent": null,
     "currency": "EUR",
     "category": "Calzado",
-    "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
     "source": "auto"
   },
   {
@@ -3000,38 +2966,7 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-d8TI-dFMIXf5CNSV",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Sujetador PWRbreathe RUN",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/525074/01/mod01/fnd/EEA/fmt/png/Sujetador-PWRbreathe-RUN",
-    "productUrl": "https://eu.puma.com/es/es/pd/sujetador-pwrbreathe-run/525074?swatch=01",
-    "price": 38,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Ropa interior",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-0SBXtpU5u4pmdVHL",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Zapatillas Cassia 2.0 para mujer",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/402676/02/sv01/fnd/EEA/fmt/png/Zapatillas-Cassia-2.0-para-mujer",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-cassia-20-para-mujer/402676?swatch=02",
-    "price": 40,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
     "source": "auto"
   },
   {
@@ -3047,55 +2982,23 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
     "source": "auto"
   },
   {
-    "id": "puma-AX68TRqMzB2opCYg",
+    "id": "puma-0SBXtpU5u4pmdVHL",
     "store": "puma",
     "storeName": "Puma",
-    "title": "Zapatillas Fuse 4.0 unisex",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/311733/08/sv01/fnd/EEA/fmt/png/Zapatillas-Fuse-4.0-unisex",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-fuse-40-unisex/311733?swatch=08",
-    "price": 48,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-7Bsp3z4YJUMPLAd_",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Zapatillas Fuse 4.0 unisex",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/311733/06/sv01/fnd/EEA/fmt/png/Zapatillas-Fuse-4.0-unisex",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-fuse-40-unisex/311733?swatch=06",
-    "price": 50,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-r2Od0B4f7t4gU-iN",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Zapatillas Fuse 4.0 para mujer",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/311744/05/sv01/fnd/EEA/fmt/png/Zapatillas-Fuse-4.0-para-mujer",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-fuse-40-para-mujer/311744?swatch=05",
-    "price": 50,
+    "title": "Zapatillas Cassia 2.0 para mujer",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/402676/02/sv01/fnd/EEA/fmt/png/Zapatillas-Cassia-2.0-para-mujer",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-cassia-20-para-mujer/402676?swatch=02",
+    "price": 40,
     "originalPrice": null,
     "discountPercent": null,
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
     "source": "auto"
   },
   {
@@ -3111,119 +3014,55 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
     "source": "auto"
   },
   {
-    "id": "puma-JEAHGGP1aIHfREei",
+    "id": "puma-7Bsp3z4YJUMPLAd_",
     "store": "puma",
     "storeName": "Puma",
-    "title": "Pantalones holgados tejidos PUMA Sport para mujer",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/691865/01/mod01/fnd/EEA/fmt/png/Pantalones-holgados-tejidos-PUMA-Sport-para-mujer",
-    "productUrl": "https://eu.puma.com/es/es/pd/pantalones-holgados-tejidos-puma-sport-para-mujer/691865?swatch=01",
-    "price": 44,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Pantalones y vaqueros",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-n5hEssCv_QVA-K58",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Chaqueta holgada con cremallera PUMA Sport para mujer",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/691864/01/mod01/fnd/EEA/fmt/png/Chaqueta-holgada-con-cremallera-PUMA-Sport-para-mujer",
-    "productUrl": "https://eu.puma.com/es/es/pd/chaqueta-holgada-con-cremallera-puma-sport-para-mujer/691864?swatch=01",
-    "price": 35,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Chaquetas y abrigos",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-JJMXLjeW7nnXo-dG",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Camiseta baby tee WARDROBE ESS para mujer",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/629745/02/mod01/fnd/EEA/fmt/png/Camiseta-baby-tee-WARDROBE-ESS-para-mujer",
-    "productUrl": "https://eu.puma.com/es/es/pd/camiseta-baby-tee-wardrobe-ess-para-mujer/629745?swatch=02",
-    "price": 20,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Camisetas y tops",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-b2WcQTrq7xNGK5_5",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Camiseta baby tee WARDROBE ESS para mujer",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/629745/01/mod01/fnd/EEA/fmt/png/Camiseta-baby-tee-WARDROBE-ESS-para-mujer",
-    "productUrl": "https://eu.puma.com/es/es/pd/camiseta-baby-tee-wardrobe-ess-para-mujer/629745?swatch=01",
-    "price": 21,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Camisetas y tops",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-b96vIJ8T8iwUbHnd",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Zapatillas Speedcat Ballet Metallic para mujer",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/401581/01/sv01/fnd/EEA/fmt/png/Zapatillas-Speedcat-Ballet-Metallic-para-mujer",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-speedcat-ballet-metallic-para-mujer/401581?swatch=01",
-    "price": 72,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-0MncxmJthECIHGn2",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Zapatillas Speedcat Ballet Cow Print para mujer",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/407787/01/sv01/fnd/EEA/fmt/png/Zapatillas-Speedcat-Ballet-Cow-Print-para-mujer",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-speedcat-ballet-cow-print-para-mujer/407787?swatch=01",
-    "price": 70,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Calzado",
-    "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-2X9WHmcbboQgS8Cf",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Zapatillas Speedcat OG unisex",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398846/01/sv01/fnd/EEA/fmt/png/Zapatillas-Speedcat-OG-unisex",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-speedcat-og-unisex/398846?swatch=01",
-    "price": 88,
+    "title": "Zapatillas Fuse 4.0 unisex",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/311733/06/sv01/fnd/EEA/fmt/png/Zapatillas-Fuse-4.0-unisex",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-fuse-40-unisex/311733?swatch=06",
+    "price": 50,
     "originalPrice": null,
     "discountPercent": null,
     "currency": "EUR",
     "category": "Calzado",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-AX68TRqMzB2opCYg",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Zapatillas Fuse 4.0 unisex",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/311733/08/sv01/fnd/EEA/fmt/png/Zapatillas-Fuse-4.0-unisex",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-fuse-40-unisex/311733?swatch=08",
+    "price": 48,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "unisex",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-r2Od0B4f7t4gU-iN",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Zapatillas Fuse 4.0 para mujer",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/311744/05/sv01/fnd/EEA/fmt/png/Zapatillas-Fuse-4.0-para-mujer",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-fuse-40-para-mujer/311744?swatch=05",
+    "price": 50,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
     "source": "auto"
   },
   {
@@ -3239,7 +3078,150 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-fP-tBSef9cZpXro8",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Camiseta de tirantes WARDROBE ESS Ribbed para mujer",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/629771/01/mod01/fnd/EEA/fmt/png/Camiseta-de-tirantes-WARDROBE-ESS-Ribbed-para-mujer",
+    "productUrl": "https://eu.puma.com/es/es/pd/camiseta-de-tirantes-wardrobe-ess-ribbed-para-mujer/629771?swatch=01",
+    "price": 20,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Camisetas y tops",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-p4CfAiQneUcleZ4r",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Camiseta holgada FUTURE.PUMA.ARCHIVE King unisex",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/634406/64/mod01/fnd/EEA/fmt/png/Camiseta-holgada-FUTURE.PUMA.ARCHIVE-King-unisex",
+    "productUrl": "https://eu.puma.com/es/es/pd/camiseta-holgada-futurepumaarchive-king-unisex/634406?swatch=64",
+    "price": 21,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Camisetas y tops",
+    "gender": "unisex",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-mV8WKI_1jRJ2o_kD",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Chándal corto holgado con capucha para mujer",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/691901/01/mod01/fnd/EEA/fmt/png/Chándal-corto-holgado-con-capucha-para-mujer",
+    "productUrl": "https://eu.puma.com/es/es/pd/chandal-corto-holgado-con-capucha-para-mujer/691901?swatch=01",
+    "price": 36,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Otros",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-JEAHGGP1aIHfREei",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Pantalones holgados tejidos PUMA Sport para mujer",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/691865/01/mod01/fnd/EEA/fmt/png/Pantalones-holgados-tejidos-PUMA-Sport-para-mujer",
+    "productUrl": "https://eu.puma.com/es/es/pd/pantalones-holgados-tejidos-puma-sport-para-mujer/691865?swatch=01",
+    "price": 44,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Pantalones y vaqueros",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-SdzumjRqpK2Khsep",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Zapatillas PUMA Fade unisex",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/406203/03/sv01/fnd/EEA/fmt/png/Zapatillas-PUMA-Fade-unisex",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-puma-fade-unisex/406203?swatch=03",
+    "price": 50,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "unisex",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-F1I2QvuNjNZfmQ7M",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Zapatillas Speedcat OG unisex",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398846/18/sv01/fnd/EEA/fmt/png/Zapatillas-Speedcat-OG-unisex",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-speedcat-og-unisex/398846?swatch=18",
+    "price": 66,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "unisex",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-b96vIJ8T8iwUbHnd",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Zapatillas Speedcat Ballet Metallic para mujer",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/401581/01/sv01/fnd/EEA/fmt/png/Zapatillas-Speedcat-Ballet-Metallic-para-mujer",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-speedcat-ballet-metallic-para-mujer/401581?swatch=01",
+    "price": 72,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:33.502Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-baaBnzvLK_9DMD-D",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Zapatillas de piel Speedcat Ballet para mujer",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/403587/01/sv01/fnd/EEA/fmt/png/Zapatillas-de-piel-Speedcat-Ballet-para-mujer",
+    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-de-piel-speedcat-ballet-para-mujer/403587?swatch=01",
+    "price": 63,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Calzado",
+    "gender": "mujer",
+    "scrapedAt": "2026-08-02T08:15:33.503Z",
+    "source": "auto"
+  },
+  {
+    "id": "puma-d8TI-dFMIXf5CNSV",
+    "store": "puma",
+    "storeName": "Puma",
+    "title": "Sujetador PWRbreathe RUN",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/525074/01/mod01/fnd/EEA/fmt/png/Sujetador-PWRbreathe-RUN",
+    "productUrl": "https://eu.puma.com/es/es/pd/sujetador-pwrbreathe-run/525074?swatch=01",
+    "price": 38,
+    "originalPrice": null,
+    "discountPercent": null,
+    "currency": "EUR",
+    "category": "Ropa interior",
+    "scrapedAt": "2026-08-02T08:15:33.503Z",
     "source": "auto"
   },
   {
@@ -3255,7 +3237,7 @@
     "currency": "EUR",
     "category": "Ropa de deporte",
     "gender": "mujer",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.503Z",
     "source": "auto"
   },
   {
@@ -3271,7 +3253,7 @@
     "currency": "EUR",
     "category": "Camisetas y tops",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.503Z",
     "source": "auto"
   },
   {
@@ -3286,22 +3268,7 @@
     "discountPercent": null,
     "currency": "EUR",
     "category": "Ropa interior",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
-    "source": "auto"
-  },
-  {
-    "id": "puma-sufikBB6cTBh2aaG",
-    "store": "puma",
-    "storeName": "Puma",
-    "title": "Sujetador de tirantes PUMA x HYROX MOVE",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/527161/68/mod01/fnd/EEA/fmt/png/Sujetador-de-tirantes-PUMA x HYROX-MOVE",
-    "productUrl": "https://eu.puma.com/es/es/pd/sujetador-de-tirantes-puma-x-hyrox-move/527161?swatch=68",
-    "price": 22,
-    "originalPrice": null,
-    "discountPercent": null,
-    "currency": "EUR",
-    "category": "Ropa interior",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.503Z",
     "source": "auto"
   },
   {
@@ -3317,23 +3284,23 @@
     "currency": "EUR",
     "category": "Calzado",
     "gender": "hombre",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.503Z",
     "source": "auto"
   },
   {
-    "id": "puma-Mzd6jhDSzhK47Se-",
+    "id": "puma-_hM66RArRq05dzDh",
     "store": "puma",
     "storeName": "Puma",
-    "title": "Zapatillas Scuderia Ferrari Neo Cat 3.0 unisex",
-    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/309082/06/sv01/fnd/EEA/fmt/png/Zapatillas-Scuderia-Ferrari-Neo-Cat-3.0-unisex",
-    "productUrl": "https://eu.puma.com/es/es/pd/zapatillas-scuderia-ferrari-neo-cat-30-unisex/309082?swatch=06",
-    "price": 40,
+    "title": "Botas de fútbol FUTURE 9 ULTIMATE AG unisex",
+    "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/108890/05/sv01/fnd/EEA/fmt/png/Botas-de-fútbol-FUTURE-9-ULTIMATE-AG-unisex",
+    "productUrl": "https://eu.puma.com/es/es/pd/botas-de-futbol-future-9-ultimate-ag-unisex/108890?swatch=05",
+    "price": 144,
     "originalPrice": null,
     "discountPercent": null,
     "currency": "EUR",
     "category": "Calzado",
     "gender": "unisex",
-    "scrapedAt": "2026-08-01T08:13:38.638Z",
+    "scrapedAt": "2026-08-02T08:15:33.503Z",
     "source": "auto"
   }
 ]
