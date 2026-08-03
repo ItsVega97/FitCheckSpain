@@ -1,26 +1,26 @@
 {
-  "lastRun": "2026-08-02T08:15:28.446Z",
+  "lastRun": "2026-08-03T09:35:42.541Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
       "ok": true,
-      "dealsFound": 136,
-      "lastRun": "2026-08-02T08:15:28.446Z"
+      "dealsFound": 137,
+      "lastRun": "2026-08-03T09:35:42.541Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
-      "dealsFound": 47,
-      "lastRun": "2026-08-02T08:15:28.446Z"
+      "dealsFound": 46,
+      "lastRun": "2026-08-03T09:35:42.541Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-08-02T08:15:28.446Z"
+      "lastRun": "2026-08-03T09:35:42.541Z"
     }
   ]
 }
