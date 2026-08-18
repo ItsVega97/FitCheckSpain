@@ -1,0 +1,66 @@
+name: Debug fetch - headless (temporal)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Instalar Chromium de Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Escribir script de inspección
+        run: |
+          cat > inspect-headless.mjs << 'EOF'
+          import { chromium } from "playwright";
+
+          const UA =
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+
+          const targets = [
+            ["Mango", "https://shop.mango.com/es/es/mujer/rebajas"],
+            ["Womensecret", "https://www.womensecret.com/es/rebajas"],
+          ];
+
+          const browser = await chromium.launch();
+
+          for (const [name, url] of targets) {
+            const context = await browser.newContext({ userAgent: UA, locale: "es-ES" });
+            const page = await context.newPage();
+            try {
+              await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
+              await page.waitForTimeout(2000);
+              const html = await page.content();
+              console.log(`=== ${name}: ${html.length} bytes tras render ===`);
+
+              // Busca marcadores típicos de tarjeta de producto
+              for (const marker of ["data-testid", "product-tile", "product-item", "ProductCard", "grid-item"]) {
+                const count = (html.match(new RegExp(marker, "g")) || []).length;
+                if (count > 0) console.log(`  marcador "${marker}": ${count} apariciones`);
+              }
+
+              // Intenta contar elementos <a> con href de producto
+              const links = await page.locator("a[href]").count();
+              console.log(`  <a href> totales en la página: ${links}`);
+
+              // Vuelca un trozo del <body> para inspección manual
+              const bodyIdx = html.indexOf("<body");
+              console.log("--- fragmento del body (2000 chars) ---");
+              console.log(html.slice(bodyIdx, bodyIdx + 2000));
+            } catch (e) {
+              console.log(`${name} | ERROR: ${e.message}`);
+            } finally {
+              await context.close();
+            }
+          }
+
+          await browser.close();
+          EOF
+      - name: Inspeccionar Mango y Womensecret renderizados
+        run: node inspect-headless.mjs

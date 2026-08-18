@@ -24,4 +24,6 @@ export interface StoreConfig {
   selectors: StoreSelectors;
   maxProducts?: number;
   notes?: string;
+  /** true si el listado se pinta con JS en el cliente y hace falta un navegador headless para verlo */
+  headless?: boolean;
 }
