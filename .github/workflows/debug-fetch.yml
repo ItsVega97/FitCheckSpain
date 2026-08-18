@@ -1,0 +1,68 @@
+name: Debug fetch - Akamai stealth test (temporal)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Instalar Chromium de Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Escribir script de sigilo
+        run: |
+          cat > stealth-test.mjs << 'EOF'
+          import { chromium } from "playwright";
+
+          const UA =
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
+
+          async function test(name, url, opts) {
+            const browser = await chromium.launch({
+              headless: opts.headless,
+              args: [
+                "--disable-blink-features=AutomationControlled",
+                "--disable-features=IsolateOrigins,site-per-process",
+              ],
+            });
+            const context = await browser.newContext({
+              userAgent: UA,
+              locale: "es-ES",
+              timezoneId: "Europe/Madrid",
+              viewport: { width: 1366, height: 768 },
+              extraHTTPHeaders: { "Accept-Language": "es-ES,es;q=0.9,en;q=0.8" },
+            });
+            await context.addInitScript(() => {
+              Object.defineProperty(navigator, "webdriver", { get: () => undefined });
+              Object.defineProperty(navigator, "plugins", { get: () => [1, 2, 3, 4, 5] });
+              Object.defineProperty(navigator, "languages", { get: () => ["es-ES", "es", "en"] });
+              window.chrome = { runtime: {} };
+            });
+            const page = await context.newPage();
+            try {
+              const res = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 25000 });
+              await page.waitForTimeout(2000);
+              const html = await page.content();
+              console.log(`${name}: HTTP ${res.status()} | ${html.length} bytes | title="${await page.title()}"`);
+              if (html.length < 2000) console.log(html.slice(0, 500));
+            } catch (e) {
+              console.log(`${name}: ERROR ${e.message}`);
+            } finally {
+              await browser.close();
+            }
+          }
+
+          await test("Mango headless(new)+stealth", "https://shop.mango.com/es/es/mujer/rebajas", { headless: true });
+          await test("Mango headed(xvfb)+stealth", "https://shop.mango.com/es/es/mujer/rebajas", { headless: false });
+          EOF
+      - name: Lanzar Xvfb y ejecutar pruebas
+        run: |
+          Xvfb :99 -screen 0 1366x768x24 &
+          sleep 2
+          DISPLAY=:99 node stealth-test.mjs
