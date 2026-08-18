@@ -1,4 +1,4 @@
-name: Debug fetch - Womensecret remate-final (temporal)
+name: Debug fetch - Womensecret tile markup (temporal)
 
 on:
   workflow_dispatch: {}
@@ -15,9 +15,9 @@ jobs:
         run: npm ci
       - name: Instalar Chromium de Playwright
         run: npx playwright install --with-deps chromium
-      - name: Escribir script de inspección de remate-final
+      - name: Escribir script de inspección de tile
         run: |
-          cat > inspect-remate.mjs << 'EOF'
+          cat > inspect-tile.mjs << 'EOF'
           import { chromium } from "playwright";
 
           const UA =
@@ -32,39 +32,19 @@ jobs:
           });
           await page.waitForTimeout(2500);
 
-          console.log("URL final:", page.url());
-
           const info = await page.evaluate(() => {
-            const allClasses = new Set();
-            document.querySelectorAll("[class]").forEach((el) => {
-              el.className
-                .toString()
-                .split(/\s+/)
-                .forEach((c) => {
-                  if (/tile|product|grid|card|plp|item/i.test(c)) allClasses.add(c);
-                });
-            });
-            const productLinks = Array.from(document.querySelectorAll("a[href]"))
-              .map((a) => a.getAttribute("href"))
-              .filter((h) => h && /\.html/.test(h))
-              .slice(0, 10);
+            const tiles = document.querySelectorAll(".productTile");
+            if (tiles.length === 0) return { count: 0 };
+            const t = tiles[1] || tiles[0];
             return {
-              classesEncontradas: Array.from(allClasses).slice(0, 80),
-              ejemploLinksHtml: productLinks,
-              totalImgs: document.querySelectorAll("img").length,
+              count: tiles.length,
+              html: t.outerHTML.slice(0, 4000),
             };
           });
-          console.log(JSON.stringify(info, null, 2));
-
-          // Si hay algo con "product" en la clase, vuelca el primero entero
-          const sample = await page.evaluate(() => {
-            const el = document.querySelector('[class*="product"]');
-            return el ? el.outerHTML.slice(0, 2500) : null;
-          });
-          console.log("--- muestra de elemento [class*=product] ---");
-          console.log(sample);
+          console.log("productTile count:", info.count);
+          console.log(info.html);
 
           await browser.close();
           EOF
-      - name: Inspeccionar remate-final
-        run: node inspect-remate.mjs
+      - name: Inspeccionar markup del tile
+        run: node inspect-tile.mjs
