@@ -1,4 +1,4 @@
-name: Debug fetch - Womensecret v2 (temporal)
+name: Debug fetch - encontrar URL real rebajas (temporal)
 
 on:
   workflow_dispatch: {}
@@ -15,45 +15,45 @@ jobs:
         run: npm ci
       - name: Instalar Chromium de Playwright
         run: npx playwright install --with-deps chromium
-      - name: Escribir script de inspección amplia
+      - name: Escribir script de búsqueda de enlace real
         run: |
-          cat > inspect-ws3.mjs << 'EOF'
+          cat > find-sale-url.mjs << 'EOF'
           import { chromium } from "playwright";
 
           const UA =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
           const browser = await chromium.launch();
-          const context = await browser.newContext({ userAgent: UA, locale: "es-ES" });
-          const page = await context.newPage();
-          await page.goto("https://www.womensecret.com/es/rebajas", { waitUntil: "networkidle", timeout: 30000 });
-          await page.waitForTimeout(3000);
 
-          console.log("URL final tras redirecciones:", page.url());
+          async function findSaleLinks(name, homepageUrl) {
+            const context = await browser.newContext({ userAgent: UA, locale: "es-ES" });
+            const page = await context.newPage();
+            try {
+              await page.goto(homepageUrl, { waitUntil: "networkidle", timeout: 30000 });
+              await page.waitForTimeout(1500);
+              const links = await page.evaluate(() => {
+                return Array.from(document.querySelectorAll("a[href]"))
+                  .map((a) => ({ href: a.getAttribute("href"), text: a.textContent.trim() }))
+                  .filter(
+                    (l) =>
+                      /rebaja|sale|outlet|promo/i.test(l.href || "") ||
+                      /rebaja|sale|outlet/i.test(l.text || ""),
+                  )
+                  .slice(0, 15);
+              });
+              console.log(`=== ${name} (${page.url()}) ===`);
+              console.log(JSON.stringify(links, null, 2));
+            } catch (e) {
+              console.log(`${name} | ERROR: ${e.message}`);
+            } finally {
+              await context.close();
+            }
+          }
 
-          const info = await page.evaluate(() => {
-            const allClasses = new Set();
-            document.querySelectorAll("[class]").forEach((el) => {
-              el.className
-                .toString()
-                .split(/\s+/)
-                .forEach((c) => {
-                  if (/tile|product|grid|card|plp|item-/i.test(c)) allClasses.add(c);
-                });
-            });
-            const productLinks = Array.from(document.querySelectorAll("a[href]"))
-              .map((a) => a.getAttribute("href"))
-              .filter((h) => h && /\.html|\/p\/|product/i.test(h))
-              .slice(0, 10);
-            return {
-              classesEncontradas: Array.from(allClasses).slice(0, 60),
-              ejemploLinksProducto: productLinks,
-              totalImgs: document.querySelectorAll("img").length,
-            };
-          });
-          console.log(JSON.stringify(info, null, 2));
+          await findSaleLinks("Womensecret", "https://womensecret.com/es/es");
+          await findSaleLinks("Mango", "https://shop.mango.com/es/es");
 
           await browser.close();
           EOF
-      - name: Inspeccionar clases y enlaces reales
-        run: node inspect-ws3.mjs
+      - name: Buscar enlaces reales de rebajas
+        run: node find-sale-url.mjs
