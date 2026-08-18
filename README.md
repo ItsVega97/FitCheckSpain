@@ -30,23 +30,27 @@ internet real, no simulado), última comprobación 18/08/2026:
 | ASOS | ✅ Automático | Sin protección anti-bot; lee el JSON de producto embebido en la página (`scripts/scrapers/asos.ts`) |
 | Nike | ✅ Automático | Sin protección anti-bot; lee el `__NEXT_DATA__` estándar de Next.js (`scripts/scrapers/nike.ts`) |
 | Puma | ✅ Automático | Sin protección anti-bot; lee el JSON-LD (`ItemList`/`Product`) estándar de la página de ofertas (`scripts/scrapers/puma.ts`). Solo trae el precio ya rebajado, no el precio original ni el % de descuento |
-| Womensecret | ✅ Automático | El listado se pinta con JavaScript en el cliente, así que usa un navegador headless (Playwright) para renderizar la página antes de leer el JSON-LD de cada tarjeta (`scripts/scrapers/womensecret.ts`). Solo trae el precio ya rebajado |
-| Mango | ⚠️ Manual | Confirmado bloqueo de Akamai (403 Access Denied) incluso con navegador headless real y JS completo — no es un problema de renderizado, es un bloqueo de red/WAF |
-| H&M, Decathlon, Zalando, Adidas | ⚠️ Manual | Confirmado 403 (Akamai / Cloudflare) hasta en la portada, no solo en la página de rebajas |
-| Zara, Bershka, Pull&Bear | ⚠️ Manual | Confirmado: sirven una página de redirección/verificación anti-bot (Akamai Bot Manager) en vez del contenido real |
-| Superdry, Skechers | ⚠️ Manual | HTTP 200 pero su JSON-LD solo trae `BreadcrumbList`/datos de organización, no el listado de productos; no probado todavía con navegador headless |
+| Womensecret | ✅ Automático | El listado se pinta con JavaScript en el cliente y Akamai bloquea con 403 el fetch simple; el navegador headed (Playwright + Xvfb) lo esquiva. Cada tarjeta trae su propio JSON-LD (`scripts/scrapers/womensecret.ts`). Solo el precio ya rebajado |
+| Mango | ✅ Automático | Akamai bloqueaba con 403 tanto el fetch simple como el navegador headless normal; en modo **headed** (con Xvfb) deja pasar la petición. Selectores cheerio sobre CSS Modules (`scripts/scrapers/mango.ts`). Solo precio rebajado + % de descuento, sin precio original |
+| H&M, Decathlon, Adidas | ⚠️ Manual | Confirmado 403 (Akamai / Cloudflare) incluso con navegador headed — el bypass que funcionó en Mango/Womensecret/Zalando no es universal |
+| Zara, Zalando | ⚠️ Manual (por ahora) | El bloqueo de Akamai sí se esquiva con navegador headed (HTTP 200 en vez de 403), pero el listado usa un grid virtualizado con clases ofuscadas; falta investigar los selectores reales |
+| Bershka, Pull&Bear | ⚠️ Manual | Confirmado el mismo interstitial anti-bot que Zara con fetch simple; no probado todavía con navegador headed |
+| Superdry, Skechers | ⚠️ Manual | HTTP 200 pero su JSON-LD solo trae `BreadcrumbList`/datos de organización, no el listado de productos; no probado todavía con navegador headed |
 | Privalia | ⚠️ Manual | Club de venta privada, el catálogo requiere login |
 
-En resumen: **ASOS, Nike, Puma y Womensecret son automáticas.** Las tres
-primeras con peticiones HTTP simples; Womensecret necesita un navegador
-headless (Playwright) porque su listado se renderiza con JavaScript en el
-cliente — el scraper ya lo lanza solo cuando hace falta. El resto usan
-protección anti-bot de nivel empresarial (Akamai, Cloudflare) que bloquea
-la petición incluso con un navegador real, lo cual queda fuera de alcance
-de un scraper personal gratuito (haría falta fingerprinting evasion y
-proxies residenciales). Para esas tiendas, usa el añadido manual: tarda 10
-segundos por oferta y no depende de vencer ninguna protección, porque es
-una única petición ocasional que haces tú, no un rastreo repetido.
+En resumen: **ASOS, Nike, Puma, Womensecret y Mango son automáticas** (238+
+ofertas). Las tres primeras con peticiones HTTP simples. Womensecret y
+Mango necesitaban esquivar Akamai: el hallazgo clave fue que Chromium en
+modo **headed** de verdad (con Xvfb como pantalla virtual, no el modo
+headless normal) hace que Akamai deje pasar la petición en varias de sus
+implementaciones — el scraper ya lanza el navegador así solo cuando hace
+falta. Este mismo truco desbloqueó también Zara y Zalando a nivel de red,
+aunque construir el extractor de datos para esas dos queda pendiente (usan
+grids virtualizados con clases ofuscadas). H&M, Decathlon y Adidas siguen
+bloqueando incluso en modo headed — para esas y las demás tiendas
+pendientes, usa el añadido manual: tarda 10 segundos por oferta y no
+depende de vencer ninguna protección, porque es una única petición
+ocasional que haces tú, no un rastreo repetido.
 
 ## Uso en local
 

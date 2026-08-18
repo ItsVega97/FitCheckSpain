@@ -30,7 +30,10 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Ejecutar scraper
-        run: npm run scrape
+        run: |
+          Xvfb :99 -screen 0 1366x768x24 &
+          sleep 2
+          DISPLAY=:99 npm run scrape
 
       - name: Commitear cambios si los hay
         run: |

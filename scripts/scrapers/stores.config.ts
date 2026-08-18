@@ -10,43 +10,61 @@ import type { StoreConfig } from "./types";
  *   protección anti-bot. Las tres exponen el listado en JSON embebido (ver
  *   scripts/scrapers/asos.ts, nike.ts y puma.ts). Puma no incluye precio
  *   original en su JSON-LD, solo el precio ya rebajado.
- * - Womensecret: el listado ("remate final", su sección de rebajas) se
- *   pinta con JavaScript en el cliente, así que hace falta un navegador
- *   headless (Playwright) — ver scripts/scrapers/womensecret.ts y
- *   scripts/scrapers/engine-headless.ts. Una vez renderizada, cada tarjeta
- *   trae su propio JSON-LD de producto (igual que Puma, sin precio
- *   original). Confirmado funcionando con Chromium real en GitHub Actions.
- * - Mango: confirmado bloqueo de Akamai (403 "Access Denied", edgesuite.net)
- *   incluso usando un navegador headless real con JS completo — no es un
- *   problema de renderizado, es un bloqueo a nivel de red/WAF que un
- *   navegador headless normal no sortea.
- * - Superdry y Skechers: HTTP 200 pero su JSON-LD solo trae
- *   BreadcrumbList/datos de la organización, no el listado de productos;
- *   no investigado con navegador headless todavía.
- * - H&M, Decathlon, Zalando, Adidas: 403 (Akamai / Cloudflare) confirmado
- *   incluso en la portada, no solo en la página de rebajas.
- * - Zara, Bershka, Pull&Bear (Inditex): confirmado que sirven una página
- *   de redirección/verificación (meta-refresh o parámetro bm-verify de
- *   Akamai Bot Manager) en vez del contenido real a peticiones sin
- *   JavaScript.
+ * - Womensecret y Mango: el listado se pinta con JavaScript en el cliente Y
+ *   además Akamai bloquea con 403 tanto el fetch simple como Chromium en
+ *   modo headless normal (incluso el "new headless" moderno). El hallazgo
+ *   clave (18/08/2026): lanzando Chromium en modo **headed** de verdad
+ *   (con Xvfb como display virtual en el runner) Akamai deja pasar la
+ *   petición — deja de devolver 403 y sirve el contenido real. Ver
+ *   scripts/scrapers/engine-headless.ts (lanza siempre headed) y
+ *   scripts/scrapers/womensecret.ts / mango.ts. Ninguna de las dos incluye
+ *   precio original en el HTML, solo precio ya rebajado (+ % de descuento
+ *   en Mango). El workflow de scrape.yml arranca Xvfb antes de `npm run
+ *   scrape`.
+ * - Zalando: mismo bypass headed+Xvfb confirmado (HTTP 200 en vez de 403) —
+ *   además la URL real de rebajas es `/rebajas/`, no `/outlet/` (que sí
+ *   estaba bloqueada, de ahí la confusión en rondas anteriores). Pendiente:
+ *   el listado usa un grid virtualizado con clases ofuscadas sin ninguna
+ *   palabra reconocible ("product", "tile"...), hace falta investigar más
+ *   para extraer los datos.
+ * - Zara: mismo bypass headed+Xvfb confirmado (HTTP 200, carga 1.2MB en vez
+ *   del interstitial anti-bot). Pendiente: no se encontró JSON-LD ni
+ *   __NEXT_DATA__ ni enlaces de producto nada más cargar — probablemente
+ *   necesita scroll/interacción para que el grid virtualizado pinte los
+ *   productos.
+ * - Adidas: con headed+Xvfb la petición sigue devolviendo 403 pero con un
+ *   título "adidas" en vez de una página de error genérica — resultado
+ *   ambiguo, no investigado a fondo.
+ * - H&M: 403 Akamai confirmado incluso con headed+Xvfb — el bypass no es
+ *   universal, cada despliegue de Akamai puede tener reglas distintas.
+ * - Decathlon: Cloudflare (no Akamai) sigue devolviendo el challenge "Un
+ *   momento…" incluso con headed+Xvfb.
+ * - Superdry y Skechers: HTTP 200 con fetch simple pero su JSON-LD solo
+ *   trae BreadcrumbList/datos de la organización, no el listado de
+ *   productos; no probado con navegador headed todavía.
+ * - Bershka, Pull&Bear (Inditex): mismo interstitial anti-bot que Zara con
+ *   fetch simple; no probado con headed+Xvfb todavía.
  * - Privalia: catálogo tras login, no hay nada público que rastrear.
- * - Ronda de 18/08/2026 (fetch simple): sondeadas 35 marcas más (Under
- *   Armour, New Balance, Reebok, Converse, Vans, The North Face, Champion,
- *   Fila, Lacoste, Levi's, Tommy Hilfiger, Calvin Klein, Springfield, C&A,
- *   Timberland, Diesel, Guess, Bimba y Lola, Uniqlo, Kiabi, Naf Naf, Blanco,
- *   El Ganso, Ecoalf, Sfera, Etam, Neck&Neck, Purificación García, Adolfo
- *   Domínguez, Panama Jack, Camper, Geox, Pepe Jeans, Munich). Ninguna
- *   viable con fetch simple: la mayoría 403/418 (bot detection) o 404 (URL
- *   de rebajas adivinada incorrecta), las que sí cargan no tienen ni
- *   JSON-LD de producto ni tarjetas HTML server-renderizadas. Ninguna de
- *   estas se ha vuelto a probar con navegador headless todavía — son
- *   candidatas para una próxima ronda.
+ * - Ronda de 18/08/2026 (fetch simple, antes de descubrir el bypass
+ *   headed): sondeadas 35 marcas más (Under Armour, New Balance, Reebok,
+ *   Converse, Vans, The North Face, Champion, Fila, Lacoste, Levi's, Tommy
+ *   Hilfiger, Calvin Klein, Springfield, C&A, Timberland, Diesel, Guess,
+ *   Bimba y Lola, Uniqlo, Kiabi, Naf Naf, Blanco, El Ganso, Ecoalf, Sfera,
+ *   Etam, Neck&Neck, Purificación García, Adolfo Domínguez, Panama Jack,
+ *   Camper, Geox, Pepe Jeans, Munich). Ninguna viable con fetch simple: la
+ *   mayoría 403/418 (bot detection) o 404 (URL de rebajas adivinada
+ *   incorrecta), las que sí cargan no tienen ni JSON-LD de producto ni
+ *   tarjetas HTML server-renderizadas. Ninguna de estas se ha vuelto a
+ *   probar con headed+Xvfb todavía — son las candidatas más prometedoras
+ *   para una próxima ronda, dado que el bypass funcionó en 3 de 4 tiendas
+ *   con Akamai probadas hasta ahora.
  *
- * Las tiendas marcadas como "confirmado 403/bloqueo" no son un problema de
- * selectores o de URL: hace falta esquivar protección anti-bot de nivel
- * empresarial (fingerprinting, proxies residenciales), lo cual queda fuera
- * de alcance. Para esas, usa `npm run add-deal -- <url>` — añadir a mano
- * una oferta puntual funciona bien, es una sola petición ocasional.
+ * Las tiendas que siguen bloqueadas incluso con headed+Xvfb (H&M,
+ * Decathlon, Adidas) necesitarían algo más costoso (proxies residenciales,
+ * fingerprinting más sofisticado), lo cual queda fuera de alcance de un
+ * scraper personal gratuito. Para esas, usa `npm run add-deal -- <url>` —
+ * añadir a mano una oferta puntual funciona bien, es una sola petición
+ * ocasional.
  */
 export const STORE_CONFIGS: StoreConfig[] = [
   {
@@ -85,18 +103,19 @@ export const STORE_CONFIGS: StoreConfig[] = [
   {
     id: "mango",
     name: "Mango",
-    enabled: false,
-    listingUrls: ["https://shop.mango.com/es/es/mujer/rebajas"],
+    enabled: true,
+    // Las URLs de listado están hardcodeadas en scripts/scrapers/mango.ts;
+    // este campo no se usa (Mango tiene un scraper especializado), se deja
+    // solo a título informativo.
+    listingUrls: ["https://shop.mango.com/es/es/c/mujer/rebajas--70/93ea7423"],
     selectors: {
-      card: "[class*='product-tile'], article[class*='product']",
-      link: "a[href*='/es/mujer'], a[href*='/es/hombre']",
-      title: "[class*='product-name'], h3, h2",
-      image: "img",
-      price: "[class*='price']:not([class*='old'])",
-      originalPrice: "[class*='old-price'], del, s",
+      card: "",
+      link: "",
+      title: "",
+      image: "",
+      price: "",
     },
-    maxProducts: 24,
-    notes: "Desactivado: confirmado bloqueo de Akamai (403 Access Denied) incluso usando un navegador headless real con JS completo, no solo con fetch simple. Usa 'npm run add-deal'.",
+    notes: "Scraper especializado con navegador headed (Xvfb) + selectores cheerio, ver scripts/scrapers/mango.ts. Akamai bloqueaba con 403 tanto el fetch simple como el navegador headless normal, pero deja pasar la petición en modo headed real. Sin precio original en la fuente, solo precio ya rebajado + % de descuento. Confirmado funcionando.",
   },
   {
     id: "decathlon",
@@ -118,7 +137,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
     id: "zalando",
     name: "Zalando",
     enabled: false,
-    listingUrls: ["https://www.zalando.es/outlet/"],
+    listingUrls: ["https://www.zalando.es/rebajas/"],
     selectors: {
       card: "article, [class*='catalogArticle'], [class*='articleCard']",
       link: "a[href]",
@@ -128,7 +147,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='strike'], [class*='original-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado: confirmado bloqueo Akamai (403) incluso en la portada. Usa 'npm run add-deal'.",
+    notes: "Desactivado (por ahora): la URL de rebajas real es /rebajas/, no /outlet/ (que sí bloqueaba con 403). Con navegador headed (Xvfb) la petición ya no se bloquea (HTTP 200), pero el listado usa un grid virtualizado con clases ofuscadas sin palabras como 'product' o 'tile' — hace falta investigar más para dar con los selectores reales. Usa 'npm run add-deal'.",
   },
   {
     id: "nike",
@@ -161,7 +180,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='old-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado: confirmado que sirve una página de redirección meta-refresh (interstitial anti-bot) a peticiones sin JavaScript. Usa 'npm run add-deal'.",
+    notes: "Desactivado (por ahora): confirmado interstitial anti-bot con fetch simple, pero con navegador headed (Xvfb) la página carga entera (HTTP 200, 1.2MB). No tiene JSON-LD ni __NEXT_DATA__ ni enlaces de producto visibles nada más cargar — probablemente necesita scroll/interacción para que el grid pinte los productos. No investigado a fondo todavía. Usa 'npm run add-deal'.",
   },
   {
     id: "bershka",
