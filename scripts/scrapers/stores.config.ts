@@ -136,18 +136,19 @@ export const STORE_CONFIGS: StoreConfig[] = [
   {
     id: "zalando",
     name: "Zalando",
-    enabled: false,
+    enabled: true,
+    // Las URLs de listado están hardcodeadas en scripts/scrapers/zalando.ts;
+    // este campo no se usa (Zalando tiene un scraper especializado), se deja
+    // solo a título informativo.
     listingUrls: ["https://www.zalando.es/rebajas/"],
     selectors: {
-      card: "article, [class*='catalogArticle'], [class*='articleCard']",
-      link: "a[href]",
-      title: "h3, [class*='name']",
-      image: "img",
-      price: "[class*='price']:not([class*='strike']):not([class*='original'])",
-      originalPrice: "[class*='strike'], [class*='original-price'], del, s",
+      card: "",
+      link: "",
+      title: "",
+      image: "",
+      price: "",
     },
-    maxProducts: 24,
-    notes: "Desactivado (por ahora): la URL de rebajas real es /rebajas/, no /outlet/ (que sí bloqueaba con 403). Con navegador headed (Xvfb) la petición ya no se bloquea (HTTP 200), pero el listado usa un grid virtualizado con clases ofuscadas sin palabras como 'product' o 'tile' — hace falta investigar más para dar con los selectores reales. Usa 'npm run add-deal'.",
+    notes: "Scraper especializado con navegador headed (Xvfb), ver scripts/scrapers/zalando.ts. Akamai bloqueaba con 403 el fetch simple, pero deja pasar la petición en modo headed. El grid usa CSS Modules con clases totalmente hasheadas sin ninguna palabra reconocible, así que el scraper navega por la estructura fija de cada <article> (enlaces, <h3> con marca+nombre, <section> con el/los <p> de precio) en vez de por nombre de clase — más frágil ante cambios de layout que un selector por clase, pero es lo único estable disponible. Confirmado funcionando.",
   },
   {
     id: "nike",
