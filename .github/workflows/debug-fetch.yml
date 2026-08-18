@@ -1,0 +1,89 @@
+name: Debug fetch - más tiendas (temporal)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Escribir script de sondeo
+        run: |
+          cat > probe.mjs << 'EOF'
+          const UA =
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+
+          const candidates = [
+            ["Under Armour", "https://www.underarmour.es/es-es/c/sale/"],
+            ["New Balance", "https://www.newbalance.es/es/sale/"],
+            ["Reebok", "https://www.reebok.es/sale"],
+            ["Converse", "https://www.converse.com/es/es_es/sale"],
+            ["Vans", "https://www.vans.es/es-es/sale"],
+            ["The North Face", "https://www.thenorthface.es/shop/sale"],
+            ["Champion", "https://eu.champion.com/es/sale"],
+            ["Fila", "https://www.fila.eu/es_es/sale"],
+            ["Lacoste", "https://www.lacoste.com/es/rebajas/"],
+            ["Levis", "https://www.levi.es/rebajas/"],
+            ["Tommy Hilfiger", "https://es.tommy.com/rebajas"],
+            ["Calvin Klein", "https://www.calvinklein.es/es/rebajas"],
+            ["Springfield", "https://www.springfield.com/es/rebajas"],
+            ["Womensecret", "https://www.womensecret.com/es/rebajas"],
+            ["C&A", "https://www.c-and-a.com/es/es/shop/rebajas"],
+            ["Timberland", "https://www.timberland.es/sale/"],
+            ["Diesel", "https://www.diesel.com/es/rebajas/"],
+            ["Guess", "https://www.guess.eu/es-es/rebajas"],
+            ["Bimba y Lola", "https://www.bimbaylola.com/es-es/rebajas"],
+            ["Uniqlo", "https://www.uniqlo.com/es/es/feature/sale"],
+          ];
+
+          function extractItemLists(html) {
+            const blocks = [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
+            const results = [];
+            for (const [, raw] of blocks) {
+              let data;
+              try {
+                data = JSON.parse(raw);
+              } catch {
+                continue;
+              }
+              const nodes = Array.isArray(data) ? data : data["@graph"] ? data["@graph"] : [data];
+              for (const node of nodes) {
+                const items = node.itemListElement || node.mainEntity?.itemListElement;
+                if (Array.isArray(items) && items.length > 0) {
+                  const looksLikeProducts = items.some(
+                    (i) => i.item?.["@type"] === "Product" || i.item?.offers
+                  );
+                  if (looksLikeProducts) results.push(items.length);
+                }
+              }
+            }
+            return results;
+          }
+
+          for (const [name, url] of candidates) {
+            try {
+              const res = await fetch(url, {
+                headers: {
+                  "User-Agent": UA,
+                  "Accept-Language": "es-ES,es;q=0.9",
+                  Accept: "text/html,application/xhtml+xml",
+                },
+                signal: AbortSignal.timeout(12000),
+              });
+              const html = await res.text();
+              const lists = extractItemLists(html);
+              const hasProductTile = /product-tile|data-product|"@type":"Product"/i.test(html);
+              console.log(
+                `${name} | HTTP ${res.status} | ${html.length} bytes | ItemLists con productos: [${lists.join(",")}] | marcador product-tile/data-product: ${hasProductTile}`
+              );
+            } catch (e) {
+              console.log(`${name} | ERROR: ${e.message}`);
+            }
+          }
+          EOF
+      - name: Sondear candidatas
+        run: node probe.mjs
