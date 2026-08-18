@@ -115,7 +115,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       image: "",
       price: "",
     },
-    notes: "Scraper especializado con navegador headed (Xvfb) + selectores cheerio, ver scripts/scrapers/mango.ts. Akamai bloqueaba con 403 tanto el fetch simple como el navegador headless normal, pero deja pasar la petición en modo headed real. Sin precio original en la fuente, solo precio ya rebajado + % de descuento. Confirmado funcionando.",
+    notes: "Scraper especializado con navegador headed (Xvfb) + selectores cheerio, ver scripts/scrapers/mango.ts. Akamai bloqueaba con 403 tanto el fetch simple como el navegador headless normal, pero deja pasar la petición en modo headed real. Sin precio original ni % de descuento visibles en la tarjeta, solo el precio ya rebajado. Confirmado funcionando (32 ofertas reales en la primera ejecución).",
   },
   {
     id: "decathlon",

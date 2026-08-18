@@ -15,7 +15,9 @@ import type { Deal } from "../../lib/types";
  * puede cambiar entre despliegues de Mango.
  *
  * No hay precio original visible en la tarjeta, solo el precio ya
- * rebajado y el % de descuento en una insignia aparte.
+ * rebajado. Se intenta leer también el % de descuento de una insignia
+ * aparte, pero en la práctica esa clase no aparece en el HTML real (queda
+ * a null, la UI ya soporta mostrarlo sin la insignia de descuento).
  */
 const CARD_SELECTOR = '[class*="productCard"]';
 
