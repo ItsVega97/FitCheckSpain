@@ -19,6 +19,7 @@ export const STORES: StoreMeta[] = [
   { id: "zalando", name: "Zalando", color: "#ff6900" },
   { id: "privalia", name: "Privalia", color: "#e2007a" },
   { id: "puma", name: "Puma", color: "#000000" },
+  { id: "womensecret", name: "Womensecret", color: "#e6007e" },
   { id: "otros", name: "Otros", color: "#6b7280" },
 ];
 

@@ -6,46 +6,47 @@ import type { StoreConfig } from "./types";
  * Estado verificado ejecutando el scraper de verdad en GitHub Actions
  * (con acceso a internet real), última comprobación 22/07/2026:
  *
- * - ASOS, Nike y Puma: scraping automático fiable, sin protección anti-bot
- *   para peticiones simples. Las tres exponen el listado en JSON embebido
- *   (ver scripts/scrapers/asos.ts, nike.ts y puma.ts). Puma no incluye
- *   precio original en su JSON-LD, solo el precio ya rebajado.
+ * - ASOS, Nike y Puma: scraping automático fiable con fetch simple, sin
+ *   protección anti-bot. Las tres exponen el listado en JSON embebido (ver
+ *   scripts/scrapers/asos.ts, nike.ts y puma.ts). Puma no incluye precio
+ *   original en su JSON-LD, solo el precio ya rebajado.
+ * - Womensecret: el listado ("remate final", su sección de rebajas) se
+ *   pinta con JavaScript en el cliente, así que hace falta un navegador
+ *   headless (Playwright) — ver scripts/scrapers/womensecret.ts y
+ *   scripts/scrapers/engine-headless.ts. Una vez renderizada, cada tarjeta
+ *   trae su propio JSON-LD de producto (igual que Puma, sin precio
+ *   original). Confirmado funcionando con Chromium real en GitHub Actions.
+ * - Mango: confirmado bloqueo de Akamai (403 "Access Denied", edgesuite.net)
+ *   incluso usando un navegador headless real con JS completo — no es un
+ *   problema de renderizado, es un bloqueo a nivel de red/WAF que un
+ *   navegador headless normal no sortea.
  * - Superdry y Skechers: HTTP 200 pero su JSON-LD solo trae
  *   BreadcrumbList/datos de la organización, no el listado de productos;
- *   haría falta parsear las tarjetas HTML directamente (no investigado
- *   todavía).
+ *   no investigado con navegador headless todavía.
  * - H&M, Decathlon, Zalando, Adidas: 403 (Akamai / Cloudflare) confirmado
  *   incluso en la portada, no solo en la página de rebajas.
  * - Zara, Bershka, Pull&Bear (Inditex): confirmado que sirven una página
  *   de redirección/verificación (meta-refresh o parámetro bm-verify de
  *   Akamai Bot Manager) en vez del contenido real a peticiones sin
  *   JavaScript.
- * - Mango: la portada carga bien, pero las rutas de rebajas devuelven la
- *   página de error de Next.js (__next_error__); el listado se pinta por
- *   JavaScript en el cliente, así que un fetch simple nunca ve productos
- *   aunque la URL sea exacta.
  * - Privalia: catálogo tras login, no hay nada público que rastrear.
- * - Ronda de 18/08/2026: sondeadas 35 marcas más (Under Armour, New Balance,
- *   Reebok, Converse, Vans, The North Face, Champion, Fila, Lacoste, Levi's,
- *   Tommy Hilfiger, Calvin Klein, Springfield, Womensecret, C&A, Timberland,
- *   Diesel, Guess, Bimba y Lola, Uniqlo, Kiabi, Naf Naf, Blanco, El Ganso,
- *   Ecoalf, Sfera, Etam, Neck&Neck, Purificación García, Adolfo Domínguez,
- *   Panama Jack, Camper, Geox, Pepe Jeans, Munich). Ninguna viable: la
- *   mayoría 403/418 (bot detection) o 404 (URL de rebajas adivinada
- *   incorrecta — habría que confirmar la ruta real a mano por tienda), las
- *   que sí cargan (Etam, C&A, Diesel, Bimba y Lola, Geox) no tienen ni
- *   JSON-LD de producto ni tarjetas HTML server-renderizadas. Womensecret
- *   dio un falso positivo: el texto "product-tile" solo aparece dentro de
- *   un JSON de configuración de analítica (selectores CSS para tracking de
- *   clics), no hay productos reales en el HTML — el listado se pinta por
- *   JavaScript en el cliente.
+ * - Ronda de 18/08/2026 (fetch simple): sondeadas 35 marcas más (Under
+ *   Armour, New Balance, Reebok, Converse, Vans, The North Face, Champion,
+ *   Fila, Lacoste, Levi's, Tommy Hilfiger, Calvin Klein, Springfield, C&A,
+ *   Timberland, Diesel, Guess, Bimba y Lola, Uniqlo, Kiabi, Naf Naf, Blanco,
+ *   El Ganso, Ecoalf, Sfera, Etam, Neck&Neck, Purificación García, Adolfo
+ *   Domínguez, Panama Jack, Camper, Geox, Pepe Jeans, Munich). Ninguna
+ *   viable con fetch simple: la mayoría 403/418 (bot detection) o 404 (URL
+ *   de rebajas adivinada incorrecta), las que sí cargan no tienen ni
+ *   JSON-LD de producto ni tarjetas HTML server-renderizadas. Ninguna de
+ *   estas se ha vuelto a probar con navegador headless todavía — son
+ *   candidatas para una próxima ronda.
  *
- * Ninguno de estos bloqueos es un problema de selectores o de URL: hace
- * falta un navegador real (headless) con gestión de cookies/JS para
- * sortearlos, lo cual queda fuera del alcance de un scraper gratuito por
- * fetch simple. Para todas las desactivadas usa `npm run add-deal -- <url>`
- * — añadir a mano una oferta puntual sí funciona bien, ya que es una sola
- * petición ocasional, no un rastreo repetido.
+ * Las tiendas marcadas como "confirmado 403/bloqueo" no son un problema de
+ * selectores o de URL: hace falta esquivar protección anti-bot de nivel
+ * empresarial (fingerprinting, proxies residenciales), lo cual queda fuera
+ * de alcance. Para esas, usa `npm run add-deal -- <url>` — añadir a mano
+ * una oferta puntual funciona bien, es una sola petición ocasional.
  */
 export const STORE_CONFIGS: StoreConfig[] = [
   {
@@ -95,7 +96,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='old-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado: la app es Next.js con listado renderizado por JavaScript en el cliente; un fetch simple no ve productos aunque la URL sea correcta. Usa 'npm run add-deal'.",
+    notes: "Desactivado: confirmado bloqueo de Akamai (403 Access Denied) incluso usando un navegador headless real con JS completo, no solo con fetch simple. Usa 'npm run add-deal'.",
   },
   {
     id: "decathlon",
@@ -240,5 +241,21 @@ export const STORE_CONFIGS: StoreConfig[] = [
       price: "",
     },
     notes: "Scraper especializado (JSON-LD ItemList), ver scripts/scrapers/puma.ts. Sin precio original en la fuente, solo precio ya rebajado. Confirmado funcionando.",
+  },
+  {
+    id: "womensecret",
+    name: "Womensecret",
+    enabled: true,
+    // Las URLs de listado están hardcodeadas en scripts/scrapers/womensecret.ts;
+    // este campo no se usa, se deja solo a título informativo.
+    listingUrls: ["https://womensecret.com/es/es/promociones/remate-final/mujer"],
+    selectors: {
+      card: "",
+      link: "",
+      title: "",
+      image: "",
+      price: "",
+    },
+    notes: "Scraper especializado con navegador headless (Playwright), ver scripts/scrapers/womensecret.ts. El listado se pinta con JS en el cliente, así que un fetch simple no ve productos; cada tarjeta trae su propio JSON-LD con precio ya rebajado (sin precio original). Confirmado funcionando.",
   },
 ];

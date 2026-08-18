@@ -26,6 +26,9 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Instalar Chromium de Playwright
+        run: npx playwright install --with-deps chromium
+
       - name: Ejecutar scraper
         run: npm run scrape
 

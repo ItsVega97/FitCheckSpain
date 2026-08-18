@@ -1,6 +1,4 @@
 import { chromium, type Browser } from "playwright";
-import { parseListing, type ScrapeOutcome } from "./engine";
-import type { StoreConfig } from "./types";
 
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
@@ -41,16 +39,4 @@ export async function fetchRenderedHtml(
   } finally {
     await context.close();
   }
-}
-
-export async function scrapeStoreHeadless(config: StoreConfig, browser: Browser): Promise<ScrapeOutcome> {
-  const combined: ScrapeOutcome = { deals: [], cardsFound: 0 };
-  for (const listingUrl of config.listingUrls) {
-    const html = await fetchRenderedHtml(browser, listingUrl, { waitForSelector: config.selectors.card });
-    const result = parseListing(html, listingUrl, config);
-    combined.deals.push(...result.deals);
-    combined.cardsFound += result.cardsFound;
-  }
-  combined.deals = combined.deals.filter((d) => (d.discountPercent ?? 0) > 0);
-  return combined;
 }
