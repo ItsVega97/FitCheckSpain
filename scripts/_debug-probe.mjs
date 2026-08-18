@@ -17,44 +17,28 @@ async function newPage(browser) {
   return { context, page: await context.newPage() };
 }
 
-async function inspectDesigual(browser) {
-  console.log("\n================== Desigual: contenido JSON-LD ==================");
+async function desigualPrice(browser) {
+  console.log("\n================== Desigual: JSON-LD completo + card HTML ==================");
   const { context, page } = await newPage(browser);
   try {
     await page.goto("https://www.desigual.com/es_ES/rebajas/", { waitUntil: "domcontentloaded", timeout: 30000 });
     await page.waitForTimeout(3000);
-    const blocks = await page.evaluate(() =>
-      Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map((s) => s.textContent.slice(0, 2000)),
-    );
-    blocks.forEach((b, i) => console.log(`--- block ${i} ---\n${b}`));
-    const cardCount = await page.locator("[class*='product-tile'], [class*='product-item'], .product").count();
-    console.log("card-like elements:", cardCount);
-  } catch (e) {
-    console.log("ERROR:", e.message);
-  } finally {
-    await context.close();
-  }
-}
-
-async function inspectBershkaNuxt(browser) {
-  console.log("\n================== Bershka: __NUXT__ ==================");
-  const { context, page } = await newPage(browser);
-  try {
-    await page.goto("https://www.bershka.com/es/rebajas-c1010276000.html", { waitUntil: "domcontentloaded", timeout: 30000 });
-    await page.waitForTimeout(3000);
-    const info = await page.evaluate(() => {
-      const n = window.__NUXT__;
-      if (!n) return null;
-      const keys = Object.keys(n);
-      let str;
-      try {
-        str = JSON.stringify(n);
-      } catch {
-        str = "(no serializable)";
+    const block = await page.evaluate(() => {
+      const scripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
+      for (const s of scripts) {
+        if (s.textContent.includes('"ItemList"')) return s.textContent;
       }
-      return { keys, len: str.length, sample: str.slice(0, 3000) };
+      return null;
     });
-    console.log(JSON.stringify(info, null, 2).slice(0, 4000));
+    console.log("Full ItemList JSON-LD length:", block ? block.length : 0);
+    console.log(block ? block.slice(0, 6000) : "(no encontrado)");
+
+    const cardHtml = await page.evaluate(() => {
+      const el = document.querySelector("[class*='product-tile'], [class*='product-item'], .product");
+      return el ? el.outerHTML.slice(0, 2500) : null;
+    });
+    console.log("\n--- card html sample ---");
+    console.log(cardHtml);
   } catch (e) {
     console.log("ERROR:", e.message);
   } finally {
@@ -62,28 +46,8 @@ async function inspectBershkaNuxt(browser) {
   }
 }
 
-async function inspectTommyNextData(browser) {
-  console.log("\n================== Tommy Hilfiger: __NEXT_DATA__ ==================");
-  const { context, page } = await newPage(browser);
-  try {
-    await page.goto("https://es.tommy.com/sale", { waitUntil: "domcontentloaded", timeout: 30000 });
-    await page.waitForTimeout(3000);
-    const info = await page.evaluate(() => {
-      const el = document.getElementById("__NEXT_DATA__");
-      if (!el) return null;
-      const txt = el.textContent;
-      return { len: txt.length, sample: txt.slice(0, 3000) };
-    });
-    console.log(JSON.stringify(info, null, 2).slice(0, 4000));
-  } catch (e) {
-    console.log("ERROR:", e.message);
-  } finally {
-    await context.close();
-  }
-}
-
-async function inspectZalando(browser) {
-  console.log("\n================== Zalando: HTML de un artículo ==================");
+async function zalandoPrice(browser) {
+  console.log("\n================== Zalando: artículo completo con precio ==================");
   const { context, page } = await newPage(browser);
   try {
     await page.goto("https://www.zalando.es/rebajas/", { waitUntil: "domcontentloaded", timeout: 30000 });
@@ -93,12 +57,10 @@ async function inspectZalando(browser) {
       await page.waitForTimeout(500);
     }
     const sample = await page.evaluate(() => {
-      const art = document.querySelector("article");
-      return art ? art.outerHTML.slice(0, 3000) : null;
+      const art = document.querySelectorAll("article")[3];
+      return art ? art.outerHTML : null;
     });
     console.log(sample);
-    const count = await page.locator("article").count();
-    console.log("total <article> count:", count);
   } catch (e) {
     console.log("ERROR:", e.message);
   } finally {
@@ -106,27 +68,41 @@ async function inspectZalando(browser) {
   }
 }
 
-async function inspectConverse(browser) {
-  console.log("\n================== Converse: enlaces de producto ==================");
+async function bershkaDom(browser) {
+  console.log("\n================== Bershka: DOM tras scroll ==================");
   const { context, page } = await newPage(browser);
   try {
-    await page.goto("https://www.converse.com/es/sale", { waitUntil: "domcontentloaded", timeout: 30000 });
-    await page.waitForTimeout(3000);
-    const links = await page.evaluate(() =>
-      Array.from(document.querySelectorAll("a[href]"))
-        .map((a) => a.getAttribute("href"))
-        .filter((h) => h && /\/p\/|product/i.test(h))
-        .slice(0, 10),
-    );
-    console.log("sample links:", JSON.stringify(links, null, 2));
-    const cardHtml = await page.evaluate(() => {
-      const a = Array.from(document.querySelectorAll("a[href]")).find((a) => /\/p\/|product/i.test(a.getAttribute("href") || ""));
-      if (!a) return null;
-      let node = a;
-      for (let i = 0; i < 3 && node.parentElement; i++) node = node.parentElement;
-      return node.outerHTML.slice(0, 2500);
+    await page.goto("https://www.bershka.com/es/rebajas-c1010276000.html", { waitUntil: "domcontentloaded", timeout: 30000 });
+    await page.waitForTimeout(4000);
+    for (let i = 0; i < 5; i++) {
+      await page.mouse.wheel(0, 1500);
+      await page.waitForTimeout(700);
+    }
+    await page.waitForTimeout(2000);
+    const info = await page.evaluate(() => {
+      const candidates = [
+        "[class*='product-grid-product']",
+        "[class*='product-item']",
+        "[class*='product-card']",
+        "[class*='productCard']",
+        "li[class*='product']",
+        "a[href*='.html'][class*='product']",
+      ];
+      const results = {};
+      for (const sel of candidates) {
+        results[sel] = document.querySelectorAll(sel).length;
+      }
+      return results;
     });
-    console.log("card html sample:", cardHtml);
+    console.log("selector counts:", JSON.stringify(info, null, 2));
+    const anyCard = await page.evaluate(() => {
+      for (const sel of ["[class*='product-grid-product']", "[class*='product-item']", "[class*='product-card']", "li[class*='product']"]) {
+        const el = document.querySelector(sel);
+        if (el) return { sel, html: el.outerHTML.slice(0, 2000) };
+      }
+      return null;
+    });
+    console.log("sample card:", JSON.stringify(anyCard, null, 2));
   } catch (e) {
     console.log("ERROR:", e.message);
   } finally {
@@ -134,43 +110,42 @@ async function inspectConverse(browser) {
   }
 }
 
-async function retryUrls(browser) {
-  const retries = [
-    ["Stradivarius rebajas (alt)", "https://www.stradivarius.com/es/mujer/rebajas-c1030299.html"],
-    ["Camper sale (alt)", "https://www.camper.com/es_ES/women/sale"],
-    ["Calvin Klein sale (alt)", "https://www.calvinklein.es/es/mujer/sale"],
-    ["Guess sale (alt)", "https://www.guess.eu/es-es/women/sale"],
-    ["Pepe Jeans sale (alt)", "https://www.pepejeans.com/es/mujer/rebajas/"],
-    ["Superdry sale (alt)", "https://www.superdry.com/es/rebajas"],
-    ["Skechers sale (alt)", "https://www.skechers.com/es-es/rebajas/"],
-    ["Levi's sale (alt domain)", "https://www.levi.com/ES/es_ES/sale/c/levi_clothing_sale"],
-    ["Springfield rebajas (retry, timeout largo)", "https://www.springfield.com/es/rebajas", 45000],
-    ["Under Armour sale (alt)", "https://www.underarmour.es/es-es/c/sale-c1/"],
-    ["Massimo Dutti rebajas mujer (alt)", "https://www.massimodutti.com/es/mujer/rebajas-n5017"],
-  ];
-  for (const [name, url, timeout] of retries) {
-    console.log(`\n================== ${name} ==================`);
-    console.log(`URL: ${url}`);
-    const { context, page } = await newPage(browser);
-    try {
-      const resp = await page.goto(url, { waitUntil: "domcontentloaded", timeout: timeout ?? 30000 });
-      console.log(`HTTP: ${resp ? resp.status() : "?"}`);
-      await page.waitForTimeout(3000);
-      const title = await page.title();
-      console.log(`Title: ${title}`);
-      const html = await page.content();
-      console.log(`HTML size: ${html.length}`);
-      const hasJsonLdProduct = /"@type"\s*:\s*"Product"/.test(html);
-      const hasNextData = html.includes('id="__NEXT_DATA__"');
-      const hasNuxtData = html.includes("__NUXT__");
-      console.log(`JSON-LD Product: ${hasJsonLdProduct} | __NEXT_DATA__: ${hasNextData} | __NUXT__: ${hasNuxtData}`);
-      const linkCount = await page.locator("a[href*='/p/'], a[href*='product'], a[href*='.html']").count().catch(() => 0);
-      console.log(`Product-like links: ${linkCount}`);
-    } catch (e) {
-      console.log("ERROR:", e.message);
-    } finally {
-      await context.close();
-    }
+async function tommyDeep(browser) {
+  console.log("\n================== Tommy Hilfiger: buscar productos en __NEXT_DATA__ ==================");
+  const { context, page } = await newPage(browser);
+  try {
+    await page.goto("https://es.tommy.com/sale", { waitUntil: "domcontentloaded", timeout: 30000 });
+    await page.waitForTimeout(3000);
+    const info = await page.evaluate(() => {
+      const el = document.getElementById("__NEXT_DATA__");
+      if (!el) return null;
+      const txt = el.textContent;
+      const idx = txt.indexOf('"products"');
+      const idx2 = txt.indexOf('"items"');
+      const idx3 = txt.indexOf('"sku"');
+      return {
+        len: txt.length,
+        productsIdx: idx,
+        itemsIdx: idx2,
+        skuIdx: idx3,
+        aroundProducts: idx >= 0 ? txt.slice(idx, idx + 1500) : null,
+        aroundSku: idx3 >= 0 ? txt.slice(Math.max(0, idx3 - 500), idx3 + 1000) : null,
+      };
+    });
+    console.log(JSON.stringify(info, null, 2).slice(0, 6000));
+
+    // Also check DOM directly for product cards
+    const domInfo = await page.evaluate(() => {
+      const candidates = ["[class*='ProductCard']", "[class*='product-card']", "[data-testid*='product']", "a[href*='/p/']"];
+      const results = {};
+      for (const sel of candidates) results[sel] = document.querySelectorAll(sel).length;
+      return results;
+    });
+    console.log("DOM selector counts:", JSON.stringify(domInfo, null, 2));
+  } catch (e) {
+    console.log("ERROR:", e.message);
+  } finally {
+    await context.close();
   }
 }
 
@@ -179,11 +154,9 @@ const browser = await chromium.launch({
   args: ["--disable-blink-features=AutomationControlled"],
 });
 
-await inspectDesigual(browser);
-await inspectBershkaNuxt(browser);
-await inspectTommyNextData(browser);
-await inspectZalando(browser);
-await inspectConverse(browser);
-await retryUrls(browser);
+await desigualPrice(browser);
+await zalandoPrice(browser);
+await bershkaDom(browser);
+await tommyDeep(browser);
 
 await browser.close();
