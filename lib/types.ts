@@ -12,6 +12,7 @@ export type StoreId =
   | "privalia"
   | "puma"
   | "womensecret"
+  | "desigual"
   | "otros";
 
 export interface Deal {

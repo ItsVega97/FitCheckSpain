@@ -278,4 +278,21 @@ export const STORE_CONFIGS: StoreConfig[] = [
     },
     notes: "Scraper especializado con navegador headless (Playwright), ver scripts/scrapers/womensecret.ts. El listado se pinta con JS en el cliente, así que un fetch simple no ve productos; cada tarjeta trae su propio JSON-LD con precio ya rebajado (sin precio original). Confirmado funcionando.",
   },
+  {
+    id: "desigual",
+    name: "Desigual",
+    enabled: true,
+    // La URL de listado está hardcodeada en scripts/scrapers/desigual.ts;
+    // este campo no se usa (Desigual tiene un scraper especializado), se
+    // deja solo a título informativo.
+    listingUrls: ["https://www.desigual.com/es_ES/rebajas/"],
+    selectors: {
+      card: "",
+      link: "",
+      title: "",
+      image: "",
+      price: "",
+    },
+    notes: "Scraper especializado con navegador headed (Xvfb), ver scripts/scrapers/desigual.ts. Usa Salesforce Commerce Cloud (plantilla SFRA): cada tarjeta .product-tile trae microdatos schema.org con precio actual y original en <meta itemprop=\"price\">, sin necesidad de JSON-LD. Confirmado funcionando. Solo cubre la rebajas de mujer por ahora.",
+  },
 ];

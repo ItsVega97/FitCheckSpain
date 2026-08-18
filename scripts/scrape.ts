@@ -8,6 +8,7 @@ import { scrapePuma } from "./scrapers/puma";
 import { scrapeWomensecret } from "./scrapers/womensecret";
 import { scrapeMango } from "./scrapers/mango";
 import { scrapeZalando } from "./scrapers/zalando";
+import { scrapeDesigual } from "./scrapers/desigual";
 import type { Deal, StoreId, StoreStatus } from "../lib/types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -19,6 +20,7 @@ const SPECIALIZED_SCRAPERS: Partial<Record<StoreId, () => Promise<ScrapeOutcome>
   womensecret: scrapeWomensecret,
   mango: scrapeMango,
   zalando: scrapeZalando,
+  desigual: scrapeDesigual,
 };
 
 async function main() {
