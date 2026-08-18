@@ -1,4 +1,4 @@
-name: Debug fetch - explorar Zara/Mango/Zalando desbloqueados (temporal)
+name: Debug fetch - estructura Mango y Zalando reales (temporal)
 
 on:
   workflow_dispatch: {}
@@ -15,9 +15,9 @@ jobs:
         run: npm ci
       - name: Instalar Chromium de Playwright
         run: npx playwright install --with-deps chromium
-      - name: Escribir script de exploración
+      - name: Escribir script de inspección
         run: |
-          cat > explore.mjs << 'EOF'
+          cat > inspect2.mjs << 'EOF'
           import { chromium } from "playwright";
 
           const UA =
@@ -42,71 +42,58 @@ jobs:
             return { context, page: await context.newPage() };
           }
 
-          // 1) Buscar enlace real de rebajas en Mango y Zalando
-          async function findSaleLink(name, homeUrl) {
+          async function inspect(name, url) {
             const { context, page } = await newPage();
             try {
-              await page.goto(homeUrl, { waitUntil: "domcontentloaded", timeout: 25000 });
+              const res = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 25000 });
+              await page.waitForTimeout(3000);
+              await page.mouse.wheel(0, 2000);
               await page.waitForTimeout(1500);
-              const links = await page.evaluate(() => {
-                return Array.from(document.querySelectorAll("a[href]"))
-                  .map((a) => ({ href: a.getAttribute("href"), text: a.textContent.trim() }))
-                  .filter(
-                    (l) =>
-                      /rebaja|sale|outlet/i.test(l.href || "") || /rebaja|sale|outlet/i.test(l.text || ""),
-                  )
-                  .slice(0, 10);
+              const info = await page.evaluate(() => {
+                const html = document.documentElement.outerHTML;
+                const jsonLdCount = document.querySelectorAll('script[type="application/ld+json"]').length;
+                const hasNextData = !!document.getElementById("__NEXT_DATA__");
+                const allClasses = new Set();
+                document.querySelectorAll("[class]").forEach((el) => {
+                  el.className
+                    .toString()
+                    .split(/\s+/)
+                    .forEach((c) => {
+                      if (/tile|product|grid|card|item-box|article/i.test(c)) allClasses.add(c);
+                    });
+                });
+                return {
+                  bytes: html.length,
+                  jsonLdCount,
+                  hasNextData,
+                  classes: Array.from(allClasses).slice(0, 40),
+                };
               });
-              console.log(`=== ${name} enlaces rebajas ===`);
-              console.log(JSON.stringify(links, null, 2));
+              console.log(`=== ${name}: HTTP ${res.status()} ===`);
+              console.log(JSON.stringify(info, null, 2));
+              if (info.jsonLdCount > 0) {
+                const samples = await page.evaluate(() =>
+                  Array.from(document.querySelectorAll('script[type="application/ld+json"]'))
+                    .slice(0, 2)
+                    .map((el) => el.textContent.slice(0, 800)),
+                );
+                console.log("--- muestras JSON-LD ---");
+                samples.forEach((s) => console.log(s));
+              }
             } catch (e) {
               console.log(`${name}: ERROR ${e.message}`);
             } finally {
               await context.close();
             }
           }
-          await findSaleLink("Mango", "https://shop.mango.com/es/es");
-          await findSaleLink("Zalando", "https://www.zalando.es/");
 
-          // 2) Inspeccionar estructura de datos de Zara (ya carga con 200)
-          const { context, page } = await newPage();
-          try {
-            await page.goto("https://www.zara.com/es/es/mujer-special-prices-l1309.html", {
-              waitUntil: "domcontentloaded",
-              timeout: 25000,
-            });
-            await page.waitForTimeout(3000);
-            const info = await page.evaluate(() => {
-              const html = document.documentElement.outerHTML;
-              const hasNextData = html.includes("__NEXT_DATA__");
-              const hasLdJson = html.includes("application/ld+json");
-              const jsonLdCount = document.querySelectorAll('script[type="application/ld+json"]').length;
-              const links = Array.from(document.querySelectorAll("a[href]"))
-                .map((a) => a.getAttribute("href"))
-                .filter((h) => h && /-p\d+\.html/.test(h))
-                .slice(0, 5);
-              return { bytes: html.length, hasNextData, hasLdJson, jsonLdCount, sampleProductLinks: links };
-            });
-            console.log("=== Zara estructura ===");
-            console.log(JSON.stringify(info, null, 2));
-            if (info.jsonLdCount > 0) {
-              const sample = await page.evaluate(() => {
-                const el = document.querySelector('script[type="application/ld+json"]');
-                return el ? el.textContent.slice(0, 1500) : null;
-              });
-              console.log("--- muestra JSON-LD ---");
-              console.log(sample);
-            }
-          } catch (e) {
-            console.log(`Zara: ERROR ${e.message}`);
-          } finally {
-            await context.close();
-          }
+          await inspect("Mango mujer rebajas", "https://shop.mango.com/es/es/c/mujer/rebajas--70/93ea7423");
+          await inspect("Zalando rebajas", "https://www.zalando.es/rebajas/");
 
           await browser.close();
           EOF
-      - name: Lanzar Xvfb y explorar
+      - name: Lanzar Xvfb e inspeccionar
         run: |
           Xvfb :99 -screen 0 1366x768x24 &
           sleep 2
-          DISPLAY=:99 node explore.mjs
+          DISPLAY=:99 node inspect2.mjs
