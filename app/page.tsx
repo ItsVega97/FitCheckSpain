@@ -16,24 +16,37 @@ export default async function Home() {
   const failedStores = log.stores.filter((s) => !s.ok);
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-8">
-      <header className="mb-8">
-        <h1 className="text-2xl font-bold sm:text-3xl">FitCheckSpain</h1>
-        <p className="mt-1 text-neutral-500">
-          Ofertas y descuentos de ropa recopilados automáticamente, con enlace directo al producto.
-        </p>
-        <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-neutral-400">
-          <span>Última actualización: {formatDate(log.lastRun)}</span>
-          <span>· {deals.length} ofertas activas</span>
-          {failedStores.length > 0 ? (
-            <span className="text-amber-600">
-              · {failedStores.length} tienda(s) sin datos en la última pasada
+    <>
+      <header className="border-b border-neutral-200 bg-white/80 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/80">
+        <div className="mx-auto max-w-7xl px-4 py-5 sm:py-6">
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-600 text-sm font-bold text-white">
+              F
             </span>
-          ) : null}
+            <h1 className="text-xl font-bold tracking-tight sm:text-2xl">FitCheckSpain</h1>
+          </div>
+          <p className="mt-2 text-sm text-neutral-500 sm:text-base">
+            Ofertas y descuentos de ropa recopilados automáticamente, con enlace directo al producto.
+          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-neutral-400">
+            <span>Última actualización: {formatDate(log.lastRun)}</span>
+            <span aria-hidden>·</span>
+            <span>{deals.length} ofertas activas</span>
+            {failedStores.length > 0 ? (
+              <>
+                <span aria-hidden>·</span>
+                <span className="text-amber-600 dark:text-amber-500">
+                  {failedStores.length} tienda(s) sin datos en la última pasada
+                </span>
+              </>
+            ) : null}
+          </div>
         </div>
       </header>
 
-      <DealsGrid deals={deals} />
-    </main>
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:py-8">
+        <DealsGrid deals={deals} />
+      </main>
+    </>
   );
 }
