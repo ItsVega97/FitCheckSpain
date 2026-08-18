@@ -1,4 +1,4 @@
-name: Debug fetch - más tiendas (temporal)
+name: Debug fetch - segunda tanda (temporal)
 
 on:
   workflow_dispatch: {}
@@ -11,33 +11,28 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: Escribir script de sondeo
+      - name: Escribir script de sondeo 2
         run: |
-          cat > probe.mjs << 'EOF'
+          cat > probe2.mjs << 'EOF'
           const UA =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
           const candidates = [
-            ["Under Armour", "https://www.underarmour.es/es-es/c/sale/"],
-            ["New Balance", "https://www.newbalance.es/es/sale/"],
-            ["Reebok", "https://www.reebok.es/sale"],
-            ["Converse", "https://www.converse.com/es/es_es/sale"],
-            ["Vans", "https://www.vans.es/es-es/sale"],
-            ["The North Face", "https://www.thenorthface.es/shop/sale"],
-            ["Champion", "https://eu.champion.com/es/sale"],
-            ["Fila", "https://www.fila.eu/es_es/sale"],
-            ["Lacoste", "https://www.lacoste.com/es/rebajas/"],
-            ["Levis", "https://www.levi.es/rebajas/"],
-            ["Tommy Hilfiger", "https://es.tommy.com/rebajas"],
-            ["Calvin Klein", "https://www.calvinklein.es/es/rebajas"],
-            ["Springfield", "https://www.springfield.com/es/rebajas"],
-            ["Womensecret", "https://www.womensecret.com/es/rebajas"],
-            ["C&A", "https://www.c-and-a.com/es/es/shop/rebajas"],
-            ["Timberland", "https://www.timberland.es/sale/"],
-            ["Diesel", "https://www.diesel.com/es/rebajas/"],
-            ["Guess", "https://www.guess.eu/es-es/rebajas"],
-            ["Bimba y Lola", "https://www.bimbaylola.com/es-es/rebajas"],
-            ["Uniqlo", "https://www.uniqlo.com/es/es/feature/sale"],
+            ["Kiabi", "https://www.kiabi.es/rebajas"],
+            ["Naf Naf", "https://www.nafnaf.es/rebajas"],
+            ["Blanco", "https://www.blanco.com/es/rebajas"],
+            ["El Ganso", "https://www.elganso.com/es/rebajas"],
+            ["Ecoalf", "https://ecoalf.com/es/rebajas"],
+            ["Sfera", "https://www.sfera.com/es-es/rebajas"],
+            ["Etam", "https://www.etam.com/es-es/rebajas"],
+            ["Neck and Neck", "https://www.neckandneck.com/es/rebajas"],
+            ["Purificacion Garcia", "https://www.purificaciongarcia.com/es/rebajas"],
+            ["Adolfo Dominguez", "https://www.adolfodominguez.com/es/es/rebajas"],
+            ["Panama Jack", "https://www.panamajack.com/es/rebajas"],
+            ["Camper", "https://www.camper.com/es_ES/sale"],
+            ["Geox", "https://www.geox.com/es_ES/sale"],
+            ["Pepe Jeans", "https://www.pepejeans.com/es/rebajas"],
+            ["Munich", "https://www.munich.com/es/rebajas"],
           ];
 
           function extractItemLists(html) {
@@ -85,5 +80,21 @@ jobs:
             }
           }
           EOF
-      - name: Sondear candidatas
-        run: node probe.mjs
+      - name: Sondear candidatas 2
+        run: node probe2.mjs
+
+      - name: Inspeccionar estructura de Womensecret
+        run: |
+          cat > inspect-ws.mjs << 'EOF'
+          const UA =
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+          const res = await fetch("https://www.womensecret.com/es/rebajas", {
+            headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" },
+          });
+          const html = await res.text();
+          console.log("HTTP", res.status, html.length, "bytes");
+          const idx = html.indexOf("product-tile");
+          console.log("--- contexto product-tile ---");
+          console.log(html.slice(Math.max(0, idx - 300), idx + 1500));
+          EOF
+          node inspect-ws.mjs
