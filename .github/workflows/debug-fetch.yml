@@ -1,4 +1,4 @@
-name: Debug fetch - Womensecret selectors (temporal)
+name: Debug fetch - Womensecret v2 (temporal)
 
 on:
   workflow_dispatch: {}
@@ -15,9 +15,9 @@ jobs:
         run: npm ci
       - name: Instalar Chromium de Playwright
         run: npx playwright install --with-deps chromium
-      - name: Escribir script de inspección de selectores
+      - name: Escribir script de inspección amplia
         run: |
-          cat > inspect-ws2.mjs << 'EOF'
+          cat > inspect-ws3.mjs << 'EOF'
           import { chromium } from "playwright";
 
           const UA =
@@ -27,25 +27,33 @@ jobs:
           const context = await browser.newContext({ userAgent: UA, locale: "es-ES" });
           const page = await context.newPage();
           await page.goto("https://www.womensecret.com/es/rebajas", { waitUntil: "networkidle", timeout: 30000 });
-          await page.waitForTimeout(2000);
+          await page.waitForTimeout(3000);
 
-          // Encuentra el primer elemento cuya clase contenga "product-tile" real (no dentro de <script>)
+          console.log("URL final tras redirecciones:", page.url());
+
           const info = await page.evaluate(() => {
-            const tiles = Array.from(document.querySelectorAll('[class*="product-tile"]'));
-            if (tiles.length === 0) return { count: 0 };
-            const first = tiles[0];
+            const allClasses = new Set();
+            document.querySelectorAll("[class]").forEach((el) => {
+              el.className
+                .toString()
+                .split(/\s+/)
+                .forEach((c) => {
+                  if (/tile|product|grid|card|plp|item-/i.test(c)) allClasses.add(c);
+                });
+            });
+            const productLinks = Array.from(document.querySelectorAll("a[href]"))
+              .map((a) => a.getAttribute("href"))
+              .filter((h) => h && /\.html|\/p\/|product/i.test(h))
+              .slice(0, 10);
             return {
-              count: tiles.length,
-              tag: first.tagName,
-              className: first.className,
-              outerHTMLSample: first.outerHTML.slice(0, 3000),
+              classesEncontradas: Array.from(allClasses).slice(0, 60),
+              ejemploLinksProducto: productLinks,
+              totalImgs: document.querySelectorAll("img").length,
             };
           });
-          console.log("product-tile elements found:", info.count);
-          console.log("--- primer elemento ---");
           console.log(JSON.stringify(info, null, 2));
 
           await browser.close();
           EOF
-      - name: Inspeccionar selectores reales de Womensecret
-        run: node inspect-ws2.mjs
+      - name: Inspeccionar clases y enlaces reales
+        run: node inspect-ws3.mjs
