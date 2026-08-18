@@ -26,7 +26,7 @@ export interface Deal {
   discountPercent: number | null;
   currency: string;
   category?: string;
-  gender?: "hombre" | "mujer" | "unisex";
+  gender?: "hombre" | "mujer" | "niños" | "unisex";
   scrapedAt: string;
   source: "auto" | "manual";
 }

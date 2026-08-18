@@ -7,10 +7,15 @@ import DealCard from "./DealCard";
 
 type SortMode = "discount" | "price-asc" | "price-desc";
 
+type Gender = "hombre" | "mujer" | "niños";
+const GENDER_LABELS: Record<Gender, string> = { hombre: "Hombre", mujer: "Mujer", niños: "Niños" };
+const GENDER_ORDER: Gender[] = ["mujer", "hombre", "niños"];
+
 export default function DealsGrid({ deals }: { deals: Deal[] }) {
   const [query, setQuery] = useState("");
   const [activeStores, setActiveStores] = useState<Set<StoreId>>(new Set());
   const [activeCategories, setActiveCategories] = useState<Set<string>>(new Set());
+  const [activeGenders, setActiveGenders] = useState<Set<Gender>>(new Set());
   const [minDiscount, setMinDiscount] = useState(0);
   const [minPrice, setMinPrice] = useState<string>("");
   const [maxPrice, setMaxPrice] = useState<string>("");
@@ -24,6 +29,11 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
   const categoriesPresent = useMemo(() => {
     const cats = new Set(deals.map((d) => d.category).filter((c): c is string => Boolean(c)));
     return Array.from(cats).sort((a, b) => a.localeCompare(b, "es"));
+  }, [deals]);
+
+  const gendersPresent = useMemo(() => {
+    const genders = new Set(deals.map((d) => d.gender));
+    return GENDER_ORDER.filter((g) => genders.has(g));
   }, [deals]);
 
   function toggleStore(id: StoreId) {
@@ -44,6 +54,15 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
     });
   }
 
+  function toggleGender(gender: Gender) {
+    setActiveGenders((prev) => {
+      const next = new Set(prev);
+      if (next.has(gender)) next.delete(gender);
+      else next.add(gender);
+      return next;
+    });
+  }
+
   const filtered = useMemo(() => {
     const min = minPrice.trim() ? Number(minPrice) : null;
     const max = maxPrice.trim() ? Number(maxPrice) : null;
@@ -51,6 +70,12 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
     let result = deals.filter((d) => {
       if (activeStores.size > 0 && !activeStores.has(d.store)) return false;
       if (activeCategories.size > 0 && !(d.category && activeCategories.has(d.category))) return false;
+      if (
+        activeGenders.size > 0 &&
+        d.gender !== "unisex" &&
+        !(d.gender && activeGenders.has(d.gender as Gender))
+      )
+        return false;
       if ((d.discountPercent ?? 0) < minDiscount) return false;
       if (min !== null && (d.price ?? Infinity) < min) return false;
       if (max !== null && (d.price ?? -Infinity) > max) return false;
@@ -68,11 +93,12 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
     });
 
     return result;
-  }, [deals, activeStores, activeCategories, minDiscount, minPrice, maxPrice, query, sort]);
+  }, [deals, activeStores, activeCategories, activeGenders, minDiscount, minPrice, maxPrice, query, sort]);
 
   const hasActiveFilters =
     activeStores.size > 0 ||
     activeCategories.size > 0 ||
+    activeGenders.size > 0 ||
     minDiscount > 0 ||
     minPrice.trim() !== "" ||
     maxPrice.trim() !== "" ||
@@ -81,6 +107,7 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
   function clearFilters() {
     setQuery("");
     setActiveStores(new Set());
+    setActiveGenders(new Set());
     setActiveCategories(new Set());
     setMinDiscount(0);
     setMinPrice("");
@@ -156,6 +183,24 @@ export default function DealsGrid({ deals }: { deals: Deal[] }) {
           ) : null}
         </div>
       </div>
+
+      {gendersPresent.length > 0 ? (
+        <div className="mb-3 flex flex-wrap gap-2">
+          {gendersPresent.map((g) => (
+            <button
+              key={g}
+              onClick={() => toggleGender(g)}
+              className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                activeGenders.has(g)
+                  ? "border-brand-600 bg-brand-600 text-white"
+                  : "border-neutral-300 text-neutral-600 hover:border-brand-500 dark:border-neutral-700 dark:text-neutral-300"
+              }`}
+            >
+              {GENDER_LABELS[g]}
+            </button>
+          ))}
+        </div>
+      ) : null}
 
       <div className="mb-3 flex flex-wrap gap-2">
         {storesPresent.map((s) => (

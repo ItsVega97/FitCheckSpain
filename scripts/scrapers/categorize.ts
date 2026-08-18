@@ -27,8 +27,10 @@ export function categorize(text: string): string {
   return "Otros";
 }
 
-export function detectGender(text: string): "hombre" | "mujer" | "unisex" | undefined {
+export function detectGender(text: string): "hombre" | "mujer" | "niños" | "unisex" | undefined {
   const lower = text.toLowerCase();
+  const hasNinos = /\bni[ñn]o\b|\bni[ñn]a\b|\bni[ñn]os\b|\bni[ñn]as\b|\bkids?\b|\binfantil\b|\bjunior\b/.test(lower);
+  if (hasNinos) return "niños";
   const hasHombre = /\bhombre\b|\bmen\b/.test(lower);
   const hasMujer = /\bmujer\b|\bwomen\b/.test(lower);
   if (hasHombre && !hasMujer) return "hombre";

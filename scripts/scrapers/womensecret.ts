@@ -41,9 +41,10 @@ function hashId(input: string): string {
   return createHash("sha256").update(input).digest("base64url").slice(0, 16);
 }
 
-const LISTING_URLS: { url: string; gender: "hombre" | "mujer" }[] = [
+const LISTING_URLS: { url: string; gender: "hombre" | "mujer" | "niños" }[] = [
   { url: "https://womensecret.com/es/es/promociones/remate-final/mujer", gender: "mujer" },
   { url: "https://womensecret.com/es/es/promociones/remate-final/hombre", gender: "hombre" },
+  { url: "https://womensecret.com/es/es/promociones/remate-final/ninos", gender: "niños" },
 ];
 
 export async function scrapeWomensecret(): Promise<{ deals: Deal[]; cardsFound: number }> {
