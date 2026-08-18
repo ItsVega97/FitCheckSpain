@@ -1,4 +1,4 @@
-name: Debug fetch - headless (temporal)
+name: Debug fetch - Womensecret selectors (temporal)
 
 on:
   workflow_dispatch: {}
@@ -15,52 +15,37 @@ jobs:
         run: npm ci
       - name: Instalar Chromium de Playwright
         run: npx playwright install --with-deps chromium
-      - name: Escribir script de inspección
+      - name: Escribir script de inspección de selectores
         run: |
-          cat > inspect-headless.mjs << 'EOF'
+          cat > inspect-ws2.mjs << 'EOF'
           import { chromium } from "playwright";
 
           const UA =
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
-          const targets = [
-            ["Mango", "https://shop.mango.com/es/es/mujer/rebajas"],
-            ["Womensecret", "https://www.womensecret.com/es/rebajas"],
-          ];
-
           const browser = await chromium.launch();
+          const context = await browser.newContext({ userAgent: UA, locale: "es-ES" });
+          const page = await context.newPage();
+          await page.goto("https://www.womensecret.com/es/rebajas", { waitUntil: "networkidle", timeout: 30000 });
+          await page.waitForTimeout(2000);
 
-          for (const [name, url] of targets) {
-            const context = await browser.newContext({ userAgent: UA, locale: "es-ES" });
-            const page = await context.newPage();
-            try {
-              await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
-              await page.waitForTimeout(2000);
-              const html = await page.content();
-              console.log(`=== ${name}: ${html.length} bytes tras render ===`);
-
-              // Busca marcadores típicos de tarjeta de producto
-              for (const marker of ["data-testid", "product-tile", "product-item", "ProductCard", "grid-item"]) {
-                const count = (html.match(new RegExp(marker, "g")) || []).length;
-                if (count > 0) console.log(`  marcador "${marker}": ${count} apariciones`);
-              }
-
-              // Intenta contar elementos <a> con href de producto
-              const links = await page.locator("a[href]").count();
-              console.log(`  <a href> totales en la página: ${links}`);
-
-              // Vuelca un trozo del <body> para inspección manual
-              const bodyIdx = html.indexOf("<body");
-              console.log("--- fragmento del body (2000 chars) ---");
-              console.log(html.slice(bodyIdx, bodyIdx + 2000));
-            } catch (e) {
-              console.log(`${name} | ERROR: ${e.message}`);
-            } finally {
-              await context.close();
-            }
-          }
+          // Encuentra el primer elemento cuya clase contenga "product-tile" real (no dentro de <script>)
+          const info = await page.evaluate(() => {
+            const tiles = Array.from(document.querySelectorAll('[class*="product-tile"]'));
+            if (tiles.length === 0) return { count: 0 };
+            const first = tiles[0];
+            return {
+              count: tiles.length,
+              tag: first.tagName,
+              className: first.className,
+              outerHTMLSample: first.outerHTML.slice(0, 3000),
+            };
+          });
+          console.log("product-tile elements found:", info.count);
+          console.log("--- primer elemento ---");
+          console.log(JSON.stringify(info, null, 2));
 
           await browser.close();
           EOF
-      - name: Inspeccionar Mango y Womensecret renderizados
-        run: node inspect-headless.mjs
+      - name: Inspeccionar selectores reales de Womensecret
+        run: node inspect-ws2.mjs
