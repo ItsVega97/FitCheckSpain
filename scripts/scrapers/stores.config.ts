@@ -25,6 +25,20 @@ import type { StoreConfig } from "./types";
  *   JavaScript en el cliente, así que un fetch simple nunca ve productos
  *   aunque la URL sea exacta.
  * - Privalia: catálogo tras login, no hay nada público que rastrear.
+ * - Ronda de 18/08/2026: sondeadas 35 marcas más (Under Armour, New Balance,
+ *   Reebok, Converse, Vans, The North Face, Champion, Fila, Lacoste, Levi's,
+ *   Tommy Hilfiger, Calvin Klein, Springfield, Womensecret, C&A, Timberland,
+ *   Diesel, Guess, Bimba y Lola, Uniqlo, Kiabi, Naf Naf, Blanco, El Ganso,
+ *   Ecoalf, Sfera, Etam, Neck&Neck, Purificación García, Adolfo Domínguez,
+ *   Panama Jack, Camper, Geox, Pepe Jeans, Munich). Ninguna viable: la
+ *   mayoría 403/418 (bot detection) o 404 (URL de rebajas adivinada
+ *   incorrecta — habría que confirmar la ruta real a mano por tienda), las
+ *   que sí cargan (Etam, C&A, Diesel, Bimba y Lola, Geox) no tienen ni
+ *   JSON-LD de producto ni tarjetas HTML server-renderizadas. Womensecret
+ *   dio un falso positivo: el texto "product-tile" solo aparece dentro de
+ *   un JSON de configuración de analítica (selectores CSS para tracking de
+ *   clics), no hay productos reales en el HTML — el listado se pinta por
+ *   JavaScript en el cliente.
  *
  * Ninguno de estos bloqueos es un problema de selectores o de URL: hace
  * falta un navegador real (headless) con gestión de cookies/JS para
