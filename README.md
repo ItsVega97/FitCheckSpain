@@ -57,6 +57,8 @@ Hay tres formas de sacar los datos, de más a menos fiable:
    endpoint público, sin anti-bot, sin navegador, y trae el precio
    original — así que el % de descuento es real. Un único scraper
    genérico cubre las ocho tiendas Shopify y añadir otra es una línea.
+   Además de precio trae `product_type` y `tags`, que son lo que permite
+   clasificar y asignar género (ver más abajo).
 2. **JSON embebido** (JSON-LD, `__NEXT_DATA__`, microdatos schema.org):
    ASOS, Nike y Puma con un fetch simple; Womensecret, Cortefiel,
    Desigual y Mango necesitan además renderizar con navegador.
@@ -108,6 +110,40 @@ npm run add-deal -- https://www.zara.com/es/es/algun-producto.html zara 19.99 39
 
 Si no pasas precio, intenta detectarlo solo a partir de las etiquetas Open
 Graph de la página; si no lo consigue, te lo pedirá.
+
+Pasar los tests del clasificador:
+
+```bash
+npm test
+```
+
+## Categoría y género
+
+Ninguna tienda usa la misma taxonomía, así que las ofertas se clasifican
+con `scripts/scrapers/categorize.ts`, un conjunto de reglas por palabras
+clave. Lo que hace que funcione no es la lista de palabras sino **de dónde
+se saca el texto**, porque media docena de marcas titulan sus productos
+solo con el nombre del modelo ("HIGBY TAUPE SAGE", "VELOURS BLUE") y el
+título por sí solo no dice qué es la prenda.
+
+Para las tiendas Shopify se prueban tres fuentes en orden de fiabilidad:
+
+1. `product_type` — la taxonomía propia de la tienda (`SNEAKERS`,
+   `Cuña Baja`, `TOPS & BLOUSES`). Es la buena, pero hay tiendas que lo
+   dejan vacío.
+2. `tags` — ruidosos, porque mezclan campañas, tallas y colores.
+3. `body_html` — la descripción, como último recurso.
+
+El **género** sale casi siempre de los `tags`, no del título, y cada
+tienda usa su propio vocabulario: Popa etiqueta `Mujer`, Scalpers
+`Hombre`/`Infantil`/`Niña` y también `feed-gender-male`, Blue Banana
+`unisex`/`kids`, Pompeii `Man`/`Woman` y Laagam `female`.
+
+`npm test` comprueba las reglas contra una lista de valores reales
+volcados de las ocho tiendas. Merece la pena ampliarla al tocar las
+expresiones regulares: el fallo típico es olvidarse del plural
+(`/\btop\b/` no casa con `Tops`, ni `/\bcoat\b/` con `COATS`), y basta eso
+para mandar un catálogo entero a "Otros".
 
 ## Desplegar en Vercel (gratis)
 
