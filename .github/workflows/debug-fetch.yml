@@ -1,0 +1,32 @@
+name: Debug fetch (temporal)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Instalar Chromium
+        timeout-minutes: 4
+        run: npx playwright install --with-deps chromium
+
+      - name: Sondear tiendas españolas (headed + Xvfb)
+        timeout-minutes: 14
+        run: |
+          Xvfb :99 -screen 0 1366x768x24 &
+          sleep 2
+          DISPLAY=:99 node scripts/_debug-probe.mjs
