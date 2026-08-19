@@ -20,6 +20,7 @@ import {
 } from "@/lib/filters";
 import DealCard, { UMBRAL_CHOLLO } from "./DealCard";
 import FilterSheet from "./FilterSheet";
+import MenuFiltro from "./MenuFiltro";
 
 /** Cuántas tarjetas se pintan de golpe: con 3.000 ofertas, todas a la vez van lentas. */
 const POR_PAGINA = 60;
@@ -267,6 +268,18 @@ export default function Catalogo({
     [categoriasDisponibles],
   );
 
+  const recuentoBucket = useMemo(() => {
+    const r: Record<string, number> = {};
+    for (const d of deals) {
+      if (d.price === null) continue;
+      const b = PRICE_BUCKETS.find(
+        (x) => d.price! >= x.min && (x.max === null || d.price! < x.max),
+      );
+      if (b) r[b.id] = (r[b.id] ?? 0) + 1;
+    }
+    return r;
+  }, [deals]);
+
   const generosDisponibles = useMemo(() => {
     const g = new Set(deals.map((d) => d.gender));
     return GENDER_ORDER.filter((x) => g.has(x));
@@ -482,7 +495,9 @@ export default function Catalogo({
       {/* ================= BARRA DE FILTROS (pegajosa) ================= */}
       <div className="sticky top-0 z-30 mt-6 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95">
         <div className="mx-auto max-w-[1440px] px-4 py-3 sm:px-10">
-          <div className="flex items-center gap-2 overflow-x-auto pb-0.5">
+          {/* En móvil la barra hace scroll lateral; a partir de sm envuelve,
+              porque overflow recortaría los desplegables de marca y precio. */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-0.5 sm:flex-wrap sm:overflow-visible">
             <button
               type="button"
               onClick={() => setSheetAbierto(true)}
@@ -538,6 +553,39 @@ export default function Catalogo({
             >
               -50% o más
             </button>
+
+            {/* Marca y precio también están en el panel de filtros, pero son
+                los dos que más se usan y ahí no se ven sin abrirlo. En móvil
+                se dejan solo en el panel para no llenar la barra. */}
+            <div className="hidden sm:block">
+              <MenuFiltro
+                titulo="Marca"
+                opciones={tiendasDisponibles.map((s) => ({
+                  id: s.id,
+                  label: s.name,
+                  count: recuentoTienda[s.id] ?? 0,
+                }))}
+                seleccion={filtros.stores as Set<string>}
+                onToggle={(id) => actualizar({ stores: alternar(filtros.stores, id as StoreId) })}
+                onLimpiar={() => actualizar({ stores: new Set() })}
+              />
+            </div>
+
+            <div className="hidden sm:block">
+              <MenuFiltro
+                titulo="Precio"
+                opciones={PRICE_BUCKETS.map((b) => ({
+                  id: b.id,
+                  label: b.label,
+                  count: recuentoBucket[b.id] ?? 0,
+                }))}
+                seleccion={filtros.buckets as Set<string>}
+                onToggle={(id) =>
+                  actualizar({ buckets: alternar(filtros.buckets, id as PriceBucketId) })
+                }
+                onLimpiar={() => actualizar({ buckets: new Set() })}
+              />
+            </div>
 
             <div className="ml-auto flex shrink-0 items-center gap-3 pl-2">
               <span className="hidden text-[13px] text-neutral-500 lg:inline">
