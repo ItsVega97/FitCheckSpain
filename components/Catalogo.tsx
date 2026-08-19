@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import type { Deal, StoreId } from "@/lib/types";
 import { STORES, storeMeta } from "@/lib/stores";
 import {
@@ -205,9 +205,21 @@ export default function Catalogo({
       deals
         .filter((d) => d.discountPercent !== null)
         .sort((a, b) => (b.discountPercent ?? 0) - (a.discountPercent ?? 0))
-        .slice(0, 3),
+        .slice(0, 12),
     [deals],
   );
+
+  // El carrusel se desplaza de tarjeta en tarjeta midiendo la primera, así
+  // el paso sigue siendo correcto si cambia el ancho por el punto de rotura.
+  const carrusel = useRef<HTMLDivElement>(null);
+
+  function deslizar(sentido: 1 | -1) {
+    const cinta = carrusel.current;
+    if (!cinta) return;
+    const tarjeta = cinta.firstElementChild as HTMLElement | null;
+    const paso = tarjeta ? tarjeta.offsetWidth + 16 : cinta.clientWidth * 0.8;
+    cinta.scrollBy({ left: paso * sentido, behavior: "smooth" });
+  }
 
   const tiendasDisponibles = useMemo(() => {
     const ids = new Set(deals.map((d) => d.store));
@@ -300,10 +312,15 @@ export default function Catalogo({
               priority
               className="h-7 w-auto sm:h-[34px]"
             />
-            <span className="flex items-center gap-1.5 rounded-full bg-brand-500 px-3 py-1.5 sm:hidden">
-              <span className="block h-1.5 w-1.5 rounded-full bg-neutral-950" />
-              <span className="text-xs font-bold text-neutral-950">Hoy</span>
-            </span>
+            <div className="flex items-center gap-2.5 sm:hidden">
+              <span className="text-xs font-semibold text-neutral-400">
+                {tiendasDisponibles.length} tiendas
+              </span>
+              <span className="flex items-center gap-1.5 rounded-full bg-brand-500 px-3 py-1.5">
+                <span className="block h-1.5 w-1.5 rounded-full bg-neutral-950" />
+                <span className="text-xs font-bold text-neutral-950">Hoy</span>
+              </span>
+            </div>
           </div>
 
           <label className="flex h-11 flex-1 items-center gap-2.5 rounded-full border border-neutral-800 bg-neutral-900 px-4 sm:max-w-lg">
@@ -328,10 +345,15 @@ export default function Catalogo({
             />
           </label>
 
-          <span className="ml-auto hidden items-center gap-1.5 rounded-full bg-brand-500 px-4 py-2 sm:flex">
-            <span className="block h-1.5 w-1.5 rounded-full bg-neutral-950" />
-            <span className="text-[13px] font-bold text-neutral-950">Actualizado hoy</span>
-          </span>
+          <div className="ml-auto hidden items-center gap-4 sm:flex">
+            <span className="text-[13px] font-semibold text-neutral-400">
+              {tiendasDisponibles.length} tiendas rastreadas
+            </span>
+            <span className="flex items-center gap-1.5 rounded-full bg-brand-500 px-4 py-2">
+              <span className="block h-1.5 w-1.5 rounded-full bg-neutral-950" />
+              <span className="text-[13px] font-bold text-neutral-950">Actualizado hoy</span>
+            </span>
+          </div>
         </div>
       </header>
 
@@ -351,33 +373,75 @@ export default function Catalogo({
                   Chollos del día
                 </h2>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-neutral-400 sm:mt-4 sm:text-base">
-                  Rastreamos {tiendasDisponibles.length} tiendas cada mañana y te dejamos arriba lo
-                  que más ha bajado de precio.
+                  Las {destacados.length} ofertas que más han bajado de precio hoy, de entre las{" "}
+                  {tiendasDisponibles.length} tiendas que rastreamos cada mañana.
                 </p>
+              </div>
+
+              {/* Flechas solo en escritorio: con dedo o trackpad se arrastra. */}
+              <div className="hidden shrink-0 gap-2 sm:flex">
+                <button
+                  type="button"
+                  onClick={() => deslizar(-1)}
+                  aria-label="Chollos anteriores"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-800 text-white transition hover:border-neutral-600 hover:bg-neutral-900"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <path d="M15 6l-6 6 6 6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => deslizar(1)}
+                  aria-label="Siguientes chollos"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-800 text-white transition hover:border-neutral-600 hover:bg-neutral-900"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <path d="M9 6l6 6-6 6" />
+                  </svg>
+                </button>
               </div>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:mt-7 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Se sale del margen del contenedor para que las tarjetas
+                mueran en el borde de la pantalla y se vea que hay más. */}
+            <div
+              ref={carrusel}
+              // scroll-pl evita que el snap se coma el margen y deje la
+              // primera tarjeta pegada al borde en vez de alineada con el
+              // titular.
+              className="sin-barra -mx-4 mt-6 flex snap-x snap-mandatory scroll-pl-4 gap-4 overflow-x-auto scroll-smooth px-4 pb-1 sm:-mx-10 sm:mt-7 sm:scroll-pl-10 sm:px-10"
+            >
               {destacados.map((d) => (
-                <TarjetaDestacada key={d.id} deal={d} />
+                <div
+                  key={d.id}
+                  className="w-[300px] shrink-0 snap-start sm:w-[400px] lg:w-[420px]"
+                >
+                  <TarjetaDestacada deal={d} />
+                </div>
               ))}
             </div>
           </div>
         </section>
       ) : null}
-
-      {/* ================= FRANJA DE CONFIANZA ================= */}
-      <div className="bg-brand-500 px-4 py-3 sm:px-10">
-        <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-center text-xs font-bold text-neutral-950 sm:gap-x-12 sm:text-sm">
-          <span>{deals.length.toLocaleString("es-ES")} ofertas activas</span>
-          <span className="hidden h-1 w-1 rounded-full bg-neutral-950/45 sm:block" />
-          <span>{tiendasDisponibles.length} tiendas rastreadas</span>
-          <span className="hidden h-1 w-1 rounded-full bg-neutral-950/45 sm:block" />
-          <span>Precios revisados cada mañana</span>
-          <span className="hidden h-1 w-1 rounded-full bg-neutral-950/45 lg:block" />
-          <span className="hidden lg:inline">Enlace directo a la tienda</span>
-        </div>
-      </div>
 
       {/* ================= CATEGORÍAS ================= */}
       {categoriasDestacadas.length > 0 ? (
