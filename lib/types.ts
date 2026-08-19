@@ -13,6 +13,16 @@ export type StoreId =
   | "puma"
   | "womensecret"
   | "desigual"
+  | "cortefiel"
+  // Tiendas sobre Shopify (ver scripts/scrapers/shopify.ts)
+  | "bimani"
+  | "popa"
+  | "pompeii"
+  | "bluebanana"
+  | "laagam"
+  | "coosy"
+  | "scalpers"
+  | "poete"
   | "otros";
 
 export interface Deal {

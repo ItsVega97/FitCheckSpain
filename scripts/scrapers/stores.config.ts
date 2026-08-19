@@ -331,4 +331,82 @@ export const STORE_CONFIGS: StoreConfig[] = [
     },
     notes: "Scraper especializado con navegador headed (Xvfb), ver scripts/scrapers/desigual.ts. Usa Salesforce Commerce Cloud (plantilla SFRA): cada tarjeta .product-tile trae microdatos schema.org con precio actual y original en <meta itemprop=\"price\">, sin necesidad de JSON-LD. Confirmado funcionando. Solo cubre la rebajas de mujer por ahora.",
   },
+  {
+    id: "cortefiel",
+    name: "Cortefiel",
+    enabled: true,
+    listingUrls: ["https://cortefiel.com/es/es/rebajas/rebajas-mujer"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Scraper especializado con navegador headed (Xvfb), ver scripts/scrapers/cortefiel.ts. Grupo Tendam (igual que Womensecret): el listado se pinta con JS y cada tarjeta trae su propio JSON-LD @type Product. La URL real de rebajas se encontró crawleando la portada (las adivinadas daban 404). Sin precio original en la fuente.",
+  },
+  // --- Tiendas sobre Shopify ---
+  // Todas comparten el mismo scraper genérico (scripts/scrapers/shopify.ts):
+  // Shopify expone /products.json en abierto, sin anti-bot ni navegador, y
+  // con compare_at_price (precio original), así que aquí sí se calcula el %
+  // de descuento real. Para añadir otra tienda Shopify basta con meterla en
+  // SHOPIFY_STORES y añadir aquí su entrada.
+  {
+    id: "bimani",
+    name: "Bimani",
+    enabled: true,
+    listingUrls: ["https://bimani.es/products.json"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify (/products.json). Con precio original y % de descuento reales.",
+  },
+  {
+    id: "popa",
+    name: "Popa",
+    enabled: true,
+    listingUrls: ["https://popabrand.com/products.json"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify (/products.json). Con precio original y % de descuento reales.",
+  },
+  {
+    id: "pompeii",
+    name: "Pompeii",
+    enabled: true,
+    listingUrls: ["https://pompeiibrand.com/products.json"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify (/products.json). Con precio original y % de descuento reales.",
+  },
+  {
+    id: "bluebanana",
+    name: "Blue Banana",
+    enabled: true,
+    listingUrls: ["https://www.bluebananabrand.com/products.json"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify (/products.json). Con precio original y % de descuento reales.",
+  },
+  {
+    id: "laagam",
+    name: "Laagam",
+    enabled: true,
+    listingUrls: ["https://laagam.com/products.json"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify (/products.json). Con precio original y % de descuento reales.",
+  },
+  {
+    id: "coosy",
+    name: "Coosy",
+    enabled: true,
+    listingUrls: ["https://coosy.es/products.json"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify (/products.json). Con precio original y % de descuento reales. Ojo: algunos productos traen compare_at_price a 0, el scraper los descarta.",
+  },
+  {
+    id: "scalpers",
+    name: "Scalpers",
+    enabled: true,
+    listingUrls: ["https://scalperscompany.com/products.json"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify (/products.json). Con precio original y % de descuento reales.",
+  },
+  {
+    id: "poete",
+    name: "Poete",
+    enabled: true,
+    listingUrls: ["https://poete.es/products.json"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify (/products.json). Con precio original y % de descuento reales.",
+  },
 ];

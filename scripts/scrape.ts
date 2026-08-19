@@ -7,6 +7,8 @@ import { scrapeNike } from "./scrapers/nike";
 import { scrapePuma } from "./scrapers/puma";
 import { scrapeWomensecret } from "./scrapers/womensecret";
 import { scrapeMango } from "./scrapers/mango";
+import { scrapeCortefiel } from "./scrapers/cortefiel";
+import { SHOPIFY_STORES, scrapeShopifyStore } from "./scrapers/shopify";
 import { scrapeZalando } from "./scrapers/zalando";
 import { scrapeDesigual } from "./scrapers/desigual";
 import type { Deal, StoreId, StoreStatus } from "../lib/types";
@@ -21,6 +23,12 @@ const SPECIALIZED_SCRAPERS: Partial<Record<StoreId, () => Promise<ScrapeOutcome>
   mango: scrapeMango,
   zalando: scrapeZalando,
   desigual: scrapeDesigual,
+  cortefiel: scrapeCortefiel,
+  // Las tiendas Shopify comparten scraper: se registra una entrada por
+  // tienda para que el scrape-log siga contabilizando ofertas por tienda.
+  ...Object.fromEntries(
+    SHOPIFY_STORES.map((store) => [store.id, () => scrapeShopifyStore(store)]),
+  ),
 };
 
 async function main() {
