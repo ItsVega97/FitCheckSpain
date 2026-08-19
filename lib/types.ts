@@ -10,6 +10,19 @@ export type StoreId =
   | "asos"
   | "zalando"
   | "privalia"
+  | "puma"
+  | "womensecret"
+  | "desigual"
+  | "cortefiel"
+  // Tiendas sobre Shopify (ver scripts/scrapers/shopify.ts)
+  | "bimani"
+  | "popa"
+  | "pompeii"
+  | "bluebanana"
+  | "laagam"
+  | "coosy"
+  | "scalpers"
+  | "poete"
   | "otros";
 
 export interface Deal {
@@ -24,7 +37,7 @@ export interface Deal {
   discountPercent: number | null;
   currency: string;
   category?: string;
-  gender?: "hombre" | "mujer" | "unisex";
+  gender?: "hombre" | "mujer" | "niños" | "unisex";
   scrapedAt: string;
   source: "auto" | "manual";
 }

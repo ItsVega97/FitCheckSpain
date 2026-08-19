@@ -19,7 +19,9 @@ export async function getAllDeals(): Promise<Deal[]> {
     readJson<Deal[]>("deals.json", []),
     readJson<Deal[]>("manual-deals.json", []),
   ]);
-  const merged = [...manual, ...auto];
+  // Un id duplicado rompe la key de React en la lista de tarjetas y hace
+  // que el filtrado por tienda/categoría muestre tarjetas equivocadas.
+  const merged = [...new Map([...manual, ...auto].map((d) => [d.id, d])).values()];
   merged.sort((a, b) => (b.discountPercent ?? 0) - (a.discountPercent ?? 0));
   return merged;
 }

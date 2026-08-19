@@ -18,6 +18,18 @@ export const STORES: StoreMeta[] = [
   { id: "asos", name: "ASOS", color: "#000000" },
   { id: "zalando", name: "Zalando", color: "#ff6900" },
   { id: "privalia", name: "Privalia", color: "#e2007a" },
+  { id: "puma", name: "Puma", color: "#000000" },
+  { id: "womensecret", name: "Womensecret", color: "#e6007e" },
+  { id: "desigual", name: "Desigual", color: "#000000" },
+  { id: "cortefiel", name: "Cortefiel", color: "#1c3f6e" },
+  { id: "bimani", name: "Bimani", color: "#c2185b" },
+  { id: "popa", name: "Popa", color: "#d4a017" },
+  { id: "pompeii", name: "Pompeii", color: "#1f3a5f" },
+  { id: "bluebanana", name: "Blue Banana", color: "#1565c0" },
+  { id: "laagam", name: "Laagam", color: "#b3005e" },
+  { id: "coosy", name: "Coosy", color: "#8e24aa" },
+  { id: "scalpers", name: "Scalpers", color: "#0d0d0d" },
+  { id: "poete", name: "Poete", color: "#7b1fa2" },
   { id: "otros", name: "Otros", color: "#6b7280" },
 ];
 

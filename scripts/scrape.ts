@@ -4,6 +4,13 @@ import { STORE_CONFIGS } from "./scrapers/stores.config";
 import { scrapeStore, type ScrapeOutcome } from "./scrapers/engine";
 import { scrapeAsos } from "./scrapers/asos";
 import { scrapeNike } from "./scrapers/nike";
+import { scrapePuma } from "./scrapers/puma";
+import { scrapeWomensecret } from "./scrapers/womensecret";
+import { scrapeMango } from "./scrapers/mango";
+import { scrapeCortefiel } from "./scrapers/cortefiel";
+import { SHOPIFY_STORES, scrapeShopifyStore } from "./scrapers/shopify";
+import { scrapeZalando } from "./scrapers/zalando";
+import { scrapeDesigual } from "./scrapers/desigual";
 import type { Deal, StoreId, StoreStatus } from "../lib/types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -11,6 +18,17 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const SPECIALIZED_SCRAPERS: Partial<Record<StoreId, () => Promise<ScrapeOutcome>>> = {
   asos: scrapeAsos,
   nike: scrapeNike,
+  puma: scrapePuma,
+  womensecret: scrapeWomensecret,
+  mango: scrapeMango,
+  zalando: scrapeZalando,
+  desigual: scrapeDesigual,
+  cortefiel: scrapeCortefiel,
+  // Las tiendas Shopify comparten scraper: se registra una entrada por
+  // tienda para que el scrape-log siga contabilizando ofertas por tienda.
+  ...Object.fromEntries(
+    SHOPIFY_STORES.map((store) => [store.id, () => scrapeShopifyStore(store)]),
+  ),
 };
 
 async function main() {
@@ -58,9 +76,20 @@ async function main() {
     }
   }
 
+  // Salvaguarda: un id duplicado (aunque venga de una sola tienda) rompe la
+  // key de React en la UI y provoca que el filtrado muestre tarjetas de
+  // otra tienda. Cada scraper ya debería devolver ids únicos, pero esto
+  // evita que un futuro bug de scraping se cuele hasta la web.
+  const uniqueDeals = [...new Map(allDeals.map((d) => [d.id, d])).values()];
+  if (uniqueDeals.length !== allDeals.length) {
+    console.warn(
+      `[warn] ${allDeals.length - uniqueDeals.length} oferta(s) con id duplicado descartadas antes de guardar.`,
+    );
+  }
+
   await fs.writeFile(
     path.join(DATA_DIR, "deals.json"),
-    JSON.stringify(allDeals, null, 2),
+    JSON.stringify(uniqueDeals, null, 2),
     "utf-8",
   );
   await fs.writeFile(
@@ -69,7 +98,7 @@ async function main() {
     "utf-8",
   );
 
-  console.log(`\nTotal: ${allDeals.length} ofertas guardadas en data/deals.json`);
+  console.log(`\nTotal: ${uniqueDeals.length} ofertas guardadas en data/deals.json`);
 }
 
 main().catch((err) => {

@@ -3,7 +3,7 @@ name: Actualizar ofertas
 on:
   schedule:
     # Cada día a las 06:00 UTC. Los "schedule" de GitHub Actions solo se
-    # disparan desde la rama por defecto del repositorio. Hhuhuh
+    # disparan desde la rama por defecto del repositorio.
     - cron: "0 6 * * *"
   workflow_dispatch: {}
 
@@ -26,8 +26,14 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Instalar Chromium de Playwright
+        run: npx playwright install --with-deps chromium
+
       - name: Ejecutar scraper
-        run: npm run scrape
+        run: |
+          Xvfb :99 -screen 0 1366x768x24 &
+          sleep 2
+          DISPLAY=:99 npm run scrape
 
       - name: Commitear cambios si los hay
         run: |
