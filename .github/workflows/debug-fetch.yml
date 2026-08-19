@@ -1,0 +1,34 @@
+name: Debug fetch (temporal)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Instalar patchright (solo para la prueba A/B)
+        run: npm install --no-save patchright
+
+      - name: Instalar navegadores
+        run: |
+          npx playwright install --with-deps chromium
+          npx patchright install chromium || echo "patchright reutiliza el chromium de playwright"
+
+      - name: A/B Playwright vs Patchright (headed + Xvfb)
+        run: |
+          Xvfb :99 -screen 0 1366x768x24 &
+          sleep 2
+          DISPLAY=:99 node scripts/_debug-probe.mjs
