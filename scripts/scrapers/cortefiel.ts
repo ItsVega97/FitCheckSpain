@@ -86,7 +86,13 @@ export async function scrapeCortefiel(): Promise<{ deals: Deal[]; cardsFound: nu
         if (!p.url || price === null) continue;
 
         const productUrl = new URL(p.url, url).toString();
-        const id = `cortefiel-${hashId(productUrl)}`;
+        // Cortefiel publica un JSON-LD por cada COLOR del mismo producto
+        // (misma ficha con ?dwvar_XXX_color=NN), lo que llenaría la web de
+        // tarjetas idénticas. Se deduplica por la ficha base ignorando la
+        // query, quedándonos con el primer color de cada producto.
+        const claveProducto = new URL(productUrl);
+        claveProducto.search = "";
+        const id = `cortefiel-${hashId(claveProducto.toString())}`;
         if (byId.has(id)) continue;
 
         const title = p.name?.trim() || "Producto sin título";

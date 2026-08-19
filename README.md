@@ -34,6 +34,8 @@ internet real, no simulado), última comprobación 19/08/2026:
 | Mango | ✅ Automático | Akamai bloqueaba con 403 tanto el fetch simple como el navegador headless normal; en modo **headed** (con Xvfb) deja pasar la petición. Selectores cheerio sobre CSS Modules (`scripts/scrapers/mango.ts`). Solo precio ya rebajado, sin precio original ni % de descuento visibles en la tarjeta |
 | Zalando | ✅ Automático | Akamai bloqueaba con 403 el fetch simple; en modo headed lo deja pasar. El grid usa CSS Modules con clases totalmente hasheadas sin ninguna palabra reconocible, así que el scraper navega por la estructura fija de cada tarjeta (`<article>` → `<h3>` con marca+nombre → `<section>` con el/los `<p>` de precio) en vez de por nombre de clase (`scripts/scrapers/zalando.ts`). Trae precio original y % de descuento cuando aplica |
 | Desigual | ✅ Automático | Usa Salesforce Commerce Cloud (plantilla SFRA): cada tarjeta trae microdatos schema.org completos con precio actual y original en `<meta itemprop="price">` (`scripts/scrapers/desigual.ts`). Por ahora solo cubre la sección de rebajas de mujer |
+| Bimani, Popa, Pompeii, Blue Banana, Laagam, Coosy, Scalpers, Poete | ✅ Automático | Tiendas sobre **Shopify**: `/products.json` es público, sin protección anti-bot y sin necesidad de navegador. Un único scraper genérico (`scripts/scrapers/shopify.ts`) las cubre todas; añadir otra tienda Shopify es una línea en `SHOPIFY_STORES`. Son las únicas junto a Zalando y Desigual que traen **precio original** (`compare_at_price`), así que aquí el % de descuento es real y no estimado |
+| Cortefiel | ✅ Automático | Grupo Tendam (igual que Womensecret): el listado se pinta con JS y cada tarjeta trae su propio JSON-LD `@type: Product` (`scripts/scrapers/cortefiel.ts`). Publica un bloque por cada color del mismo producto, así que el scraper deduplica por ficha base. Sin precio original en la fuente |
 | H&M, Adidas | ⚠️ Manual | Confirmado 403 de Akamai incluso con navegador headed **y** calentando la sesión (portada → aceptar cookies → navegar a rebajas como un usuario real, en vez de entrar directo por la URL). Como el bloqueo aparece ya en la portada con una sesión "humana", todo apunta a un bloqueo por reputación de IP del runner de GitHub Actions más que por el fingerprint del navegador — no viable sin proxies residenciales |
 | Decathlon, The North Face, Vans, Timberland, New Balance | ⚠️ Manual | Confirmado 403/challenge (Akamai / Cloudflare) incluso con navegador headed |
 | Zara | ⚠️ Manual (por ahora) | El bloqueo de red sí se esquiva con navegador headed (HTTP 200), pero la página dispara una verificación anti-bot silenciosa (`_sec/verify`) que deja el grid sin pintar. Expone una API propia (`/es/es/categories?...ajax=true`) pero solo devuelve el árbol de navegación del menú, no productos |
@@ -44,23 +46,44 @@ internet real, no simulado), última comprobación 19/08/2026:
 | Converse | ⚠️ Manual | Carga bien con navegador headed pero los únicos enlaces de producto encontrados son de un carrusel de navegación, no del listado real |
 | Privalia | ⚠️ Manual | Club de venta privada, el catálogo requiere login |
 
-En resumen: **ASOS, Nike, Puma, Womensecret, Mango, Zalando y Desigual son
-automáticas** (300+ ofertas). ASOS, Nike y Puma con peticiones HTTP
-simples. Las otras cuatro necesitaban esquivar Akamai: el hallazgo clave
-fue que Chromium en modo **headed** de verdad (con Xvfb como pantalla
-virtual, no el modo headless normal) hace que Akamai deje pasar la
-petición en varias de sus implementaciones — el scraper ya lanza el
-navegador así solo cuando hace falta. Zalando en concreto tiene el grid
-con clases CSS totalmente ofuscadas (sin ninguna palabra reconocible como
-"price" o "tile"), así que su scraper no busca por nombre de clase sino
-por la estructura fija de cada tarjeta — más frágil ante un rediseño de
-la web, pero es lo único estable disponible. H&M, Decathlon, Adidas y
-varias marcas deportivas siguen bloqueando incluso en modo headed; Zara y
-Bershka esquivan el bloqueo pero todavía no rinden un listado de
-productos extraíble con las técnicas probadas hasta ahora. Para todas las
-tiendas pendientes, usa el añadido manual: tarda 10 segundos por oferta y
-no depende de vencer ninguna protección, porque es una única petición
-ocasional que haces tú, no un rastreo repetido.
+En resumen: **16 tiendas automáticas** (~3.000 ofertas), por orden de
+volumen: Bimani, Coosy, Blue Banana, Popa, Pompeii, Womensecret, ASOS,
+Laagam, Scalpers, Cortefiel, Zalando, Poete, Nike, Mango, Puma y
+Desigual.
+
+Hay tres formas de sacar los datos, de más a menos fiable:
+
+1. **Shopify** (`/products.json`): la mejor con diferencia. Es un
+   endpoint público, sin anti-bot, sin navegador, y trae el precio
+   original — así que el % de descuento es real. Un único scraper
+   genérico cubre las ocho tiendas Shopify y añadir otra es una línea.
+2. **JSON embebido** (JSON-LD, `__NEXT_DATA__`, microdatos schema.org):
+   ASOS, Nike y Puma con un fetch simple; Womensecret, Cortefiel,
+   Desigual y Mango necesitan además renderizar con navegador.
+3. **Estructura del DOM**: solo Zalando, cuyo grid tiene las clases CSS
+   totalmente ofuscadas, así que su scraper se guía por la posición fija
+   de cada elemento dentro de la tarjeta. Es el más frágil ante un
+   rediseño.
+
+El hallazgo que desbloqueó el grupo 2 fue que Chromium en modo **headed**
+de verdad (con Xvfb como pantalla virtual, no el modo headless normal)
+hace que Akamai deje pasar la petición en varias de sus implementaciones.
+
+**H&M y Adidas siguen bloqueando** incluso así. Se comprobó con una
+prueba A/B controlada (Playwright vs Patchright, mismo Chromium, misma
+IP) que el resultado es idéntico byte a byte: el 403 llega en la primera
+petición, antes de que se ejecute el JS de Akamai, así que las
+herramientas anti-detección no ayudan aquí — el problema es la
+reputación de la IP de salida (los runners de GitHub usan rangos de
+Azure) unida a la política estricta que estas dos tienen configurada. Las
+salidas reales serían un runner self-hosted con IP doméstica o los feeds
+oficiales de producto de las redes de afiliación. Zara y Pull&Bear sí
+esquivan el bloqueo de red pero no se ha dado con su endpoint de
+productos.
+
+Para todas las tiendas pendientes, usa el añadido manual: tarda 10
+segundos por oferta y no depende de vencer ninguna protección, porque es
+una única petición ocasional que haces tú, no un rastreo repetido.
 
 ## Uso en local
 
