@@ -65,6 +65,26 @@ import type { StoreConfig } from "./types";
  * scraper personal gratuito. Para esas, usa `npm run add-deal -- <url>` —
  * añadir a mano una oferta puntual funciona bien, es una sola petición
  * ocasional.
+ *
+ * Añadidas Zalando y Desigual como automáticas el 18/08/2026 (ver sus
+ * entradas para el método). Ronda de investigación dirigida el 19/08/2026
+ * sobre Adidas, H&M, Zara y Pull&Bear (pedido explícito del usuario):
+ * - H&M y Adidas: reconfirmado 403 incluso calentando la sesión (portada ->
+ *   aceptar cookies -> navegar a rebajas, en vez de entrar directo a la URL
+ *   de rebajas). Como el bloqueo persiste ya en la portada misma con una
+ *   sesión "humana", todo apunta a un bloqueo por reputación de IP del
+ *   runner de GitHub Actions más que por fingerprint del navegador —
+ *   cambiar de herramienta de automatización no lo arreglaría.
+ * - Zara y Pull&Bear: el bloqueo de red sí se esquiva con headed+Xvfb (HTTP
+ *   200, título real de la tienda), y ambas tiendas exponen APIs internas
+ *   reales en JSON (Zara: /es/es/categories?...ajax=true; Pull&Bear:
+ *   itxrest/2/catalog/store/...) — pero tras varias rondas de inspección
+ *   ninguna resultó ser el endpoint de productos: son datos de navegación
+ *   (árbol de menú) o de configuración de tienda. Los intentos de adivinar
+ *   el endpoint de productos de Pull&Bear (itxrest/.../category/{id}/product
+ *   para varios ids candidatos) devolvieron 404, y navegar por el menú real
+ *   tampoco reveló ninguna llamada de listado de productos. Queda pendiente
+ *   sin viabilidad clara por ahora.
  */
 export const STORE_CONFIGS: StoreConfig[] = [
   {
@@ -98,7 +118,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='regular-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado: confirmado que Akamai bloquea con 403 incluso la portada (no es un problema de selectores). Usa 'npm run add-deal'.",
+    notes: "Desactivado: confirmado que Akamai bloquea con 403 incluso la portada (no es un problema de selectores). Reconfirmado 19/08/2026 con calentamiento de sesión (visitar portada, aceptar cookies, navegar como un usuario real antes de llegar a rebajas): sigue devolviendo 403 en la portada misma. Es un bloqueo a nivel de red/reputación de IP (los runners de GitHub Actions son IPs de datacenter muy vigiladas), no de fingerprint del navegador — no viable sin proxies residenciales, fuera de alcance de este proyecto. Usa 'npm run add-deal'.",
   },
   {
     id: "mango",
@@ -181,7 +201,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='old-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado (por ahora): confirmado interstitial anti-bot con fetch simple, pero con navegador headed (Xvfb) la página carga entera (HTTP 200, 1.2MB). No tiene JSON-LD ni __NEXT_DATA__ ni enlaces de producto visibles nada más cargar — probablemente necesita scroll/interacción para que el grid pinte los productos. No investigado a fondo todavía. Usa 'npm run add-deal'.",
+    notes: "Desactivado (por ahora): confirmado interstitial anti-bot con fetch simple, pero con navegador headed (Xvfb) la página carga entera (HTTP 200, 1.2MB). No tiene JSON-LD ni __NEXT_DATA__ ni enlaces de producto visibles nada más cargar. Investigado a fondo 19/08/2026: la página dispara internamente una verificación anti-bot silenciosa (_sec/verify?provider=interstitial) que deja el grid sin pintar aunque el HTTP de la página sea 200; también expone una API propia de categorías (/es/es/categories?...ajax=true) pero solo devuelve el árbol de navegación (SDUI del menú), no productos. No se encontró el endpoint real de listado de productos. Usa 'npm run add-deal'.",
   },
   {
     id: "bershka",
@@ -213,7 +233,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[class*='old-price'], del, s",
     },
     maxProducts: 24,
-    notes: "Desactivado: confirmado el parámetro bm-verify de Akamai Bot Manager en la respuesta (interstitial anti-bot). Usa 'npm run add-deal'.",
+    notes: "Desactivado: confirmado el parámetro bm-verify de Akamai Bot Manager en la respuesta con fetch simple (interstitial anti-bot). Con navegador headed (Xvfb) el bloqueo de red sí se esquiva (HTTP 200, título real de la tienda), y se ve una API propia real (itxrest/2/catalog/store/24009400) — pero es solo configuración de tienda (idiomas, feature flags), no productos. Investigado a fondo 19/08/2026: el árbol de categorías (itxrest/.../category) y los endpoints de producto probados (itxrest/.../category/{id}/product) devuelven 404, y las llamadas capturadas durante una navegación real por el menú tampoco revelan ningún endpoint de listado de productos — el mecanismo real de carga del grid no se ha podido identificar. Usa 'npm run add-deal'.",
   },
   {
     id: "adidas",
@@ -229,7 +249,7 @@ export const STORE_CONFIGS: StoreConfig[] = [
       originalPrice: "[data-testid='gl-price-item--crossed']",
     },
     maxProducts: 24,
-    notes: "Desactivado: confirmado 403 de AkamaiNetStorage incluso en la portada. Usa 'npm run add-deal'.",
+    notes: "Desactivado: confirmado 403 de AkamaiNetStorage incluso en la portada. Reconfirmado 19/08/2026 con calentamiento de sesión (portada -> cookies -> rebajas, igual que H&M): sigue devolviendo 403 en la portada misma, con el mismo indicio de bloqueo por reputación de IP más que por fingerprint del navegador. Usa 'npm run add-deal'.",
   },
   {
     id: "privalia",
