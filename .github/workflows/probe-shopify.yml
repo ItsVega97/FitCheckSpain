@@ -1,0 +1,64 @@
+name: Sondeo Shopify (tags)
+
+# Workflow temporal de diagnóstico: el sandbox de desarrollo no puede salir a
+# internet, así que se usa un runner para volcar qué metadatos (product_type,
+# tags) trae realmente /products.json en las tiendas cuyos títulos son solo
+# nombres de modelo (Pompeii, Poete...). Se puede borrar cuando ya no haga falta.
+on:
+  workflow_dispatch:
+  # workflow_dispatch solo se puede lanzar si el fichero está en la rama por
+  # defecto, así que para poder sondear desde la rama de trabajo se dispara
+  # también al empujar cambios en este mismo workflow.
+  push:
+    paths:
+      - ".github/workflows/probe-shopify.yml"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Volcar metadatos
+        run: |
+          node -e '
+          const tiendas = {
+            pompeii: "https://pompeiibrand.com",
+            poete: "https://poete.es",
+            bimani: "https://bimani.es",
+            coosy: "https://coosy.es",
+            bluebanana: "https://www.bluebananabrand.com",
+            scalpers: "https://scalperscompany.com",
+            popa: "https://popabrand.com",
+            laagam: "https://laagam.com",
+          };
+          const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
+          (async () => {
+            for (const [id, base] of Object.entries(tiendas)) {
+              try {
+                const res = await fetch(base + "/products.json?limit=250", { headers: { "User-Agent": UA } });
+                const { products = [] } = await res.json();
+                console.log("\n########## " + id + " HTTP " + res.status + " n=" + products.length);
+                const tipos = new Map();
+                const tags = new Map();
+                for (const p of products) {
+                  const t = (p.product_type || "(vacio)").trim();
+                  tipos.set(t, (tipos.get(t) || 0) + 1);
+                  for (const g of p.tags || []) tags.set(g, (tags.get(g) || 0) + 1);
+                }
+                console.log("--- product_type ---");
+                console.log([...tipos].sort((a,b)=>b[1]-a[1]).slice(0,40).map(([k,v])=>"  "+v+"  "+k).join("\n"));
+                console.log("--- tags mas comunes ---");
+                console.log([...tags].sort((a,b)=>b[1]-a[1]).slice(0,60).map(([k,v])=>"  "+v+"  "+k).join("\n"));
+                console.log("--- 5 productos completos (title/type/tags) ---");
+                for (const p of products.slice(0, 5)) {
+                  console.log("  * " + p.title + " || type=" + p.product_type + " || tags=" + JSON.stringify(p.tags));
+                }
+              } catch (e) {
+                console.log("\n########## " + id + " ERROR " + e.message);
+              }
+            }
+          })();
+          '
