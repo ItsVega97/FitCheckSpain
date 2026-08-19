@@ -20,17 +20,26 @@ export interface ShopifyStore {
   id: StoreId;
   name: string;
   baseUrl: string;
+  /**
+   * Género a aplicar cuando los tags no lo digan. Solo se pone en marcas
+   * que venden a un único público: Bimani, Coosy, Laagam y Poete no
+   * etiquetan el género en ninguna parte porque todo su catálogo es de
+   * mujer, y sin esto sus ~1.500 ofertas se quedan fuera del filtro.
+   * Scalpers, Blue Banana y Pompeii sí lo etiquetan, así que no llevan
+   * valor por defecto.
+   */
+  defaultGender?: "hombre" | "mujer" | "niños" | "unisex";
 }
 
 export const SHOPIFY_STORES: ShopifyStore[] = [
-  { id: "bimani", name: "Bimani", baseUrl: "https://bimani.es" },
-  { id: "popa", name: "Popa", baseUrl: "https://popabrand.com" },
+  { id: "bimani", name: "Bimani", baseUrl: "https://bimani.es", defaultGender: "mujer" },
+  { id: "popa", name: "Popa", baseUrl: "https://popabrand.com", defaultGender: "mujer" },
   { id: "pompeii", name: "Pompeii", baseUrl: "https://pompeiibrand.com" },
   { id: "bluebanana", name: "Blue Banana", baseUrl: "https://www.bluebananabrand.com" },
-  { id: "laagam", name: "Laagam", baseUrl: "https://laagam.com" },
-  { id: "coosy", name: "Coosy", baseUrl: "https://coosy.es" },
+  { id: "laagam", name: "Laagam", baseUrl: "https://laagam.com", defaultGender: "mujer" },
+  { id: "coosy", name: "Coosy", baseUrl: "https://coosy.es", defaultGender: "mujer" },
   { id: "scalpers", name: "Scalpers", baseUrl: "https://scalperscompany.com" },
-  { id: "poete", name: "Poete", baseUrl: "https://poete.es" },
+  { id: "poete", name: "Poete", baseUrl: "https://poete.es", defaultGender: "mujer" },
 ];
 
 const UA =
@@ -145,7 +154,7 @@ export async function scrapeShopifyStore(store: ShopifyStore): Promise<{ deals: 
         discountPercent: Math.round(((originalPrice - price) / originalPrice) * 100),
         currency: "EUR",
         category: clasificar(p, title),
-        gender: detectGender(textoParaGenero),
+        gender: detectGender(textoParaGenero) ?? store.defaultGender,
         scrapedAt: new Date().toISOString(),
         source: "auto",
       });
