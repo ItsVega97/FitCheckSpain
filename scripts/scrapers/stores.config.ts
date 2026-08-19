@@ -66,6 +66,22 @@ import type { StoreConfig } from "./types";
  * añadir a mano una oferta puntual funciona bien, es una sola petición
  * ocasional.
  *
+ * PRUEBA A/B 19/08/2026 (Playwright vs Patchright, mismo binario de
+ * Chromium, headed+Xvfb, misma IP): resultado idéntico byte a byte en las
+ * cuatro tiendas — H&M 403/403, Adidas 403/403, Zara 200 sin productos en
+ * ambos, Pull&Bear 200 sin productos en ambos. Conclusión: el bloqueo NO
+ * es el fingerprint de automatización del navegador. Akamai decide con
+ * `sensor_data` (telemetría que envía su JS para emitir la cookie _abck),
+ * pero el 403 llega en la primera petición, antes de ejecutar ese JS — así
+ * que herramientas anti-detección (Patchright, Camoufox, Ulixee Hero...)
+ * atacan una fase a la que ni se llega. Lo que queda como causa es la
+ * reputación de la IP de salida (los runners de GitHub usan rangos de
+ * Azure datacenter) combinada con la política estricta que H&M y Adidas
+ * tienen configurada en Akamai Bot Manager. No merece la pena insistir por
+ * esta vía: la salida real es cambiar de IP (runner self-hosted con IP
+ * doméstica) o usar los feeds oficiales de producto de las redes de
+ * afiliación (Awin/Tradedoubler).
+ *
  * Añadidas Zalando y Desigual como automáticas el 18/08/2026 (ver sus
  * entradas para el método). Ronda de investigación dirigida el 19/08/2026
  * sobre Adidas, H&M, Zara y Pull&Bear (pedido explícito del usuario):
