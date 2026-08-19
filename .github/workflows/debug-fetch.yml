@@ -20,13 +20,21 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Instalar Chromium
-        timeout-minutes: 4
-        run: npx playwright install --with-deps chromium
+      # Este bloque no necesita navegador: va primero para que sus
+      # resultados lleguen aunque la instalacion de Chromium falle.
+      - name: A) Sondear tiendas Shopify (sin navegador)
+        timeout-minutes: 5
+        run: node scripts/_debug-probe.mjs shopify
 
-      - name: Sondear tiendas españolas (headed + Xvfb)
-        timeout-minutes: 14
+      # Sin --with-deps: las librerias del sistema ya estan en el runner y
+      # el apt-get update se atasca contra los mirrors de Ubuntu.
+      - name: Instalar Chromium
+        timeout-minutes: 5
+        run: npx playwright install chromium
+
+      - name: B) Sondear cadenas grandes (headed + Xvfb)
+        timeout-minutes: 12
         run: |
           Xvfb :99 -screen 0 1366x768x24 &
           sleep 2
-          DISPLAY=:99 node scripts/_debug-probe.mjs
+          DISPLAY=:99 node scripts/_debug-probe.mjs cadenas

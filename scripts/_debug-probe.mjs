@@ -184,18 +184,26 @@ async function probeCrawl(browser, name, home) {
   }
 }
 
-console.log("=================== A) SHOPIFY (fetch simple) ===================");
-for (const [name, base] of SHOPIFY) {
-  await probeShopify(name, base);
+// El bloque Shopify NO necesita navegador, asi que se ejecuta aparte para
+// que sus resultados lleguen aunque la instalacion de Chromium falle.
+const modo = process.argv[2] || "todo";
+
+if (modo === "shopify" || modo === "todo") {
+  console.log("=================== A) SHOPIFY (fetch simple) ===================");
+  for (const [name, base] of SHOPIFY) {
+    await probeShopify(name, base);
+  }
 }
 
-console.log("\n=================== B) CADENAS (portada -> rebajas) ===================");
-const { chromium } = await import("playwright");
-const browser = await chromium.launch({
-  headless: false,
-  args: ["--disable-blink-features=AutomationControlled"],
-});
-for (const [name, home] of CRAWL) {
-  await probeCrawl(browser, name, home);
+if (modo === "cadenas" || modo === "todo") {
+  console.log("\n=================== B) CADENAS (portada -> rebajas) ===================");
+  const { chromium } = await import("playwright");
+  const browser = await chromium.launch({
+    headless: false,
+    args: ["--disable-blink-features=AutomationControlled"],
+  });
+  for (const [name, home] of CRAWL) {
+    await probeCrawl(browser, name, home);
+  }
+  await browser.close();
 }
-await browser.close();
