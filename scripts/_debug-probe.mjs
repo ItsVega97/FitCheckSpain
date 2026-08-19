@@ -17,94 +17,98 @@ async function newPage(browser) {
   return { context, page: await context.newPage() };
 }
 
-async function sniffNetwork(browser, name, url) {
-  console.log(`\n================== ${name}: sniff de red ==================`);
+async function pullAndBearCatalog(browser) {
+  console.log("\n================== Pull&Bear: estructura de itxrest/catalog ==================");
   const { context, page } = await newPage(browser);
-  const candidates = [];
-  page.on("response", async (resp) => {
-    const ct = resp.headers()["content-type"] || "";
-    const u = resp.url();
-    if (ct.includes("json") && !u.includes("google") && !u.includes("analytics") && !u.includes("doubleclick")) {
-      candidates.push({ url: u, status: resp.status(), contentType: ct });
-    }
-  });
   try {
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
-    await page.waitForTimeout(3000);
-    for (let i = 0; i < 6; i++) {
-      await page.mouse.wheel(0, 1600);
-      await page.waitForTimeout(700);
-    }
-    await page.waitForTimeout(2000);
-    console.log(`JSON responses capturadas: ${candidates.length}`);
-    for (const c of candidates.slice(0, 25)) {
-      console.log(`  [${c.status}] ${c.url}`);
-    }
-    // Try to find the most promising one (contains "product" or is large)
-    const promising = candidates.filter((c) => /product|article|catalog|search|grid|listing/i.test(c.url));
-    console.log("\nCandidatas prometedoras (url contiene product/article/catalog/search/grid/listing):");
-    for (const c of promising) console.log(`  [${c.status}] ${c.url}`);
-
-    const domInfo = await page.evaluate(() => {
-      const has = (k) => typeof window[k] !== "undefined";
-      return {
-        hasNuxt: has("__NUXT__"),
-        hasNextData: !!document.getElementById("__NEXT_DATA__"),
-        title: document.title,
-      };
+    await page.goto("https://www.pullandbear.com/es/rebajas-c1030006000.html", {
+      waitUntil: "domcontentloaded",
+      timeout: 30000,
     });
-    console.log("DOM info:", JSON.stringify(domInfo));
+    await page.waitForTimeout(3000);
+
+    const catalogJson = await page.evaluate(async () => {
+      const res = await fetch("https://www.pullandbear.com/itxrest/2/catalog/store/24009400?languageId=-5&appId=1", {
+        credentials: "include",
+      });
+      const text = await res.text();
+      return { status: res.status, len: text.length, sample: text.slice(0, 3000) };
+    });
+    console.log("catalog response:", JSON.stringify(catalogJson, null, 2).slice(0, 4000));
+
+    // Try to find the "rebajas"/sale category id from the catalog tree
+    let saleCategoryId = null;
+    try {
+      const parsed = JSON.parse(catalogJson.sample.length < catalogJson.len ? catalogJson.sample : catalogJson.sample);
+    } catch {
+      /* sample may be truncated, handled below via full fetch */
+    }
+
+    const fullCatalog = await page.evaluate(async () => {
+      const res = await fetch("https://www.pullandbear.com/itxrest/2/catalog/store/24009400?languageId=-5&appId=1", {
+        credentials: "include",
+      });
+      const json = await res.json().catch(() => null);
+      if (!json) return null;
+      // Depth-first search for anything with "rebaja" or "sale" in its name
+      const found = [];
+      function walk(node, path) {
+        if (!node || typeof node !== "object") return;
+        if (Array.isArray(node)) {
+          node.forEach((n, i) => walk(n, path + `[${i}]`));
+          return;
+        }
+        if (typeof node.name === "string" && /rebaja|sale/i.test(node.name)) {
+          found.push({ path, name: node.name, id: node.id, sectionId: node.sectionId, keys: Object.keys(node) });
+        }
+        for (const k of Object.keys(node)) {
+          if (typeof node[k] === "object") walk(node[k], path + "." + k);
+        }
+      }
+      walk(json, "root");
+      return { topKeys: Object.keys(json), foundCount: found.length, found: found.slice(0, 15) };
+    });
+    console.log("\nfullCatalog search for rebajas/sale:", JSON.stringify(fullCatalog, null, 2).slice(0, 4000));
   } catch (e) {
     console.log("ERROR:", e.message);
   } finally {
     await context.close();
   }
-  return candidates;
 }
 
-async function warmupNavigate(browser, name, homeUrl, targetUrl, saleLinkTextPattern) {
-  console.log(`\n================== ${name}: calentamiento de sesión ==================`);
+async function zaraCategoriesApi(browser) {
+  console.log("\n================== Zara: estructura de /categories ajax ==================");
   const { context, page } = await newPage(browser);
-  try {
-    console.log(`1) Visitando portada: ${homeUrl}`);
-    const resp1 = await page.goto(homeUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
-    console.log(`   HTTP: ${resp1 ? resp1.status() : "?"} | Title: ${await page.title()}`);
-    await page.waitForTimeout(2500);
-
-    // Try to accept cookie consent (common patterns)
-    const consentSelectors = [
-      "button:has-text('Aceptar')",
-      "button:has-text('ACEPTAR')",
-      "#onetrust-accept-btn-handler",
-      "button[id*='accept']",
-      "button[class*='accept']",
-    ];
-    for (const sel of consentSelectors) {
+  const captured = [];
+  page.on("response", async (resp) => {
+    if (resp.url().includes("/categories?") && resp.url().includes("ajax=true")) {
       try {
-        const btn = page.locator(sel).first();
-        if (await btn.isVisible({ timeout: 1500 })) {
-          await btn.click({ timeout: 2000 });
-          console.log(`   Cookie consent aceptado con selector: ${sel}`);
-          await page.waitForTimeout(1000);
-          break;
-        }
+        const json = await resp.json();
+        captured.push({ url: resp.url(), json });
       } catch {
-        /* selector not found, try next */
+        /* not JSON or already consumed */
       }
     }
-
-    await page.mouse.move(300, 300);
-    await page.mouse.move(500, 400);
+  });
+  try {
+    await page.goto("https://www.zara.com/es/es/mujer-special-prices-l1309.html", {
+      waitUntil: "domcontentloaded",
+      timeout: 30000,
+    });
+    await page.waitForTimeout(4000);
+    for (let i = 0; i < 4; i++) {
+      await page.mouse.wheel(0, 1500);
+      await page.waitForTimeout(600);
+    }
     await page.waitForTimeout(1500);
-
-    console.log(`2) Navegando a la página de rebajas: ${targetUrl}`);
-    const resp2 = await page.goto(targetUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
-    console.log(`   HTTP: ${resp2 ? resp2.status() : "?"} | Title: ${await page.title()}`);
-    await page.waitForTimeout(3000);
-    const html = await page.content();
-    console.log(`   HTML size: ${html.length}`);
-    const bodyText = await page.evaluate(() => document.body.innerText.slice(0, 200));
-    console.log(`   Body text: ${JSON.stringify(bodyText)}`);
+    console.log(`Capturadas ${captured.length} respuestas de /categories`);
+    for (const c of captured) {
+      const str = JSON.stringify(c.json);
+      console.log(`\nURL: ${c.url}`);
+      console.log(`JSON length: ${str.length}`);
+      console.log(`top-level keys: ${Object.keys(c.json)}`);
+      console.log(`sample: ${str.slice(0, 2500)}`);
+    }
   } catch (e) {
     console.log("ERROR:", e.message);
   } finally {
@@ -117,9 +121,7 @@ const browser = await chromium.launch({
   args: ["--disable-blink-features=AutomationControlled"],
 });
 
-await sniffNetwork(browser, "Zara", "https://www.zara.com/es/es/mujer-special-prices-l1309.html");
-await sniffNetwork(browser, "Pull&Bear", "https://www.pullandbear.com/es/rebajas-c1030006000.html");
-await warmupNavigate(browser, "H&M", "https://www2.hm.com/es_es/index.html", "https://www2.hm.com/es_es/sale/viewall.html");
-await warmupNavigate(browser, "Adidas", "https://www.adidas.es/", "https://www.adidas.es/ofertas");
+await pullAndBearCatalog(browser);
+await zaraCategoriesApi(browser);
 
 await browser.close();
