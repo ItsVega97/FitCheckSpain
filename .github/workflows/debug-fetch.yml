@@ -22,10 +22,8 @@ jobs:
       - name: Instalar patchright (solo para la prueba A/B)
         run: npm install --no-save patchright
 
-      - name: Instalar navegadores
-        run: |
-          npx playwright install --with-deps chromium
-          npx patchright install chromium || echo "patchright reutiliza el chromium de playwright"
+      - name: Instalar Chromium (compartido por ambos drivers)
+        run: npx playwright install --with-deps chromium
 
       - name: A/B Playwright vs Patchright (headed + Xvfb)
         run: |

@@ -16,12 +16,13 @@ const TARGETS = [
   ["Pull&Bear rebajas", "https://www.pullandbear.com/es/rebajas-c1030006000.html"],
 ];
 
-async function runWith(label, chromium) {
+async function runWith(label, chromium, executablePath) {
   console.log(`\n########## ${label} ##########`);
   let browser;
   try {
     browser = await chromium.launch({
       headless: false,
+      executablePath,
       args: ["--disable-blink-features=AutomationControlled"],
     });
   } catch (e) {
@@ -66,12 +67,17 @@ async function runWith(label, chromium) {
 
 // Playwright estandar
 const { chromium: pwChromium } = await import("playwright");
-await runWith("PLAYWRIGHT", pwChromium);
+// Ambos usan EL MISMO binario de Chromium: asi la unica variable del A/B es
+// el driver (como se controla el navegador), no la version del navegador.
+const sharedChromium = pwChromium.executablePath();
+console.log(`Chromium compartido para el A/B: ${sharedChromium}`);
 
-// Patchright (drop-in parcheado)
+await runWith("PLAYWRIGHT", pwChromium, sharedChromium);
+
+// Patchright (drop-in parcheado, sin fugas de CDP)
 try {
   const { chromium: patchChromium } = await import("patchright");
-  await runWith("PATCHRIGHT", patchChromium);
+  await runWith("PATCHRIGHT", patchChromium, sharedChromium);
 } catch (e) {
   console.log("\nNo se pudo cargar patchright:", e.message);
 }
