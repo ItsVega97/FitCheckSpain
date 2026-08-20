@@ -102,8 +102,21 @@ function clasificar(p: ShopifyProduct, title: string): string {
   return "Otros";
 }
 
+/**
+ * Shopify asigna el mercado por geolocalización de IP, y los runners de
+ * GitHub Actions salen por Estados Unidos: la tienda nos servía su lista de
+ * precios internacional. En Coosy eso significaba publicar unas sandalias a
+ * 41,90 € cuando en su web se venden a 39,00 €, con el precio tachado
+ * inflado en el mismo factor (1,0744) — un desfase constante y silencioso,
+ * porque las cifras parecían perfectamente plausibles.
+ *
+ * `country=ES` fuerza el mercado español. Se comprobó que la cookie
+ * `localization` y las cabeceras de país no sirven: solo el parámetro.
+ */
+const PAIS = "ES";
+
 async function fetchPage(baseUrl: string, page: number): Promise<ShopifyProduct[]> {
-  const res = await fetch(`${baseUrl}/products.json?limit=250&page=${page}`, {
+  const res = await fetch(`${baseUrl}/products.json?limit=250&page=${page}&country=${PAIS}`, {
     headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" },
     signal: AbortSignal.timeout(20000),
   });

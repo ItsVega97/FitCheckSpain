@@ -59,6 +59,18 @@ Hay tres formas de sacar los datos, de más a menos fiable:
    genérico cubre las ocho tiendas Shopify y añadir otra es una línea.
    Además de precio trae `product_type` y `tags`, que son lo que permite
    clasificar y asignar género (ver más abajo).
+
+   **Hay que pedirlo con `?country=ES`.** Shopify asigna el mercado por
+   geolocalización de IP y los runners de GitHub Actions salen por Estados
+   Unidos, así que sin ese parámetro la tienda sirve su lista de precios
+   internacional. En Coosy eso significaba publicar unas sandalias a
+   41,90 € cuando en su web valen 39,00 €, con el precio tachado inflado
+   en el mismo factor (1,0744). Es un fallo especialmente traicionero
+   porque las cifras parecen plausibles y no falla nada. De las ocho
+   tiendas solo Coosy tiene precios por mercado, pero el parámetro se
+   manda a todas por si alguna los activa más adelante. La cookie
+   `localization` y las cabeceras de país **no** sirven: solo el
+   parámetro.
 2. **JSON embebido** (JSON-LD, `__NEXT_DATA__`, microdatos schema.org):
    ASOS, Nike y Puma con un fetch simple; Womensecret, Cortefiel,
    Desigual y Mango necesitan además renderizar con navegador.
