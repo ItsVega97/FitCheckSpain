@@ -1,17 +1,13 @@
-name: Sondeo Shopify (precio Coosy)
+name: Sondeo Shopify (country=ES)
 
-# Workflow temporal de diagnóstico. Coosy devuelve por API 41,90 € / 193,39 €
-# para un producto que en su web se ve a 39,00 € / 180,00 €. El factor
-# (1,074383) es constante y afecta también al precio tachado, y cart.js
-# declara EUR, así que no es un cambio de moneda.
+# Workflow temporal de diagnóstico. Ya está confirmado que Shopify asigna el
+# mercado por IP y que el runner de GitHub se geolocaliza en Estados Unidos,
+# así que las tiendas con precios por mercado nos devuelven la lista
+# internacional. Añadir ?country=ES a la ficha devuelve los precios españoles.
 #
-# Dos hipótesis que esto distingue:
-#   A) Shopify Markets asigna mercado por IP y el runner (Azure, fuera de
-#      España) recibe una lista de precios internacional. Entonces el HTML
-#      de la ficha traerá 41,90 y no habrá forma de ver 39,00 desde aquí
-#      salvo forzando el país.
-#   B) El precio de la web lo pinta el tema o una app a partir de otro campo.
-#      Entonces el HTML traerá 39,00 aunque la API diga 41,90.
+# Falta comprobar dos cosas antes de tocar el scraper:
+#   1. Que /products.json (el endpoint que usamos) también respete country=ES.
+#   2. A cuántas de las ocho tiendas les cambia el precio.
 on:
   workflow_dispatch:
   push:
@@ -26,70 +22,53 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Sondear la ficha de Coosy
+      - name: Comparar con y sin country=ES
         run: |
           node -e '
-          const HANDLE = "sandalias-plataformanegro";
-          const BASE = "https://coosy.es";
+          const tiendas = {
+            coosy: "https://coosy.es",
+            laagam: "https://laagam.com",
+            popa: "https://popabrand.com",
+            bimani: "https://bimani.es",
+            pompeii: "https://pompeiibrand.com",
+            bluebanana: "https://www.bluebananabrand.com",
+            scalpers: "https://scalperscompany.com",
+            poete: "https://poete.es",
+          };
           const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
 
-          async function get(url, extra = {}) {
+          async function productos(url) {
             const r = await fetch(url, {
-              headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9", ...extra },
-              redirect: "follow",
+              headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" },
             });
-            return { status: r.status, url: r.url, body: await r.text() };
-          }
-
-          // Saca todos los importes que parezcan precios del HTML.
-          function precios(html) {
-            const set = new Map();
-            for (const m of html.matchAll(/(\d{1,4}[.,]\d{2})\s*(?:&nbsp;|\s)?€/g)) {
-              const v = m[1].replace(",", ".");
-              set.set(v, (set.get(v) || 0) + 1);
-            }
-            return [...set].sort((a, b) => b[1] - a[1]).slice(0, 12);
-          }
-          function campos(html, claves) {
-            const out = [];
-            for (const k of claves) {
-              const re = new RegExp("\"" + k + "\"\\s*:\\s*\"?([\\d.,]+)\"?", "g");
-              const vals = [...html.matchAll(re)].map((m) => m[1]).slice(0, 6);
-              if (vals.length) out.push(k + "=" + vals.join(","));
-            }
-            return out.join("  ");
+            if (!r.ok) return null;
+            const d = await r.json();
+            return d.products || [];
           }
 
           (async () => {
-            const casos = [
-              ["ficha normal", BASE + "/products/" + HANDLE, {}],
-              ["ficha ?country=ES", BASE + "/products/" + HANDLE + "?country=ES", {}],
-              ["ficha cookie localization=ES", BASE + "/products/" + HANDLE, { Cookie: "localization=ES; cart_currency=EUR" }],
-              ["ficha cabecera ES", BASE + "/products/" + HANDLE, { "CF-IPCountry": "ES", "X-Forwarded-For": "88.19.0.1" }],
-            ];
-            for (const [nombre, url, extra] of casos) {
-              const r = await get(url, extra);
-              console.log("\n##### " + nombre + "  HTTP " + r.status);
-              console.log("   url final: " + r.url);
-              console.log("   precios en el HTML: " + JSON.stringify(precios(r.body)));
-              console.log("   campos JSON: " + campos(r.body, ["price", "compare_at_price", "priceCurrency", "lowPrice"]));
-            }
+            for (const [id, base] of Object.entries(tiendas)) {
+              const sin = await productos(base + "/products.json?limit=20");
+              const con = await productos(base + "/products.json?limit=20&country=ES");
+              if (!sin || !con) { console.log(id + ": error"); continue; }
 
-            for (const [nombre, url, extra] of [
-              ["json normal", BASE + "/products/" + HANDLE + ".js", {}],
-              ["json ?country=ES", BASE + "/products/" + HANDLE + ".js?country=ES", {}],
-              ["json cookie ES", BASE + "/products/" + HANDLE + ".js", { Cookie: "localization=ES; cart_currency=EUR" }],
-            ]) {
-              const r = await get(url, extra);
-              try {
-                const d = JSON.parse(r.body);
-                const v = d.variants[0];
-                console.log("\n##### " + nombre + " -> price=" + d.price / 100 + "  compare=" + (v.compare_at_price / 100));
-              } catch { console.log("\n##### " + nombre + " -> HTTP " + r.status + " (sin JSON)"); }
+              const mapa = new Map(con.map((p) => [p.handle, p.variants[0]]));
+              let distintos = 0, iguales = 0, ejemplo = "";
+              let factor = null;
+              for (const p of sin) {
+                const a = p.variants[0], b = mapa.get(p.handle);
+                if (!b) continue;
+                if (a.price === b.price) { iguales++; continue; }
+                distintos++;
+                if (!ejemplo) {
+                  ejemplo = p.handle + ": " + a.price + " -> " + b.price +
+                            "  (compare " + a.compare_at_price + " -> " + b.compare_at_price + ")";
+                  factor = (Number(a.price) / Number(b.price)).toFixed(6);
+                }
+              }
+              console.log("\n########## " + id);
+              console.log("  precios que cambian: " + distintos + " de " + (distintos + iguales));
+              if (ejemplo) console.log("  ejemplo: " + ejemplo + "   factor=" + factor);
             }
-
-            // ¿Qué mercados publica la tienda?
-            const loc = await get(BASE + "/browsing_context_suggestions.json");
-            console.log("\n##### browsing_context_suggestions -> " + loc.body.slice(0, 500));
           })();
           '
