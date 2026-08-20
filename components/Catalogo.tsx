@@ -387,7 +387,7 @@ export default function Catalogo({
                 </h2>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-neutral-400 sm:mt-4 sm:text-base">
                   Las {destacados.length} ofertas que más han bajado de precio hoy, de entre las{" "}
-                  {tiendasDisponibles.length} tiendas que rastreamos cada mañana.
+                  {tiendasDisponibles.length} tiendas que rastreamos cada pocas horas.
                 </p>
               </div>
 

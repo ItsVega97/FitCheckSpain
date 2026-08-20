@@ -10,8 +10,8 @@ directo a cada producto.
    cada tienda configurada, extrae producto + precio + precio original y
    calcula el % de descuento. El resultado se guarda en `data/deals.json`.
 2. Una GitHub Action programada (`.github/workflows/scrape.yml`) ejecuta ese
-   scraper **cada día a las 06:00 UTC** y commitea el JSON actualizado si hay
-   cambios.
+   scraper **cada 4 horas** (00, 04, 08, 12, 16 y 20 UTC) y commitea el JSON
+   actualizado si hay cambios.
 3. Vercel está conectado al repo, así que cada commit (incluidos los del bot)
    despliega la web automáticamente con las ofertas más recientes.
 4. La web (Next.js) simplemente lee `data/deals.json` + `data/manual-deals.json`
@@ -150,7 +150,7 @@ para mandar un catálogo entero a "Otros".
 1. Sube este repo a GitHub (si aún no lo está) y haz merge de esta rama a tu
    rama por defecto (`main`) — **las GitHub Actions programadas
    (`schedule`) solo se disparan desde la rama por defecto del repo**, así
-   que el scraper diario no arrancará hasta que este workflow exista en
+   que el scraper programado no arrancará hasta que este workflow exista en
    `main`.
 2. Ve a [vercel.com](https://vercel.com), "Add New Project", importa este
    repositorio. Vercel detecta Next.js automáticamente, no hace falta
@@ -161,7 +161,7 @@ para mandar un catálogo entero a "Otros".
    usa el `GITHUB_TOKEN` que GitHub genera automáticamente (con permiso de
    escritura ya configurado en el workflow).
 
-Si prefieres no depender del cron diario de GitHub, también puedes lanzar la
+Si no quieres esperar al siguiente pase del cron, también puedes lanzar la
 Action a mano en cualquier momento desde la pestaña "Actions" del repo
 ("Run workflow").
 
