@@ -1,0 +1,83 @@
+name: Sondeo Shopify (moneda)
+
+# Workflow temporal de diagnóstico: los precios de Coosy salen inflados por un
+# factor constante (1,0744) respecto a los que se ven en su web, lo que apunta
+# a que /products.json devuelve otra moneda. Aquí se comprueba qué moneda
+# declara cada tienda y si algún prefijo de mercado devuelve euros.
+# Se puede borrar cuando ya no haga falta.
+on:
+  workflow_dispatch:
+  # workflow_dispatch solo se puede lanzar si el fichero está en la rama por
+  # defecto, así que para poder sondear desde la rama de trabajo se dispara
+  # también al empujar cambios en este mismo workflow.
+  push:
+    paths:
+      - ".github/workflows/probe-shopify.yml"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Comprobar moneda
+        run: |
+          node -e '
+          const tiendas = {
+            coosy: "https://coosy.es",
+            laagam: "https://laagam.com",
+            popa: "https://popabrand.com",
+            bimani: "https://bimani.es",
+            pompeii: "https://pompeiibrand.com",
+            bluebanana: "https://www.bluebananabrand.com",
+            scalpers: "https://scalperscompany.com",
+            poete: "https://poete.es",
+          };
+          const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
+          const H = { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" };
+
+          async function json(url, extra = {}) {
+            const r = await fetch(url, { headers: { ...H, ...extra }, redirect: "follow" });
+            if (!r.ok) return { _status: r.status };
+            try { return { _status: r.status, _url: r.url, ...(await r.json()) }; }
+            catch { return { _status: r.status, _url: r.url, _noJson: true }; }
+          }
+
+          (async () => {
+            for (const [id, base] of Object.entries(tiendas)) {
+              console.log("\n########## " + id + "  " + base);
+
+              const meta = await json(base + "/meta.json");
+              console.log("  meta.json      -> " + JSON.stringify(meta).slice(0, 300));
+
+              const p = await json(base + "/products.json?limit=1");
+              const prod = p.products && p.products[0];
+              if (!prod) { console.log("  products.json  -> sin productos (" + p._status + ")"); continue; }
+              const v = prod.variants[0];
+              console.log("  products.json  -> " + prod.handle + "  price=" + v.price + "  compare=" + v.compare_at_price);
+
+              // El endpoint .js devuelve el precio en céntimos de la moneda
+              // de presentación, así que sirve de contraste.
+              const js = await json(base + "/products/" + prod.handle + ".js");
+              if (js.price !== undefined) {
+                console.log("  producto .js   -> price=" + js.price + " (céntimos) = " + (js.price / 100));
+              } else {
+                console.log("  producto .js   -> " + js._status);
+              }
+
+              // /cart.js declara la moneda de la sesión.
+              const cart = await json(base + "/cart.js");
+              console.log("  cart.js        -> currency=" + cart.currency);
+
+              // ¿Algún prefijo de mercado devuelve euros?
+              for (const pref of ["/es", "/es-es", "/en-es"]) {
+                const alt = await json(base + pref + "/products.json?limit=1");
+                const av = alt.products && alt.products[0] && alt.products[0].variants[0];
+                console.log("  " + (pref + "/products.json").padEnd(22) + " -> " +
+                  (av ? "price=" + av.price + " (" + alt._url + ")" : "HTTP " + alt._status));
+              }
+            }
+          })();
+          '
