@@ -1,0 +1,87 @@
+name: Sondeo Shopify (tallas)
+
+# Workflow temporal de diagnóstico. Antes de escribir el normalizador de
+# tallas hace falta ver los valores reales: cómo se llama la opción de talla
+# en cada tienda y qué valores usa ("UNICA", "T.1", "38/40"...). También
+# confirma que los productos traen `options` y que las variantes traen
+# `available`, que es lo que permite saber qué tallas quedan.
+# Se puede borrar cuando ya no haga falta.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/probe-shopify.yml"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Volcar opciones y tallas
+        run: |
+          node -e '
+          const tiendas = {
+            bimani: "https://bimani.es",
+            coosy: "https://coosy.es",
+            bluebanana: "https://www.bluebananabrand.com",
+            popa: "https://popabrand.com",
+            pompeii: "https://pompeiibrand.com",
+            laagam: "https://laagam.com",
+            scalpers: "https://scalperscompany.com",
+            poete: "https://poete.es",
+          };
+          const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
+
+          (async () => {
+            for (const [id, base] of Object.entries(tiendas)) {
+              const r = await fetch(base + "/products.json?limit=250&country=ES", {
+                headers: { "User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9" },
+              });
+              if (!r.ok) { console.log("\n##### " + id + " HTTP " + r.status); continue; }
+              const { products = [] } = await r.json();
+
+              const nombresOpcion = new Map();
+              const valores = new Map();
+              let conAvailable = 0, variantes = 0, sinOpciones = 0;
+
+              for (const p of products) {
+                if (!p.options || !p.options.length) { sinOpciones++; continue; }
+                for (const o of p.options) {
+                  nombresOpcion.set(o.name, (nombresOpcion.get(o.name) || 0) + 1);
+                }
+                for (const v of p.variants || []) {
+                  variantes++;
+                  if (typeof v.available === "boolean") conAvailable++;
+                }
+                // Valores de la opción que parezca talla
+                const idx = p.options.findIndex((o) => /talla|size/i.test(o.name));
+                if (idx >= 0) {
+                  for (const val of p.options[idx].values || []) {
+                    valores.set(val, (valores.get(val) || 0) + 1);
+                  }
+                }
+              }
+
+              console.log("\n##### " + id + "  (" + products.length + " productos, " +
+                variantes + " variantes, " + conAvailable + " con available, " +
+                sinOpciones + " sin options)");
+              console.log("  nombres de opción: " +
+                JSON.stringify([...nombresOpcion].sort((a, b) => b[1] - a[1]).slice(0, 8)));
+              console.log("  valores de talla:  " +
+                JSON.stringify([...valores].sort((a, b) => b[1] - a[1]).slice(0, 30)));
+
+              const ej = products.find((p) => (p.options || []).some((o) => /talla|size/i.test(o.name)));
+              if (ej) {
+                console.log("  ejemplo: " + ej.title);
+                console.log("    options: " + JSON.stringify(ej.options));
+                console.log("    variantes: " + JSON.stringify(
+                  (ej.variants || []).slice(0, 8).map((v) => ({
+                    t: v.title, o1: v.option1, o2: v.option2, av: v.available,
+                  }))));
+              }
+            }
+          })();
+          '
