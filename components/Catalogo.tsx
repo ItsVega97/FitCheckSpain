@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import type { Deal, StoreId } from "@/lib/types";
 import { STORES, storeMeta } from "@/lib/stores";
@@ -18,6 +19,8 @@ import {
   type PriceBucketId,
   type SortMode,
 } from "@/lib/filters";
+import { ordenarTallas, tallasDisponibles } from "@/lib/sizes";
+import { rutaCategoria } from "@/lib/slugs";
 import DealCard, { UMBRAL_CHOLLO } from "./DealCard";
 import FilterSheet from "./FilterSheet";
 import MenuFiltro from "./MenuFiltro";
@@ -187,14 +190,30 @@ function TarjetaDestacada({ deal }: { deal: Deal }) {
   );
 }
 
+/**
+ * Cabecera de las páginas de sección (`/rebajas/...`, `/tienda/...`).
+ * Cuando viene, el catálogo se pinta en modo sección: sin carrusel de
+ * chollos ni fichas de categoría —que son la portada— y con un H1 propio
+ * que es lo que Google indexa.
+ */
+export interface Seccion {
+  titulo: string;
+  descripcion: string;
+  migas: { href: string; label: string }[];
+  /** Enlaces al resto de secciones, para que se puedan recorrer entre ellas. */
+  relacionadas?: { titulo: string; items: { href: string; label: string; total: number }[] };
+}
+
 export default function Catalogo({
   deals,
   lastRun,
   failedStores,
+  seccion,
 }: {
   deals: Deal[];
   lastRun: string;
   failedStores: number;
+  seccion?: Seccion;
 }) {
   const [filtros, setFiltros] = useState<Filtros>(FILTROS_VACIOS);
   const [sort, setSort] = useState<SortMode>("discount");
@@ -280,6 +299,22 @@ export default function Catalogo({
     return r;
   }, [deals]);
 
+  // Solo se cuentan las tallas con stock: un filtro que ofreciera tallas
+  // agotadas sería peor que no tenerlo.
+  const recuentoTalla = useMemo(() => {
+    const r: Record<string, number> = {};
+    for (const d of deals) {
+      for (const t of tallasDisponibles(d.sizes)) r[t] = (r[t] ?? 0) + 1;
+    }
+    return r;
+  }, [deals]);
+
+  // Las tallas raras de un solo producto ensucian el filtro sin aportar.
+  const tallas = useMemo(
+    () => ordenarTallas(Object.keys(recuentoTalla).filter((t) => recuentoTalla[t] >= 5)),
+    [recuentoTalla],
+  );
+
   const generosDisponibles = useMemo(() => {
     const g = new Set(deals.map((d) => d.gender));
     return GENDER_ORDER.filter((x) => g.has(x));
@@ -316,15 +351,19 @@ export default function Catalogo({
       <header className="bg-neutral-950">
         <div className="mx-auto flex max-w-[1440px] flex-col gap-3.5 px-4 py-3.5 sm:flex-row sm:items-center sm:gap-8 sm:px-10 sm:py-0 sm:h-[76px]">
           <div className="flex items-center justify-between sm:justify-start">
-            <h1 className="sr-only">FitCheckSpain</h1>
-            <Image
-              src="/logo-horizontal.png"
-              alt="FitCheckSpain"
-              width={700}
-              height={132}
-              priority
-              className="h-7 w-auto sm:h-[34px]"
-            />
+            {/* En portada el logo es el H1; en las páginas de sección el H1
+                es el título de la sección, así que aquí baja a enlace. */}
+            {seccion ? null : <h1 className="sr-only">FitCheckSpain</h1>}
+            <Link href="/" aria-label="FitCheckSpain, ir a la portada">
+              <Image
+                src="/logo-horizontal.png"
+                alt="FitCheckSpain"
+                width={700}
+                height={132}
+                priority
+                className="h-7 w-auto sm:h-[34px]"
+              />
+            </Link>
             <div className="flex items-center gap-2.5 sm:hidden">
               <span className="text-xs font-semibold text-neutral-400">
                 {tiendasDisponibles.length} tiendas
@@ -370,8 +409,30 @@ export default function Catalogo({
         </div>
       </header>
 
+      {/* ================= CABECERA DE SECCIÓN ================= */}
+      {seccion ? (
+        <section className="mx-auto max-w-[1440px] px-4 pb-1 pt-6 sm:px-10 sm:pt-9">
+          <nav aria-label="Migas de pan" className="mb-3 flex flex-wrap items-center gap-1.5 text-[13px] text-neutral-500">
+            {seccion.migas.map((m, i) => (
+              <span key={m.href} className="flex items-center gap-1.5">
+                {i > 0 ? <span aria-hidden="true">/</span> : null}
+                <Link href={m.href} className="hover:text-neutral-900 hover:underline dark:hover:text-white">
+                  {m.label}
+                </Link>
+              </span>
+            ))}
+          </nav>
+          <h1 className="font-display text-3xl leading-tight tracking-tight text-neutral-950 dark:text-white sm:text-[44px]">
+            {seccion.titulo}
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-500 sm:text-base">
+            {seccion.descripcion}
+          </p>
+        </section>
+      ) : null}
+
       {/* ================= HERO ================= */}
-      {destacados.length > 0 ? (
+      {!seccion && destacados.length > 0 ? (
         <section className="bg-neutral-950 px-4 pb-10 pt-6 sm:px-10 sm:pb-14 sm:pt-11">
           <div className="mx-auto max-w-[1440px]">
             <div className="mb-3 flex items-center gap-2.5">
@@ -457,37 +518,30 @@ export default function Catalogo({
       ) : null}
 
       {/* ================= CATEGORÍAS ================= */}
-      {categoriasDestacadas.length > 0 ? (
+      {!seccion && categoriasDestacadas.length > 0 ? (
         <section className="mx-auto max-w-[1440px] px-4 pt-8 sm:px-10 sm:pt-10">
           <h2 className="mb-4 font-display text-xl tracking-tight text-neutral-950 dark:text-white sm:text-[26px]">
             Por categoría
           </h2>
           <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6">
-            {categoriasDestacadas.map((c) => {
-              const activa = filtros.categories.has(c);
-              return (
-                <button
-                  key={c}
-                  type="button"
-                  onClick={() => actualizar({ categories: alternar(filtros.categories, c) })}
-                  className={`flex w-28 shrink-0 flex-col gap-3 rounded-2xl border p-4 text-left transition sm:w-auto sm:p-5 ${
-                    activa
-                      ? "border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900"
-                      : "border-neutral-200 bg-white text-neutral-950 hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-white"
-                  }`}
-                >
-                  <IconoCategoria nombre={c} className="h-6 w-6 sm:h-[30px] sm:w-[30px]" />
-                  <span className="flex flex-col gap-0.5">
-                    <span className="text-[13px] font-bold leading-tight sm:text-[15px]">{c}</span>
-                    <span
-                      className={`text-[11px] sm:text-[13px] ${activa ? "opacity-60" : "text-neutral-400"}`}
-                    >
-                      {recuentoCategoria[c].toLocaleString("es-ES")} ofertas
-                    </span>
+            {/* Enlaces de verdad, no botones que filtran en el sitio: cada
+                categoría tiene su propia página, que es lo que Google puede
+                indexar y lo que se puede compartir por un enlace. */}
+            {categoriasDestacadas.map((c) => (
+              <Link
+                key={c}
+                href={rutaCategoria(c)}
+                className="flex w-28 shrink-0 flex-col gap-3 rounded-2xl border border-neutral-200 bg-white p-4 text-left text-neutral-950 transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-900 dark:text-white sm:w-auto sm:p-5"
+              >
+                <IconoCategoria nombre={c} className="h-6 w-6 sm:h-[30px] sm:w-[30px]" />
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-[13px] font-bold leading-tight sm:text-[15px]">{c}</span>
+                  <span className="text-[11px] text-neutral-400 sm:text-[13px]">
+                    {recuentoCategoria[c].toLocaleString("es-ES")} ofertas
                   </span>
-                </button>
-              );
-            })}
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
       ) : null}
@@ -553,6 +607,18 @@ export default function Catalogo({
             >
               -50% o más
             </button>
+
+            {tallas.length > 0 ? (
+              <div className="hidden sm:block">
+                <MenuFiltro
+                  titulo="Talla"
+                  opciones={tallas.map((t) => ({ id: t, label: t, count: recuentoTalla[t] ?? 0 }))}
+                  seleccion={filtros.sizes}
+                  onToggle={(id) => actualizar({ sizes: alternar(filtros.sizes, id) })}
+                  onLimpiar={() => actualizar({ sizes: new Set() })}
+                />
+              </div>
+            ) : null}
 
             {/* Marca y precio también están en el panel de filtros, pero son
                 los dos que más se usan y ahí no se ven sin abrirlo. En móvil
@@ -663,6 +729,28 @@ export default function Catalogo({
           </>
         )}
 
+        {/* Enlaces entre secciones: le dan a Google un camino para llegar a
+            todas las páginas y al visitante una forma de seguir mirando. */}
+        {seccion?.relacionadas ? (
+          <nav className="mt-14 border-t border-neutral-200 pt-8 dark:border-neutral-800">
+            <h2 className="mb-4 text-[13px] font-bold uppercase tracking-[0.1em] text-neutral-400">
+              {seccion.relacionadas.titulo}
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {seccion.relacionadas.items.map((r) => (
+                <Link
+                  key={r.href}
+                  href={r.href}
+                  className="rounded-full border border-neutral-300 px-3.5 py-2 text-[13px] text-neutral-600 transition hover:border-neutral-950 hover:text-neutral-950 dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-white dark:hover:text-white"
+                >
+                  {r.label}{" "}
+                  <span className="text-neutral-400">{r.total.toLocaleString("es-ES")}</span>
+                </Link>
+              ))}
+            </div>
+          </nav>
+        ) : null}
+
         <p className="mt-12 text-center text-xs text-neutral-400">
           Última actualización: {lastRun}
           {failedStores > 0 ? ` · ${failedStores} tienda(s) sin datos en la última pasada` : ""}
@@ -675,6 +763,9 @@ export default function Catalogo({
         filtros={filtros}
         resultados={filtradas.length}
         generosDisponibles={generosDisponibles}
+        tallas={tallas}
+        recuentoTalla={recuentoTalla}
+        onToggleTalla={(t) => actualizar({ sizes: alternar(filtros.sizes, t) })}
         tiendasDisponibles={tiendasDisponibles}
         categoriasDisponibles={categoriasDisponibles}
         recuentoGenero={recuentoGenero}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { Deal } from "@/lib/types";
 import { storeMeta } from "@/lib/stores";
+import { tallasDisponibles } from "@/lib/sizes";
 
 /** A partir de aquí la insignia se pinta en rojo en vez de en verde. */
 export const UMBRAL_CHOLLO = 70;
@@ -51,6 +52,14 @@ export default function DealCard({ deal }: { deal: Deal }) {
   // la tarjeta lo dice y se sostiene sin tachado ni porcentaje.
   const ahorro =
     deal.originalPrice !== null && deal.price !== null ? deal.originalPrice - deal.price : null;
+
+  // La frustración típica de las rebajas es encontrar el chollo y que no
+  // quede tu talla, así que se dice antes de hacer clic. Solo las tiendas
+  // Shopify publican tallas; en el resto no se pinta nada, que es distinto
+  // de "no quedan".
+  const disponibles = tallasDisponibles(deal.sizes);
+  const agotado = deal.sizes !== undefined && deal.sizes.length > 0 && disponibles.length === 0;
+  const soloUnica = disponibles.length === 1 && disponibles[0] === "Única";
 
   return (
     <a
@@ -142,6 +151,28 @@ export default function DealCard({ deal }: { deal: Deal }) {
         ) : (
           <span className="text-xs text-neutral-400">Precio de rebajas en {store.name}</span>
         )}
+
+        {agotado ? (
+          <span className="mt-1.5 text-[11px] font-semibold uppercase tracking-wide text-neutral-400">
+            Agotado
+          </span>
+        ) : soloUnica ? (
+          <span className="mt-1.5 text-[11px] text-neutral-400">Talla única</span>
+        ) : disponibles.length > 0 ? (
+          <span className="mt-1.5 flex flex-wrap items-center gap-1" aria-label="Tallas disponibles">
+            {disponibles.slice(0, 7).map((t) => (
+              <span
+                key={t}
+                className="rounded border border-neutral-200 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-neutral-500 dark:border-neutral-700 dark:text-neutral-400"
+              >
+                {t}
+              </span>
+            ))}
+            {disponibles.length > 7 ? (
+              <span className="text-[10px] text-neutral-400">+{disponibles.length - 7}</span>
+            ) : null}
+          </span>
+        ) : null}
       </div>
     </a>
   );

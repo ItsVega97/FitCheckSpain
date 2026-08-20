@@ -25,6 +25,8 @@ export type StoreId =
   | "poete"
   | "otros";
 
+import type { Talla } from "./sizes";
+
 export interface Deal {
   id: string;
   store: StoreId;
@@ -38,6 +40,8 @@ export interface Deal {
   currency: string;
   category?: string;
   gender?: "hombre" | "mujer" | "niños" | "unisex";
+  /** Tallas con su disponibilidad. Solo las tiendas Shopify las publican. */
+  sizes?: Talla[];
   scrapedAt: string;
   source: "auto" | "manual";
 }

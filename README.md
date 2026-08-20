@@ -129,7 +129,33 @@ Pasar los tests del clasificador:
 npm test
 ```
 
-## Categoría y género
+## Páginas y SEO
+
+Además de la portada, la web genera de forma estática:
+
+- `/rebajas/<categoria>` — una por categoría (`/rebajas/vestidos`,
+  `/rebajas/calzado`...).
+- `/tienda/<tienda>` — una por tienda (`/tienda/mango`, `/tienda/coosy`...).
+- `/sitemap.xml` y `/robots.txt`.
+
+Los slugs salen siempre de los datos reales (`lib/slugs.ts`), no de una
+lista aparte, así que en cuanto el clasificador aprenda una categoría nueva
+aparece su página sola.
+
+Esto existe por dos motivos. El primero es que **una sola página no puede
+posicionar**: quien busca "rebajas de vestidos" necesita que exista una
+página que hable de vestidos y solo de vestidos, con su `<h1>`, su
+descripción y sus datos estructurados (`ItemList` de schema.org). El
+segundo es el peso: la portada ocupa 1,7 MB de HTML porque lleva las ~2.900
+ofertas serializadas dentro, mientras que una página de categoría va de
+150 KB a 550 KB.
+
+Las etiquetas canónicas y el sitemap necesitan la URL absoluta del sitio,
+que se configura con `NEXT_PUBLIC_SITE_URL`. **Al apuntar un dominio propio
+hay que ponerla en Vercel** (Settings -> Environment Variables), o las
+canónicas seguirán señalando al dominio `.vercel.app` y Google indexará ese.
+
+## Categoría, talla y género
 
 Ninguna tienda usa la misma taxonomía, así que las ofertas se clasifican
 con `scripts/scrapers/categorize.ts`, un conjunto de reglas por palabras
@@ -150,6 +176,16 @@ El **género** sale casi siempre de los `tags`, no del título, y cada
 tienda usa su propio vocabulario: Popa etiqueta `Mujer`, Scalpers
 `Hombre`/`Infantil`/`Niña` y también `feed-gender-male`, Blue Banana
 `unisex`/`kids`, Pompeii `Man`/`Woman` y Laagam `female`.
+
+Las **tallas** salen de las variantes, que además traen `available`, así que
+se sabe cuáles quedan y cuáles están agotadas — y el filtro solo cuenta las
+que quedan, porque una oferta cuya M está agotada no le sirve a quien gasta
+la M. Aquí también escribe cada tienda a su manera (`lib/sizes.ts`): la
+opción se llama `Talla`, `TALLA`, `Size` o `size`, Blue Banana la mete
+dentro del nombre del producto (`SUDADERA ... (TALLA)`) y Scalpers pone
+`Color` en la posición 1 y `Talla` en la 2, así que se busca por nombre y
+no por posición. "Talla única" tiene cinco grafías (`U`, `ÚNICA`, `UNICA`,
+`One Size`, `Unique`) y las combinadas usan barra o guion según la tienda.
 
 `npm test` comprueba las reglas contra una lista de valores reales
 volcados de las ocho tiendas. Merece la pena ampliarla al tocar las

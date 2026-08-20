@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { categorize, detectGender } from "./categorize";
+import { normalizarTalla, ordenarTallas, type Talla } from "../../lib/sizes";
 import type { Deal, StoreId } from "../../lib/types";
 
 /**
@@ -51,6 +52,16 @@ const MAX_PAGES = 4;
 interface ShopifyVariant {
   price?: string;
   compare_at_price?: string | null;
+  available?: boolean;
+  option1?: string | null;
+  option2?: string | null;
+  option3?: string | null;
+}
+
+interface ShopifyOption {
+  name?: string;
+  position?: number;
+  values?: string[];
 }
 
 interface ShopifyProduct {
@@ -59,6 +70,7 @@ interface ShopifyProduct {
   product_type?: string;
   tags?: string[];
   body_html?: string;
+  options?: ShopifyOption[];
   variants?: ShopifyVariant[];
   images?: { src?: string }[];
 }
@@ -73,6 +85,41 @@ function sinHtml(html: string): string {
     .replace(/&[a-z]+;|&#\d+;/gi, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+/**
+ * Saca las tallas con su disponibilidad.
+ *
+ * La opción de talla no está siempre en la misma posición ni se llama
+ * igual: Coosy y Poete la llaman "Talla", Pompeii y Laagam "Size", Blue
+ * Banana la mete dentro del nombre del producto ("SUDADERA ... (TALLA)") y
+ * Scalpers pone "Color" primero y "Talla" segundo. Por eso se busca por
+ * nombre en vez de asumir la posición 1, y se lee el `optionN` que
+ * corresponda a esa posición.
+ */
+function extraerTallas(p: ShopifyProduct): Talla[] | undefined {
+  const opciones = p.options ?? [];
+  const indice = opciones.findIndex((o) => /talla|size/i.test(o.name ?? ""));
+  if (indice < 0 || indice > 2) return undefined;
+
+  const clave = (["option1", "option2", "option3"] as const)[indice];
+  // Una misma talla puede repetirse entre variantes (por ejemplo cuando la
+  // tienda tiene también opción de color), y basta con que quede stock en
+  // una de ellas para que la talla esté disponible.
+  const porTalla = new Map<string, boolean>();
+  for (const v of p.variants ?? []) {
+    const bruta = v[clave];
+    if (!bruta) continue;
+    const label = normalizarTalla(bruta);
+    if (!label) continue;
+    porTalla.set(label, (porTalla.get(label) ?? false) || v.available === true);
+  }
+
+  if (porTalla.size === 0) return undefined;
+  return ordenarTallas([...porTalla.keys()]).map((label) => ({
+    label,
+    available: porTalla.get(label) ?? false,
+  }));
 }
 
 /**
@@ -168,6 +215,7 @@ export async function scrapeShopifyStore(store: ShopifyStore): Promise<{ deals: 
         currency: "EUR",
         category: clasificar(p, title),
         gender: detectGender(textoParaGenero) ?? store.defaultGender,
+        sizes: extraerTallas(p),
         scrapedAt: new Date().toISOString(),
         source: "auto",
       });

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Archivo_Black } from "next/font/google";
 import "./globals.css";
+import { SITIO } from "@/lib/site";
 
 // Archivo para el texto y Archivo Black para los titulares y los precios:
 // una grotesca con carácter, que sostiene bien los números grandes de los
@@ -19,9 +20,17 @@ const archivoBlack = Archivo_Black({
 });
 
 export const metadata: Metadata = {
-  title: "FitCheckSpain — Ofertas de ropa",
+  // metadataBase hace que las canónicas y las de Open Graph se resuelvan a
+  // URL absolutas; sin ella Next avisa y las deja relativas, que a Google
+  // no le sirven.
+  metadataBase: new URL(SITIO),
+  title: {
+    default: "FitCheckSpain — Ofertas de ropa de tiendas españolas",
+    template: "%s",
+  },
   description:
-    "Las mejores rebajas de ropa de 16 tiendas españolas, actualizadas cada mañana y con enlace directo al producto.",
+    "Las mejores rebajas de ropa de 16 tiendas españolas, actualizadas cada 4 horas y con enlace directo al producto.",
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
