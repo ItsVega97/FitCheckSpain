@@ -51,7 +51,7 @@ const RULES: [string, RegExp][] = [
   ],
   // Camisetas antes que camisas a propósito: en "T-SHIRT" el guion cuenta
   // como límite de palabra, así que /\bshirt/ la reclamaría como camisa.
-  ["Camisetas y tops", /camiseta|\btops?\b|\bbod(y|ies)\b|\bpolos?\b|\bt-?shirts?\b|\btees?\b|tank\b|\bcrop/i],
+  ["Camisetas y tops", /camiseta|\btops?\b|\bbod(y|ie|ies)\b|\bpolos?\b|\bt-?shirts?\b|\btees?\b|tank\b|\bcrop/i],
   ["Camisas y blusas", /camisa|blusa|casaca|\bshirt|overshirt|blouse/i],
   [
     "Sudaderas y jerséis",
@@ -64,7 +64,7 @@ const RULES: [string, RegExp][] = [
   ["Bañador y playa", /ba[ñn]ador|bikini|playa|pareo|\bswim|\bbeach/i],
   [
     "Bolsos y accesorios",
-    /bolso|bolsa\b|bandolera|mochila|cartera|monedero|cintur[oó]n|faj[íi]n|bufanda|gorro|gorra|sombrero|diadema|cinta de pelo|guante|joyer[ií]a|collar|pulsera|brazalete|anillo|pendiente|reloj|gafas|pa[ñn]uelo|fular|coletero|neceser|\bfundas?\b|llavero|calcetin|toalla|paraguas|bolsas y mochilas|complementos|accesorios|\bbags?\b|handbag|\bbelt|scarf|scarve|shawl|\bcaps?\b|headwear|\bhats?\b|\bsock|wallet|jewel|earring|necklace|bracelet|sunglass|backpack|umbrella/i,
+    /bolso|bolsa\b|ri[ñn]onera|bandolera|mochila|cartera|monedero|cintur[oó]n|faj[íi]n|bufanda|gorro|gorra|sombrero|diadema|cinta de pelo|guante|joyer[ií]a|collar|pulsera|brazalete|anillo|pendiente|reloj|gafas|pa[ñn]uelo|fular|coletero|neceser|\bfundas?\b|llavero|calcetin|toalla|paraguas|bolsas y mochilas|complementos|accesorios?|\bbags?\b|handbag|\bbelt|scarf|scarve|shawl|\bcaps?\b|headwear|\bhats?\b|\bsock|wallet|jewel|earring|necklace|bracelet|sunglass|backpack|umbrella/i,
   ],
   ["Ropa de deporte", /leggins|\bmalla|conjunto deportivo|fitness|gimnasio|entrenamiento/i],
 ];
