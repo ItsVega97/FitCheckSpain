@@ -2,9 +2,10 @@ name: Actualizar ofertas
 
 on:
   schedule:
-    # Cada día a las 06:00 UTC. Los "schedule" de GitHub Actions solo se
-    # disparan desde la rama por defecto del repositorio.
-    - cron: "0 6 * * *"
+    # Cada 4 horas (00, 04, 08, 12, 16 y 20 UTC). Los "schedule" de GitHub
+    # Actions solo se disparan desde la rama por defecto del repositorio, así
+    # que este cron no corre hasta que el cambio esté en main.
+    - cron: "0 */4 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -43,7 +44,7 @@ jobs:
             echo "Sin cambios en las ofertas."
           else
             git add data/deals.json data/scrape-log.json
-            git commit -m "chore: actualizar ofertas ($(date -u +%Y-%m-%d))"
+            git commit -m "chore: actualizar ofertas ($(date -u '+%Y-%m-%d %H:%M UTC'))"
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi

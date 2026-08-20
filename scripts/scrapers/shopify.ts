@@ -20,17 +20,26 @@ export interface ShopifyStore {
   id: StoreId;
   name: string;
   baseUrl: string;
+  /**
+   * Género a aplicar cuando los tags no lo digan. Solo se pone en marcas
+   * que venden a un único público: Bimani, Coosy, Laagam y Poete no
+   * etiquetan el género en ninguna parte porque todo su catálogo es de
+   * mujer, y sin esto sus ~1.500 ofertas se quedan fuera del filtro.
+   * Scalpers, Blue Banana y Pompeii sí lo etiquetan, así que no llevan
+   * valor por defecto.
+   */
+  defaultGender?: "hombre" | "mujer" | "niños" | "unisex";
 }
 
 export const SHOPIFY_STORES: ShopifyStore[] = [
-  { id: "bimani", name: "Bimani", baseUrl: "https://bimani.es" },
-  { id: "popa", name: "Popa", baseUrl: "https://popabrand.com" },
+  { id: "bimani", name: "Bimani", baseUrl: "https://bimani.es", defaultGender: "mujer" },
+  { id: "popa", name: "Popa", baseUrl: "https://popabrand.com", defaultGender: "mujer" },
   { id: "pompeii", name: "Pompeii", baseUrl: "https://pompeiibrand.com" },
   { id: "bluebanana", name: "Blue Banana", baseUrl: "https://www.bluebananabrand.com" },
-  { id: "laagam", name: "Laagam", baseUrl: "https://laagam.com" },
-  { id: "coosy", name: "Coosy", baseUrl: "https://coosy.es" },
+  { id: "laagam", name: "Laagam", baseUrl: "https://laagam.com", defaultGender: "mujer" },
+  { id: "coosy", name: "Coosy", baseUrl: "https://coosy.es", defaultGender: "mujer" },
   { id: "scalpers", name: "Scalpers", baseUrl: "https://scalperscompany.com" },
-  { id: "poete", name: "Poete", baseUrl: "https://poete.es" },
+  { id: "poete", name: "Poete", baseUrl: "https://poete.es", defaultGender: "mujer" },
 ];
 
 const UA =
@@ -48,12 +57,49 @@ interface ShopifyProduct {
   title?: string;
   handle?: string;
   product_type?: string;
+  tags?: string[];
+  body_html?: string;
   variants?: ShopifyVariant[];
   images?: { src?: string }[];
 }
 
 function hashId(input: string): string {
   return createHash("sha256").update(input).digest("base64url").slice(0, 16);
+}
+
+function sinHtml(html: string): string {
+  return html
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&[a-z]+;|&#\d+;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Muchas de estas marcas titulan solo con el nombre del modelo ("HIGBY TAUPE
+ * SAGE", "VELOURS BLUE"), así que el título por sí solo no dice qué es la
+ * prenda. Se intenta clasificar con las señales de más fiable a menos:
+ *
+ *   1. product_type — el campo que la propia tienda usa para su taxonomía
+ *      ("SNEAKERS", "Cuña Baja", "TOPS & BLOUSES"). Es el mejor con
+ *      diferencia, pero hay tiendas que lo dejan vacío (Poete, todas).
+ *   2. tags — ruidosos (llevan campañas, tallas y colores), por eso van
+ *      después: solo se consultan si lo anterior no ha resuelto nada.
+ *   3. body_html — la descripción. Último recurso, porque menciona muchas
+ *      prendas de pasada, pero rescata catálogos sin ningún metadato.
+ */
+function clasificar(p: ShopifyProduct, title: string): string {
+  const intentos = [
+    `${title} ${p.product_type ?? ""}`,
+    (p.tags ?? []).join(" "),
+    sinHtml(p.body_html ?? "").slice(0, 300),
+  ];
+  for (const texto of intentos) {
+    if (!texto.trim()) continue;
+    const categoria = categorize(texto);
+    if (categoria !== "Otros") return categoria;
+  }
+  return "Otros";
 }
 
 async function fetchPage(baseUrl: string, page: number): Promise<ShopifyProduct[]> {
@@ -91,9 +137,10 @@ export async function scrapeShopifyStore(store: ShopifyStore): Promise<{ deals: 
       if (byId.has(id)) continue;
 
       const title = p.title?.trim() || "Producto sin título";
-      // El product_type de Shopify suele ser más fiable que el título para
-      // clasificar, así que se le da a categorize() junto con el título.
-      const textoParaClasificar = `${title} ${p.product_type ?? ""}`;
+      // El género casi nunca está en el título pero sí en los tags: Popa
+      // etiqueta "Mujer", Scalpers "Hombre"/"Infantil"/"Niña", Blue Banana
+      // "unisex"/"kids", Pompeii "Man"/"Woman", Laagam "female".
+      const textoParaGenero = `${title} ${(p.tags ?? []).join(" ")}`;
 
       byId.set(id, {
         id,
@@ -106,8 +153,8 @@ export async function scrapeShopifyStore(store: ShopifyStore): Promise<{ deals: 
         originalPrice,
         discountPercent: Math.round(((originalPrice - price) / originalPrice) * 100),
         currency: "EUR",
-        category: categorize(textoParaClasificar),
-        gender: detectGender(textoParaClasificar),
+        category: clasificar(p, title),
+        gender: detectGender(textoParaGenero) ?? store.defaultGender,
         scrapedAt: new Date().toISOString(),
         source: "auto",
       });

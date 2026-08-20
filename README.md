@@ -10,8 +10,8 @@ directo a cada producto.
    cada tienda configurada, extrae producto + precio + precio original y
    calcula el % de descuento. El resultado se guarda en `data/deals.json`.
 2. Una GitHub Action programada (`.github/workflows/scrape.yml`) ejecuta ese
-   scraper **cada día a las 06:00 UTC** y commitea el JSON actualizado si hay
-   cambios.
+   scraper **cada 4 horas** (00, 04, 08, 12, 16 y 20 UTC) y commitea el JSON
+   actualizado si hay cambios.
 3. Vercel está conectado al repo, así que cada commit (incluidos los del bot)
    despliega la web automáticamente con las ofertas más recientes.
 4. La web (Next.js) simplemente lee `data/deals.json` + `data/manual-deals.json`
@@ -57,6 +57,8 @@ Hay tres formas de sacar los datos, de más a menos fiable:
    endpoint público, sin anti-bot, sin navegador, y trae el precio
    original — así que el % de descuento es real. Un único scraper
    genérico cubre las ocho tiendas Shopify y añadir otra es una línea.
+   Además de precio trae `product_type` y `tags`, que son lo que permite
+   clasificar y asignar género (ver más abajo).
 2. **JSON embebido** (JSON-LD, `__NEXT_DATA__`, microdatos schema.org):
    ASOS, Nike y Puma con un fetch simple; Womensecret, Cortefiel,
    Desigual y Mango necesitan además renderizar con navegador.
@@ -109,12 +111,46 @@ npm run add-deal -- https://www.zara.com/es/es/algun-producto.html zara 19.99 39
 Si no pasas precio, intenta detectarlo solo a partir de las etiquetas Open
 Graph de la página; si no lo consigue, te lo pedirá.
 
+Pasar los tests del clasificador:
+
+```bash
+npm test
+```
+
+## Categoría y género
+
+Ninguna tienda usa la misma taxonomía, así que las ofertas se clasifican
+con `scripts/scrapers/categorize.ts`, un conjunto de reglas por palabras
+clave. Lo que hace que funcione no es la lista de palabras sino **de dónde
+se saca el texto**, porque media docena de marcas titulan sus productos
+solo con el nombre del modelo ("HIGBY TAUPE SAGE", "VELOURS BLUE") y el
+título por sí solo no dice qué es la prenda.
+
+Para las tiendas Shopify se prueban tres fuentes en orden de fiabilidad:
+
+1. `product_type` — la taxonomía propia de la tienda (`SNEAKERS`,
+   `Cuña Baja`, `TOPS & BLOUSES`). Es la buena, pero hay tiendas que lo
+   dejan vacío.
+2. `tags` — ruidosos, porque mezclan campañas, tallas y colores.
+3. `body_html` — la descripción, como último recurso.
+
+El **género** sale casi siempre de los `tags`, no del título, y cada
+tienda usa su propio vocabulario: Popa etiqueta `Mujer`, Scalpers
+`Hombre`/`Infantil`/`Niña` y también `feed-gender-male`, Blue Banana
+`unisex`/`kids`, Pompeii `Man`/`Woman` y Laagam `female`.
+
+`npm test` comprueba las reglas contra una lista de valores reales
+volcados de las ocho tiendas. Merece la pena ampliarla al tocar las
+expresiones regulares: el fallo típico es olvidarse del plural
+(`/\btop\b/` no casa con `Tops`, ni `/\bcoat\b/` con `COATS`), y basta eso
+para mandar un catálogo entero a "Otros".
+
 ## Desplegar en Vercel (gratis)
 
 1. Sube este repo a GitHub (si aún no lo está) y haz merge de esta rama a tu
    rama por defecto (`main`) — **las GitHub Actions programadas
    (`schedule`) solo se disparan desde la rama por defecto del repo**, así
-   que el scraper diario no arrancará hasta que este workflow exista en
+   que el scraper programado no arrancará hasta que este workflow exista en
    `main`.
 2. Ve a [vercel.com](https://vercel.com), "Add New Project", importa este
    repositorio. Vercel detecta Next.js automáticamente, no hace falta
@@ -125,7 +161,7 @@ Graph de la página; si no lo consigue, te lo pedirá.
    usa el `GITHUB_TOKEN` que GitHub genera automáticamente (con permiso de
    escritura ya configurado en el workflow).
 
-Si prefieres no depender del cron diario de GitHub, también puedes lanzar la
+Si no quieres esperar al siguiente pase del cron, también puedes lanzar la
 Action a mano en cualquier momento desde la pestaña "Actions" del repo
 ("Run workflow").
 
