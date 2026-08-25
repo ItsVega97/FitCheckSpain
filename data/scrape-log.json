@@ -1,117 +1,117 @@
 {
-  "lastRun": "2026-08-25T12:52:17.144Z",
+  "lastRun": "2026-08-25T16:40:23.384Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
       "ok": true,
       "dealsFound": 142,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
       "dealsFound": 32,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 35,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "dealsFound": 53,
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
       "dealsFound": 40,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": true,
       "dealsFound": 179,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "desigual",
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
-      "dealsFound": 67,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "dealsFound": 65,
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
-      "dealsFound": 438,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "dealsFound": 440,
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
-      "dealsFound": 229,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "dealsFound": 230,
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
-      "dealsFound": 188,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "dealsFound": 196,
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 338,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
       "dealsFound": 156,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
       "ok": true,
       "dealsFound": 521,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
       "ok": true,
       "dealsFound": 149,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     },
     {
       "store": "poete",
       "storeName": "Poete",
       "ok": true,
       "dealsFound": 61,
-      "lastRun": "2026-08-25T12:52:17.144Z"
+      "lastRun": "2026-08-25T16:40:23.384Z"
     }
   ]
 }
