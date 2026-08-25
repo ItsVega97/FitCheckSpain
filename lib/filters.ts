@@ -1,4 +1,5 @@
 import type { Deal, StoreId } from "./types";
+import { tallasDisponibles } from "./sizes";
 
 export type Gender = "hombre" | "mujer" | "niños";
 
@@ -38,6 +39,8 @@ export interface Filtros {
   stores: Set<StoreId>;
   categories: Set<string>;
   buckets: Set<PriceBucketId>;
+  /** Etiquetas de talla ya normalizadas (ver lib/sizes.ts). */
+  sizes: Set<string>;
   minDiscount: number;
 }
 
@@ -47,6 +50,7 @@ export const FILTROS_VACIOS: Filtros = {
   stores: new Set(),
   categories: new Set(),
   buckets: new Set(),
+  sizes: new Set(),
   minDiscount: 0,
 };
 
@@ -57,6 +61,7 @@ export function hayFiltrosActivos(f: Filtros): boolean {
     f.stores.size > 0 ||
     f.categories.size > 0 ||
     f.buckets.size > 0 ||
+    f.sizes.size > 0 ||
     f.minDiscount > 0
   );
 }
@@ -68,6 +73,7 @@ export function contarFiltrosActivos(f: Filtros): number {
     f.stores.size +
     f.categories.size +
     f.buckets.size +
+    f.sizes.size +
     (f.minDiscount > 0 ? 1 : 0)
   );
 }
@@ -90,6 +96,14 @@ export function cumpleFiltros(d: Deal, f: Filtros): boolean {
       (b) => f.buckets.has(b.id) && precio >= b.min && (b.max === null || precio < b.max),
     );
     if (!encaja) return false;
+  }
+  // Filtrar por talla solo tiene sentido sobre las tallas que quedan: una
+  // oferta cuya M está agotada no vale de nada a quien gasta la M. Las
+  // tiendas que no publican tallas quedan fuera al usar este filtro, que es
+  // lo honesto — no sabemos si les queda.
+  if (f.sizes.size > 0) {
+    const disponibles = tallasDisponibles(d.sizes);
+    if (!disponibles.some((t) => f.sizes.has(t))) return false;
   }
   if ((d.discountPercent ?? 0) < f.minDiscount) return false;
   if (f.query.trim()) {

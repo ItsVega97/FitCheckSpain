@@ -20,13 +20,17 @@ interface Props {
   generosDisponibles: Gender[];
   tiendasDisponibles: StoreMeta[];
   categoriasDisponibles: string[];
+  /** Tallas presentes en el catálogo, ya ordenadas. */
+  tallas: string[];
   /** Recuentos sobre el catálogo completo, para saber qué hay antes de pulsar. */
   recuentoGenero: Record<string, number>;
   recuentoTienda: Record<string, number>;
   recuentoCategoria: Record<string, number>;
+  recuentoTalla: Record<string, number>;
   onToggleGenero: (g: Gender) => void;
   onToggleTienda: (s: StoreId) => void;
   onToggleCategoria: (c: string) => void;
+  onToggleTalla: (t: string) => void;
   onToggleTramo: (b: PriceBucketId) => void;
   onMinDiscount: (v: number) => void;
   onLimpiar: () => void;
@@ -84,12 +88,15 @@ export default function FilterSheet({
   generosDisponibles,
   tiendasDisponibles,
   categoriasDisponibles,
+  tallas,
   recuentoGenero,
   recuentoTienda,
   recuentoCategoria,
+  recuentoTalla,
   onToggleGenero,
   onToggleTienda,
   onToggleCategoria,
+  onToggleTalla,
   onToggleTramo,
   onMinDiscount,
   onLimpiar,
@@ -213,7 +220,29 @@ export default function FilterSheet({
             </Grupo>
           ) : null}
 
-          <Grupo titulo="Marca">
+          <>
+            {tallas.length > 0 ? (
+              <Grupo titulo="Talla disponible">
+                <div className="flex flex-wrap gap-2">
+                  {tallas.map((t: string) => (
+                    <Chip
+                      key={t}
+                      activo={filtros.sizes.has(t)}
+                      onClick={() => onToggleTalla(t)}
+                      recuento={recuentoTalla[t]}
+                    >
+                      {t}
+                    </Chip>
+                  ))}
+                </div>
+                <p className="text-[11px] leading-relaxed text-neutral-400">
+                  Solo cuenta el stock que queda, y solo lo publican las tiendas que
+                  lo exponen: al filtrar por talla desaparecen las que no lo dicen.
+                </p>
+              </Grupo>
+            ) : null}
+
+            <Grupo titulo="Marca">
             <div className="flex flex-wrap gap-2">
               {tiendasDisponibles.map((s) => (
                 <Chip
@@ -224,9 +253,10 @@ export default function FilterSheet({
                 >
                   {s.name}
                 </Chip>
-              ))}
-            </div>
-          </Grupo>
+                ))}
+              </div>
+            </Grupo>
+          </>
         </div>
 
         <div className="border-t border-neutral-100 p-4 dark:border-neutral-800">

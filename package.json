@@ -10,7 +10,7 @@
     "lint": "next lint",
     "scrape": "tsx scripts/scrape.ts",
     "add-deal": "tsx scripts/add-deal.ts",
-    "test": "tsx --test scripts/scrapers/*.test.ts"
+    "test": "tsx --test scripts/scrapers/*.test.ts lib/*.test.ts"
   },
   "dependencies": {
     "next": "14.2.35",

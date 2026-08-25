@@ -21,7 +21,7 @@ const RULES: [string, RegExp][] = [
   // otras reglas si llegaran a ellas.
   [
     "Belleza",
-    /maquillaje|colorete|iluminador|bronceador|labial|mascarilla|exfoliante|t[óo]nico|s[ée]rum|perfume|fragancia|champ[úu]|skincare|polvos|sombra de ojos|r[íi]mel|pesta[ñn]as|crema (facial|corporal|de manos|hidratante)|desodorante|afeitado|gel corporal|gel de ba[ñn]o|lipstick|\bmascara\b|foundation|concealer|\bprimer\b/i,
+    /maquillaje|colorete|iluminador|bronceador|labial|mascarilla|exfoliante|t[óo]nico|s[ée]rum|perfume|fragancia|champ[úu]|skincare|polvos|sombra de ojos|r[íi]mel|pesta[ñn]as|crema (facial|corporal|de manos|hidratante)|desodorante|afeitado|gel corporal|gel de ba[ñn]o|lipstick|\bmascara\b|foundation|concealer|\bprimer\b|make-?up|eyeshadow|eye palette|nail polish/i,
   ],
   // Menaje y regalo: Womensecret y otras cuelan tazas, cojines o postales
   // en sus rebajas. Va pronto porque "delantal" o "babero" no deben acabar
@@ -47,7 +47,7 @@ const RULES: [string, RegExp][] = [
   // de "slips" y "bodies": sin estas variantes caían todos en "Otros".
   [
     "Ropa interior",
-    /ropa interior|sujetador|braga|calz[oó]ncillo|b[óo]xer|\bslips?\b|lencer[íi]a|bralette|tanga|hipster|culotte|panty|leotardo|\bmedias\b|cubrepez[óo]n|\bbrief|underwear|antirroce/i,
+    /ropa interior|sujetador|brag(a|uita)|calz[oó]ncillo|b[óo]xer|\bslips?\b|lencer[íi]a|bralette|tanga|hipster|culotte|panty|leotardo|\bmedias\b|cubrepez[óo]n|\bbrief|underwear|antirroce/i,
   ],
   // Camisetas antes que camisas a propósito: en "T-SHIRT" el guion cuenta
   // como límite de palabra, así que /\bshirt/ la reclamaría como camisa.
