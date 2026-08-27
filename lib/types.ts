@@ -14,6 +14,8 @@ export type StoreId =
   | "womensecret"
   | "desigual"
   | "cortefiel"
+  | "springfield"
+  | "pedrodelhierro"
   // Tiendas sobre Shopify (ver scripts/scrapers/shopify.ts)
   | "bimani"
   | "popa"

@@ -22,6 +22,8 @@ export const STORES: StoreMeta[] = [
   { id: "womensecret", name: "Womensecret", color: "#e6007e" },
   { id: "desigual", name: "Desigual", color: "#000000" },
   { id: "cortefiel", name: "Cortefiel", color: "#1c3f6e" },
+  { id: "springfield", name: "Springfield", color: "#00843d" },
+  { id: "pedrodelhierro", name: "Pedro del Hierro", color: "#8c1d40" },
   { id: "bimani", name: "Bimani", color: "#c2185b" },
   { id: "popa", name: "Popa", color: "#d4a017" },
   { id: "pompeii", name: "Pompeii", color: "#1f3a5f" },
