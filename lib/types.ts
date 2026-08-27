@@ -25,6 +25,8 @@ export type StoreId =
   | "coosy"
   | "scalpers"
   | "poete"
+  | "silbon"
+  | "ecoalf"
   | "otros";
 
 import type { Talla } from "./sizes";

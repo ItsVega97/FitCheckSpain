@@ -41,6 +41,12 @@ export const SHOPIFY_STORES: ShopifyStore[] = [
   { id: "coosy", name: "Coosy", baseUrl: "https://coosy.es", defaultGender: "mujer" },
   { id: "scalpers", name: "Scalpers", baseUrl: "https://scalperscompany.com" },
   { id: "poete", name: "Poete", baseUrl: "https://poete.es", defaultGender: "mujer" },
+  // Sondeadas el 27/08/2026 sobre 750 productos cada una: Ecoalf marca
+  // precio anterior en el 58% (mejor que Scalpers, que va al 23%);
+  // Silbon solo en el 2%, así que aportará poco, pero el coste de
+  // tenerla es una línea.
+  { id: "silbon", name: "Silbon", baseUrl: "https://silbonshop.com" },
+  { id: "ecoalf", name: "Ecoalf", baseUrl: "https://ecoalf.com" },
 ];
 
 const UA =

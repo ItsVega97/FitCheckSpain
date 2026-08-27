@@ -425,4 +425,20 @@ export const STORE_CONFIGS: StoreConfig[] = [
     selectors: { card: "", link: "", title: "", image: "", price: "" },
     notes: "Shopify (/products.json). Con precio original y % de descuento reales.",
   },
+  {
+    id: "silbon",
+    name: "Silbon",
+    enabled: true,
+    listingUrls: ["https://silbonshop.com"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify, mismo scraper genérico. Sondeada sobre 750 productos: solo el 2% lleva precio anterior, así que aportará pocas ofertas. Se mantiene porque el coste es una línea.",
+  },
+  {
+    id: "ecoalf",
+    name: "Ecoalf",
+    enabled: true,
+    listingUrls: ["https://ecoalf.com"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Shopify, mismo scraper genérico. Sondeada sobre 750 productos: el 58% lleva precio anterior, mejor ratio que Scalpers (23%).",
+  },
 ];
