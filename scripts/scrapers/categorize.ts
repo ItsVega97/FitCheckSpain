@@ -21,14 +21,14 @@ const RULES: [string, RegExp][] = [
   // otras reglas si llegaran a ellas.
   [
     "Belleza",
-    /maquillaje|colorete|iluminador|bronceador|labial|mascarilla|exfoliante|t[óo]nico|s[ée]rum|perfume|fragancia|champ[úu]|skincare|polvos|sombra de ojos|r[íi]mel|pesta[ñn]as|crema (facial|corporal|de manos|hidratante)|desodorante|afeitado|gel corporal|gel de ba[ñn]o|lipstick|\bmascara\b|foundation|concealer|\bprimer\b|make-?up|eyeshadow|eye palette|nail polish/i,
+    /maquillaje|colorete|iluminador|bronceador|labial|mascarilla|exfoliante|t[óo]nico|s[ée]rum|perfume|fragancia|champ[úu]|skincare|polvos|sombra de ojos|r[íi]mel|pesta[ñn]as|crema (facial|corporal|de manos|hidratante)|desodorante|afeitado|gel corporal|gel de ba[ñn]o|lipstick|\bmascara\b|foundation|concealer|\bprimer\b|make-?up|eyeshadow|eye palette|nail polish|prebase|cejas|spray fijador|contorno de ojos|ceramidas|antirrozadura/i,
   ],
   // Menaje y regalo: Womensecret y otras cuelan tazas, cojines o postales
   // en sus rebajas. Va pronto porque "delantal" o "babero" no deben acabar
   // en ropa.
   [
     "Hogar y regalos",
-    /\btaza\b|\bjarra\b|postal|coj[íi]n|babero|delantal|organizador|felpudo|\bvela\b|portavelas|manta\b|\bs[áa]bana|\bfunda de|difusor|ambientador|libreta|puzzle|\btarjeta regalo|tarjeta de regalo/i,
+    /\btaza\b|\bjarra\b|postal|coj[íi]n|babero|delantal|organizador|felpudo|\bvela\b|portavelas|manta\b|\bs[áa]bana|\bfunda de|difusor|ambientador|mikado|ceras de colores|libreta|puzzle|\btarjeta regalo|tarjeta de regalo/i,
   ],
   [
     "Calzado",
@@ -64,7 +64,7 @@ const RULES: [string, RegExp][] = [
   ["Bañador y playa", /ba[ñn]ador|bikini|playa|pareo|\bswim|\bbeach/i],
   [
     "Bolsos y accesorios",
-    /bolso|bolsa\b|ri[ñn]onera|bandolera|mochila|cartera|monedero|cintur[oó]n|faj[íi]n|bufanda|gorro|gorra|sombrero|diadema|cinta de pelo|guante|joyer[ií]a|collar|pulsera|brazalete|anillo|pendiente|reloj|gafas|pa[ñn]uelo|fular|coletero|neceser|\bfundas?\b|llavero|calcetin|toalla|paraguas|bolsas y mochilas|complementos|accesorios?|\bbags?\b|handbag|\bbelt|scarf|scarve|shawl|\bcaps?\b|headwear|\bhats?\b|\bsock|wallet|jewel|earring|necklace|bracelet|sunglass|backpack|umbrella/i,
+    /bolso|bolsit|bolsa\b|ri[ñn]onera|tobillera|broche|bandolera|mochila|cartera|monedero|cintur[oó]n|faj[íi]n|bufanda|gorro|gorra|sombrero|diadema|cinta de pelo|guante|joyer[ií]a|collar|pulsera|brazalete|anillo|pendiente|reloj|gafas|pa[ñn]uelo|fular|coletero|neceser|\bfundas?\b|llavero|calcetin|toalla|paraguas|bolsas y mochilas|complementos|accesorios?|\bbags?\b|handbag|\bbelt|scarf|scarve|shawl|\bcaps?\b|headwear|\bhats?\b|\bsock|wallet|jewel|earring|necklace|bracelet|sunglass|backpack|umbrella/i,
   ],
   ["Ropa de deporte", /leggins|\bmalla|conjunto deportivo|fitness|gimnasio|entrenamiento/i],
 ];
