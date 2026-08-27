@@ -1,0 +1,28 @@
+name: Sondear tiendas
+
+# Comprueba si el catálogo de rebajas de cada tienda candidata se puede
+# extraer y por qué vía. El entorno de desarrollo no tiene salida a las
+# tiendas, así que esto se ejecuta en un runner.
+on:
+  workflow_dispatch:
+    inputs:
+      tiendas:
+        description: "IDs separados por espacios (vacío = todas)"
+        required: false
+        default: ""
+  push:
+    paths:
+      - "scripts/sondear-tiendas.ts"
+
+jobs:
+  sondeo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - name: Sondear
+        run: npx tsx scripts/sondear-tiendas.ts ${{ inputs.tiendas }}
