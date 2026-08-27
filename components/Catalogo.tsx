@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Deal, StoreId } from "@/lib/types";
 import { STORES, storeMeta } from "@/lib/stores";
 import {
@@ -24,6 +24,15 @@ import { rutaCategoria } from "@/lib/slugs";
 import DealCard, { UMBRAL_CHOLLO } from "./DealCard";
 import FilterSheet from "./FilterSheet";
 import MenuFiltro from "./MenuFiltro";
+import PanelPerfil from "./PanelPerfil";
+import {
+  almacenNavegador,
+  encajaConPerfil,
+  PERFIL_VACIO,
+  perfilVacio,
+  tallasPorGrupo,
+  type Perfil,
+} from "@/lib/perfil";
 
 /** Cuántas tarjetas se pintan de golpe: con 3.000 ofertas, todas a la vez van lentas. */
 const POR_PAGINA = 60;
@@ -220,6 +229,43 @@ export default function Catalogo({
   const [sheetAbierto, setSheetAbierto] = useState(false);
   const [visibles, setVisibles] = useState(POR_PAGINA);
 
+  // El perfil se lee después de montar: en el servidor no hay localStorage, y
+  // leerlo durante el render rompería la hidratación.
+  const [perfil, setPerfil] = useState<Perfil>(PERFIL_VACIO);
+  const [soloMiTalla, setSoloMiTalla] = useState(false);
+
+  useEffect(() => {
+    let vivo = true;
+    almacenNavegador.leer().then((p) => {
+      if (vivo && p) setPerfil(p);
+    });
+    return () => {
+      vivo = false;
+    };
+  }, []);
+
+  function cambiarPerfil(p: Perfil) {
+    setPerfil(p);
+    void almacenNavegador.guardar(p);
+    setVisibles(POR_PAGINA);
+    if (perfilVacio(p)) setSoloMiTalla(false);
+  }
+
+  function borrarPerfil() {
+    setPerfil(PERFIL_VACIO);
+    setSoloMiTalla(false);
+    void almacenNavegador.borrar();
+  }
+
+  const opcionesTalla = useMemo(() => tallasPorGrupo(deals), [deals]);
+
+  // Cuántas ofertas le valen: se enseña en el panel aunque el filtro esté
+  // apagado, que es lo que anima a encenderlo.
+  const coincidencias = useMemo(
+    () => (perfilVacio(perfil) ? 0 : deals.filter((d) => encajaConPerfil(d, perfil)).length),
+    [deals, perfil],
+  );
+
   const destacados = useMemo(
     () =>
       deals
@@ -321,9 +367,10 @@ export default function Catalogo({
   }, [deals]);
 
   const filtradas = useMemo(() => {
-    const r = deals.filter((d) => cumpleFiltros(d, filtros));
+    let r = deals.filter((d) => cumpleFiltros(d, filtros));
+    if (soloMiTalla) r = r.filter((d) => encajaConPerfil(d, perfil));
     return ordenar(r, sort);
-  }, [deals, filtros, sort]);
+  }, [deals, filtros, sort, soloMiTalla, perfil]);
 
   const activos = contarFiltrosActivos(filtros);
   const conFiltros = hayFiltrosActivos(filtros);
@@ -405,6 +452,15 @@ export default function Catalogo({
               <span className="block h-1.5 w-1.5 rounded-full bg-neutral-950" />
               <span className="text-[13px] font-bold text-neutral-950">Actualizado hoy</span>
             </span>
+            <PanelPerfil
+              perfil={perfil}
+              opciones={opcionesTalla}
+              soloMiTalla={soloMiTalla}
+              coincidencias={coincidencias}
+              onCambiar={cambiarPerfil}
+              onSoloMiTalla={setSoloMiTalla}
+              onBorrar={borrarPerfil}
+            />
           </div>
         </div>
       </header>

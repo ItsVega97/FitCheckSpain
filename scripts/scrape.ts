@@ -7,7 +7,7 @@ import { scrapeNike } from "./scrapers/nike";
 import { scrapePuma } from "./scrapers/puma";
 import { scrapeWomensecret } from "./scrapers/womensecret";
 import { scrapeMango } from "./scrapers/mango";
-import { scrapeCortefiel } from "./scrapers/cortefiel";
+import { TENDAM_STORES, scrapeTendam } from "./scrapers/tendam";
 import { SHOPIFY_STORES, scrapeShopifyStore } from "./scrapers/shopify";
 import { scrapeZalando } from "./scrapers/zalando";
 import { scrapeDesigual } from "./scrapers/desigual";
@@ -23,7 +23,9 @@ const SPECIALIZED_SCRAPERS: Partial<Record<StoreId, () => Promise<ScrapeOutcome>
   mango: scrapeMango,
   zalando: scrapeZalando,
   desigual: scrapeDesigual,
-  cortefiel: scrapeCortefiel,
+  // Grupo Tendam (Cortefiel, Springfield, Pedro del Hierro): misma
+  // plataforma y mismo scraper, ver scripts/scrapers/tendam.ts
+  ...Object.fromEntries(TENDAM_STORES.map((s) => [s.id, () => scrapeTendam(s)])),
   // Las tiendas Shopify comparten scraper: se registra una entrada por
   // tienda para que el scrape-log siga contabilizando ofertas por tienda.
   ...Object.fromEntries(

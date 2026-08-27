@@ -339,6 +339,22 @@ export const STORE_CONFIGS: StoreConfig[] = [
     selectors: { card: "", link: "", title: "", image: "", price: "" },
     notes: "Scraper especializado con navegador headed (Xvfb), ver scripts/scrapers/cortefiel.ts. Grupo Tendam (igual que Womensecret): el listado se pinta con JS y cada tarjeta trae su propio JSON-LD @type Product. La URL real de rebajas se encontró crawleando la portada (las adivinadas daban 404). Sin precio original en la fuente.",
   },
+  {
+    id: "springfield",
+    name: "Springfield",
+    enabled: true,
+    listingUrls: ["https://myspringfield.com/es/es/mujer/promociones/rebajas-mujer"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Grupo Tendam, mismo scraper que Cortefiel (scripts/scrapers/tendam.ts). A diferencia de Cortefiel NO necesita navegador: el fetch simple ya devuelve los 60 productos con su JSON-LD. Sin precio original en la fuente.",
+  },
+  {
+    id: "pedrodelhierro",
+    name: "Pedro del Hierro",
+    enabled: true,
+    listingUrls: ["https://pedrodelhierro.com/es/es/mujer/rebajas"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Grupo Tendam, mismo scraper que Cortefiel (scripts/scrapers/tendam.ts). Tampoco necesita navegador. Sin precio original en la fuente.",
+  },
   // --- Tiendas sobre Shopify ---
   // Todas comparten el mismo scraper genérico (scripts/scrapers/shopify.ts):
   // Shopify expone /products.json en abierto, sin anti-bot ni navegador, y
