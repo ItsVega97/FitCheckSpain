@@ -1,131 +1,131 @@
 {
-  "lastRun": "2026-09-01T13:15:28.295Z",
+  "lastRun": "2026-09-01T19:17:15.045Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
       "ok": true,
       "dealsFound": 141,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
-      "dealsFound": 28,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 23,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 51,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 18,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
-      "dealsFound": 38,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 39,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": true,
       "dealsFound": 180,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "desigual",
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
-      "dealsFound": 76,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 72,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "springfield",
       "storeName": "Springfield",
       "ok": true,
-      "dealsFound": 83,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 96,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "pedrodelhierro",
       "storeName": "Pedro del Hierro",
       "ok": true,
-      "dealsFound": 84,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 85,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
-      "dealsFound": 209,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 208,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
-      "dealsFound": 195,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 198,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 338,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
-      "dealsFound": 29,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 153,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
       "ok": true,
       "dealsFound": 313,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
       "ok": true,
-      "dealsFound": 103,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "dealsFound": 104,
+      "lastRun": "2026-09-01T19:17:15.045Z"
     },
     {
       "store": "poete",
       "storeName": "Poete",
       "ok": true,
       "dealsFound": 61,
-      "lastRun": "2026-09-01T13:15:28.295Z"
+      "lastRun": "2026-09-01T19:17:15.045Z"
     }
   ]
 }
