@@ -14,6 +14,7 @@ import {
   hayFiltrosActivos,
   ordenar,
   PRICE_BUCKETS,
+  SORT_LABELS,
   type Filtros,
   type Gender,
   type PriceBucketId,
@@ -225,7 +226,7 @@ export default function Catalogo({
   seccion?: Seccion;
 }) {
   const [filtros, setFiltros] = useState<Filtros>(FILTROS_VACIOS);
-  const [sort, setSort] = useState<SortMode>("discount");
+  const [sort, setSort] = useState<SortMode>("destacados");
   const [sheetAbierto, setSheetAbierto] = useState(false);
   const [visibles, setVisibles] = useState(POR_PAGINA);
 
@@ -291,8 +292,13 @@ export default function Catalogo({
     const ids = new Set(deals.map((d) => d.store));
     const recuento = new Map<StoreId, number>();
     for (const d of deals) recuento.set(d.store, (recuento.get(d.store) ?? 0) + 1);
+    // Por reconocimiento de marca, no por número de ofertas: en una lista
+    // de marcas uno busca la que conoce, y ordenarla por volumen escondía
+    // Mango o Nike detrás de tiendas con mucho catálogo y poco nombre.
     return STORES.filter((s) => ids.has(s.id)).sort(
-      (a, b) => (recuento.get(b.id) ?? 0) - (recuento.get(a.id) ?? 0),
+      (a, b) =>
+        (a.popularidad ?? 999) - (b.popularidad ?? 999) ||
+        (recuento.get(b.id) ?? 0) - (recuento.get(a.id) ?? 0),
     );
   }, [deals]);
 
@@ -721,9 +727,11 @@ export default function Catalogo({
                 onChange={(e) => setSort(e.target.value as SortMode)}
                 className="h-11 rounded-xl border border-neutral-300 bg-white px-3 text-[13px] font-semibold text-neutral-800 outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
               >
-                <option value="discount">Mayor descuento</option>
-                <option value="price-asc">Precio: menor a mayor</option>
-                <option value="price-desc">Precio: mayor a menor</option>
+                {(Object.keys(SORT_LABELS) as SortMode[]).map((m) => (
+                  <option key={m} value={m}>
+                    {SORT_LABELS[m]}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

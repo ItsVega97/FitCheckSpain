@@ -1,4 +1,5 @@
 import type { Deal, StoreId } from "./types";
+import { bonoMarca } from "./stores";
 import { tallasDisponibles } from "./sizes";
 
 export type Gender = "hombre" | "mujer" | "niños";
@@ -31,7 +32,14 @@ export const PRICE_BUCKETS: PriceBucket[] = [
 
 export const DISCOUNT_STEPS = [20, 30, 50, 70] as const;
 
-export type SortMode = "discount" | "price-asc" | "price-desc";
+export type SortMode = "destacados" | "discount" | "price-asc" | "price-desc";
+
+export const SORT_LABELS: Record<SortMode, string> = {
+  destacados: "Destacados",
+  discount: "Mayor descuento",
+  "price-asc": "Precio: menor a mayor",
+  "price-desc": "Precio: mayor a menor",
+};
 
 export interface Filtros {
   query: string;
@@ -113,8 +121,26 @@ export function cumpleFiltros(d: Deal, f: Filtros): boolean {
   return true;
 }
 
+/**
+ * Puntuación del orden "Destacados": descuento más un empujón por lo
+ * conocida que sea la marca.
+ *
+ * Existe porque ordenar solo por descuento llenaba la portada de marcas que
+ * nadie ha oído nombrar, y ordenar solo por marca convertía una web de
+ * chollos en un escaparate. El empujón está acotado (ver BONO_MARCA_MAX):
+ * inclina la balanza a igualdad de descuento, pero un -80% de verdad sigue
+ * ganando a un -60% de una marca famosa.
+ *
+ * "Mayor descuento" se mantiene aparte y sin tocar, para quien quiera el
+ * orden puro.
+ */
+function puntuacion(d: Deal): number {
+  return (d.discountPercent ?? 0) + bonoMarca(d.store);
+}
+
 export function ordenar(deals: Deal[], sort: SortMode): Deal[] {
   return [...deals].sort((a, b) => {
+    if (sort === "destacados") return puntuacion(b) - puntuacion(a);
     if (sort === "discount") return (b.discountPercent ?? 0) - (a.discountPercent ?? 0);
     if (sort === "price-asc") return (a.price ?? Infinity) - (b.price ?? Infinity);
     return (b.price ?? 0) - (a.price ?? 0);
