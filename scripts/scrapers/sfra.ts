@@ -44,7 +44,40 @@ export const SFRA_STORES: SfraStore[] = [
   },
 ];
 
-const CARD = ".product-tile";
+/**
+ * Selectores de tarjeta que usan las plantillas SFRA que hemos visto.
+ *
+ * `.product-tile` es la convención de la plantilla de referencia y funciona
+ * en Desigual, pero dar por hecho que vale para todas costó un pase entero
+ * con Skechers: el selector no aparecía nunca, waitForSelector agotaba el
+ * tiempo y la tienda devolvía cero sin decir por qué. Ahora se prueban
+ * varios y, si no casa ninguno, el scraper informa de las clases que más se
+ * repiten en la página para no tener que volver a adivinar.
+ */
+const CARD_SELECTORES = [
+  ".product-tile",
+  "[data-pid]",
+  ".product-grid .product",
+  "li.grid-tile",
+  ".b-product_tile",
+  ".product-item",
+];
+
+/** Pista para diagnosticar cuando ningún selector casa. */
+function clasesMasRepetidas($: cheerio.CheerioAPI): string {
+  const cuenta = new Map<string, number>();
+  $("div, li, article").each((_, el) => {
+    for (const c of ($(el).attr("class") ?? "").split(/\s+/)) {
+      if (c.length > 3) cuenta.set(c, (cuenta.get(c) ?? 0) + 1);
+    }
+  });
+  return [...cuenta.entries()]
+    .filter(([, n]) => n >= 8)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([c, n]) => `${c}(${n})`)
+    .join(" ");
+}
 
 function hashId(input: string): string {
   return createHash("sha256").update(input).digest("base64url").slice(0, 16);
@@ -78,13 +111,25 @@ export async function scrapeSfra(store: SfraStore): Promise<{ deals: Deal[]; car
     for (const { url, gender } of store.listados) {
       let html: string;
       try {
-        html = await fetchRenderedHtml(browser, url, { waitForSelector: CARD });
+        // Se espera a cualquiera de los selectores, no a uno concreto: si se
+        // espera solo al que no es, se pierden 30 segundos por listado.
+        html = await fetchRenderedHtml(browser, url, {
+          waitForSelector: CARD_SELECTORES.join(", "),
+        });
       } catch {
         continue; // una sección caída no debe tumbar la otra
       }
 
       const $ = cheerio.load(html);
-      const cards = $(CARD);
+      const selector = CARD_SELECTORES.find((sel) => $(sel).length > 0);
+      if (!selector) {
+        console.warn(
+          `[warn] ${store.name}: ninguna tarjeta reconocida en ${url}.` +
+            ` Clases más repetidas: ${clasesMasRepetidas($) || "(ninguna)"}`,
+        );
+        continue;
+      }
+      const cards = $(selector);
       cardsFound += cards.length;
 
       cards.each((_, el) => {
