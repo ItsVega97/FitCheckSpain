@@ -62,6 +62,7 @@ export const STORES: StoreMeta[] = [
   { id: "poete", name: "Poete", color: "#7b1fa2" },
   { id: "silbon", name: "Silbon", color: "#1b3a5c", popularidad: 47 },
   { id: "ecoalf", name: "Ecoalf", color: "#00695c", popularidad: 48 },
+  { id: "skechers", name: "Skechers", color: "#003f7f", popularidad: 39 },
   { id: "otros", name: "Otros", color: "#6b7280" },
 ];
 

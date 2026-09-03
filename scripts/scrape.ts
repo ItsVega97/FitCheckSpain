@@ -10,7 +10,7 @@ import { scrapeMango } from "./scrapers/mango";
 import { TENDAM_STORES, scrapeTendam } from "./scrapers/tendam";
 import { SHOPIFY_STORES, scrapeShopifyStore } from "./scrapers/shopify";
 import { scrapeZalando } from "./scrapers/zalando";
-import { scrapeDesigual } from "./scrapers/desigual";
+import { SFRA_STORES, scrapeSfra } from "./scrapers/sfra";
 import type { Deal, StoreId, StoreStatus } from "../lib/types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -22,7 +22,9 @@ const SPECIALIZED_SCRAPERS: Partial<Record<StoreId, () => Promise<ScrapeOutcome>
   womensecret: scrapeWomensecret,
   mango: scrapeMango,
   zalando: scrapeZalando,
-  desigual: scrapeDesigual,
+  // Salesforce Commerce Cloud con plantilla SFRA (Desigual, Skechers):
+  // mismo scraper, ver scripts/scrapers/sfra.ts
+  ...Object.fromEntries(SFRA_STORES.map((s) => [s.id, () => scrapeSfra(s)])),
   // Grupo Tendam (Cortefiel, Springfield, Pedro del Hierro): misma
   // plataforma y mismo scraper, ver scripts/scrapers/tendam.ts
   ...Object.fromEntries(TENDAM_STORES.map((s) => [s.id, () => scrapeTendam(s)])),

@@ -332,6 +332,14 @@ export const STORE_CONFIGS: StoreConfig[] = [
     notes: "Scraper especializado con navegador headed (Xvfb), ver scripts/scrapers/desigual.ts. Usa Salesforce Commerce Cloud (plantilla SFRA): cada tarjeta .product-tile trae microdatos schema.org con precio actual y original en <meta itemprop=\"price\">, sin necesidad de JSON-LD. Confirmado funcionando. Solo cubre la rebajas de mujer por ahora.",
   },
   {
+    id: "skechers",
+    name: "Skechers",
+    enabled: true,
+    listingUrls: ["https://www.skechers.es/outlet/mujer/", "https://www.skechers.es/outlet/hombre/"],
+    selectors: { card: "", link: "", title: "", image: "", price: "" },
+    notes: "Salesforce Commerce Cloud con plantilla SFRA, igual que Desigual, así que comparten scraper (scripts/scrapers/sfra.ts). Marca el precio con <span class=\"value\" content> en vez del <meta itemprop=\"price\"> de Desigual; el scraper prueba las dos formas. Trae precio anterior, así que el descuento es real.",
+  },
+  {
     id: "cortefiel",
     name: "Cortefiel",
     enabled: true,
