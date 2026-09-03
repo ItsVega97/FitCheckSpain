@@ -15,6 +15,7 @@ on:
       - "scripts/sondear-tiendas.ts"
       - "scripts/sondear-descuentos.ts"
       - "scripts/sondear-navegador.ts"
+      - "scripts/sondear-estructura.ts"
 
 jobs:
   sondeo:
@@ -33,7 +34,7 @@ jobs:
         if: ${{ contains(github.event.head_commit.message, 'descuentos') }}
         run: npx tsx scripts/sondear-descuentos.ts
       - name: Instalar Chromium
-        if: ${{ contains(github.event.head_commit.message, 'navegador') }}
+        if: ${{ contains(github.event.head_commit.message, 'navegador') || contains(github.event.head_commit.message, 'estructura') }}
         run: npx playwright install chromium
       - name: Sondear con navegador
         if: ${{ contains(github.event.head_commit.message, 'navegador') }}
@@ -41,3 +42,9 @@ jobs:
           Xvfb :99 -screen 0 1366x768x24 &
           sleep 2
           DISPLAY=:99 npx tsx scripts/sondear-navegador.ts
+      - name: Sondear estructura
+        if: ${{ contains(github.event.head_commit.message, 'estructura') }}
+        run: |
+          Xvfb :99 -screen 0 1366x768x24 &
+          sleep 2
+          DISPLAY=:99 npx tsx scripts/sondear-estructura.ts
