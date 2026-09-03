@@ -6,8 +6,14 @@ name: Sondear tiendas
 on:
   workflow_dispatch:
     inputs:
+      tipo:
+        description: "Qué sondear"
+        required: false
+        default: viabilidad
+        type: choice
+        options: [viabilidad, descuentos, navegador, estructura]
       tiendas:
-        description: "IDs separados por espacios (vacío = todas)"
+        description: "IDs separados por espacios (solo para viabilidad; vacío = todas)"
         required: false
         default: ""
   push:
@@ -27,24 +33,39 @@ jobs:
           node-version: "22"
           cache: "npm"
       - run: npm ci
-      - name: Sondear viabilidad
-        if: ${{ !contains(github.event.head_commit.message, 'descuentos') }}
-        run: npx tsx scripts/sondear-tiendas.ts ${{ inputs.tiendas }}
-      - name: Sondear descuentos
-        if: ${{ contains(github.event.head_commit.message, 'descuentos') }}
-        run: npx tsx scripts/sondear-descuentos.ts
+
+      # Al empujar, se ejecuta solo el sondeo cuyo script ha cambiado; a
+      # mano, el que se elija. Antes esto miraba el mensaje del commit, que
+      # hacía correr el sondeo largo (4 min) aunque no fuera el que tocaba.
+      - name: Decidir qué sondeo toca
+        id: cual
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "tipo=${{ inputs.tipo }}" >> "$GITHUB_OUTPUT"
+          else
+            cambiados=$(git diff --name-only HEAD~1 HEAD -- scripts/ || true)
+            tipo=viabilidad
+            case "$cambiados" in
+              *sondear-estructura*) tipo=estructura ;;
+              *sondear-navegador*)  tipo=navegador ;;
+              *sondear-descuentos*) tipo=descuentos ;;
+            esac
+            echo "tipo=$tipo" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Sondeo: $(grep tipo= "$GITHUB_OUTPUT" | tail -1)"
+
       - name: Instalar Chromium
-        if: ${{ contains(github.event.head_commit.message, 'navegador') || contains(github.event.head_commit.message, 'estructura') }}
+        if: contains(fromJSON('["navegador","estructura"]'), steps.cual.outputs.tipo)
         run: npx playwright install chromium
-      - name: Sondear con navegador
-        if: ${{ contains(github.event.head_commit.message, 'navegador') }}
+
+      - name: Sondear
         run: |
-          Xvfb :99 -screen 0 1366x768x24 &
-          sleep 2
-          DISPLAY=:99 npx tsx scripts/sondear-navegador.ts
-      - name: Sondear estructura
-        if: ${{ contains(github.event.head_commit.message, 'estructura') }}
-        run: |
-          Xvfb :99 -screen 0 1366x768x24 &
-          sleep 2
-          DISPLAY=:99 npx tsx scripts/sondear-estructura.ts
+          case "${{ steps.cual.outputs.tipo }}" in
+            viabilidad) npx tsx scripts/sondear-tiendas.ts ${{ inputs.tiendas }} ;;
+            descuentos) npx tsx scripts/sondear-descuentos.ts ;;
+            *)
+              Xvfb :99 -screen 0 1366x768x24 &
+              sleep 2
+              DISPLAY=:99 npx tsx scripts/sondear-${{ steps.cual.outputs.tipo }}.ts
+              ;;
+          esac
