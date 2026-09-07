@@ -1,131 +1,134 @@
 {
-  "lastRun": "2026-09-07T03:37:05.592Z",
+  "lastRun": "2026-09-07T09:05:55.805Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
       "ok": true,
-      "dealsFound": 138,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "dealsFound": 139,
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
-      "dealsFound": 7,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "dealsFound": 19,
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 10,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "dealsFound": 46,
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
       "dealsFound": 43,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": true,
       "dealsFound": 180,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "desigual",
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
       "dealsFound": 49,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "springfield",
       "storeName": "Springfield",
       "ok": true,
-      "dealsFound": 90,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "dealsFound": 89,
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "pedrodelhierro",
       "storeName": "Pedro del Hierro",
       "ok": true,
       "dealsFound": 80,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
-      "dealsFound": 201,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "dealsFound": 203,
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
       "dealsFound": 192,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 338,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
       "dealsFound": 158,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "lastRun": "2026-09-07T09:05:55.805Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
-      "ok": true,
-      "dealsFound": 299,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "ok": false,
+      "dealsFound": 0,
+      "lastRun": "2026-09-07T09:05:55.805Z",
+      "error": "HTTP 503"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
-      "ok": true,
-      "dealsFound": 104,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "ok": false,
+      "dealsFound": 0,
+      "lastRun": "2026-09-07T09:05:55.805Z",
+      "error": "HTTP 503"
     },
     {
       "store": "poete",
       "storeName": "Poete",
-      "ok": true,
-      "dealsFound": 61,
-      "lastRun": "2026-09-07T03:37:05.592Z"
+      "ok": false,
+      "dealsFound": 0,
+      "lastRun": "2026-09-07T09:05:55.805Z",
+      "error": "HTTP 503"
     }
   ]
 }
