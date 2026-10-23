@@ -1,47 +1,47 @@
 {
-  "lastRun": "2026-10-23T09:21:15.498Z",
+  "lastRun": "2026-10-23T16:42:37.666Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
       "ok": true,
       "dealsFound": 136,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 62,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "dealsFound": 58,
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
       "dealsFound": 32,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": false,
       "dealsFound": 0,
-      "lastRun": "2026-10-23T09:21:15.498Z",
+      "lastRun": "2026-10-23T16:42:37.666Z",
       "error": "The \"data\" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object"
     },
     {
@@ -49,84 +49,84 @@
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
       "dealsFound": 71,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "springfield",
       "storeName": "Springfield",
       "ok": true,
-      "dealsFound": 90,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "dealsFound": 91,
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "pedrodelhierro",
       "storeName": "Pedro del Hierro",
       "ok": true,
-      "dealsFound": 82,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "dealsFound": 83,
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
       "dealsFound": 236,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
       "dealsFound": 114,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 190,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
-      "dealsFound": 194,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "dealsFound": 195,
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
       "ok": true,
       "dealsFound": 37,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
       "ok": true,
-      "dealsFound": 37,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "dealsFound": 36,
+      "lastRun": "2026-10-23T16:42:37.666Z"
     },
     {
       "store": "poete",
       "storeName": "Poete",
       "ok": true,
       "dealsFound": 61,
-      "lastRun": "2026-10-23T09:21:15.498Z"
+      "lastRun": "2026-10-23T16:42:37.666Z"
     }
   ]
 }
