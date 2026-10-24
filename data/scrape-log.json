@@ -1,47 +1,47 @@
 {
-  "lastRun": "2026-10-23T22:57:35.533Z",
+  "lastRun": "2026-10-24T03:49:41.756Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
       "ok": true,
       "dealsFound": 137,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 51,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "dealsFound": 60,
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
       "dealsFound": 32,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": false,
       "dealsFound": 0,
-      "lastRun": "2026-10-23T22:57:35.533Z",
+      "lastRun": "2026-10-24T03:49:41.756Z",
       "error": "The \"data\" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object"
     },
     {
@@ -49,84 +49,84 @@
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
       "dealsFound": 72,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "springfield",
       "storeName": "Springfield",
       "ok": true,
-      "dealsFound": 89,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "dealsFound": 88,
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "pedrodelhierro",
       "storeName": "Pedro del Hierro",
       "ok": true,
       "dealsFound": 83,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
       "dealsFound": 236,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
       "dealsFound": 114,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 190,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
       "dealsFound": 195,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
       "ok": true,
       "dealsFound": 37,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
       "ok": true,
       "dealsFound": 36,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     },
     {
       "store": "poete",
       "storeName": "Poete",
       "ok": true,
       "dealsFound": 61,
-      "lastRun": "2026-10-23T22:57:35.533Z"
+      "lastRun": "2026-10-24T03:49:41.756Z"
     }
   ]
 }
