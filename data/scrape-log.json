@@ -1,47 +1,47 @@
 {
-  "lastRun": "2026-10-28T04:43:22.181Z",
+  "lastRun": "2026-10-28T14:56:54.285Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
       "ok": true,
       "dealsFound": 139,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 49,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "dealsFound": 53,
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
-      "dealsFound": 34,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "dealsFound": 35,
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": false,
       "dealsFound": 0,
-      "lastRun": "2026-10-28T04:43:22.181Z",
+      "lastRun": "2026-10-28T14:56:54.285Z",
       "error": "The \"data\" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object"
     },
     {
@@ -49,84 +49,84 @@
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
-      "dealsFound": 86,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "dealsFound": 65,
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "springfield",
       "storeName": "Springfield",
       "ok": true,
-      "dealsFound": 90,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "dealsFound": 89,
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "pedrodelhierro",
       "storeName": "Pedro del Hierro",
       "ok": true,
-      "dealsFound": 83,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "dealsFound": 84,
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
-      "dealsFound": 246,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "dealsFound": 245,
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
       "dealsFound": 114,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 190,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
       "dealsFound": 195,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
       "ok": true,
       "dealsFound": 37,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
       "ok": true,
-      "dealsFound": 159,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "dealsFound": 171,
+      "lastRun": "2026-10-28T14:56:54.285Z"
     },
     {
       "store": "poete",
       "storeName": "Poete",
       "ok": true,
       "dealsFound": 61,
-      "lastRun": "2026-10-28T04:43:22.181Z"
+      "lastRun": "2026-10-28T14:56:54.285Z"
     }
   ]
 }
