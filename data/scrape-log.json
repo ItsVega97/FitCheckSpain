@@ -1,47 +1,47 @@
 {
-  "lastRun": "2026-10-31T23:10:12.990Z",
+  "lastRun": "2026-11-01T05:01:07.658Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
       "ok": true,
       "dealsFound": 141,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 59,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "dealsFound": 66,
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
       "dealsFound": 31,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": false,
       "dealsFound": 0,
-      "lastRun": "2026-10-31T23:10:12.990Z",
+      "lastRun": "2026-11-01T05:01:07.658Z",
       "error": "The \"data\" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object"
     },
     {
@@ -49,84 +49,84 @@
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
-      "dealsFound": 88,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "dealsFound": 86,
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "springfield",
       "storeName": "Springfield",
       "ok": true,
-      "dealsFound": 80,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "dealsFound": 74,
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "pedrodelhierro",
       "storeName": "Pedro del Hierro",
       "ok": true,
-      "dealsFound": 68,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "dealsFound": 67,
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
       "dealsFound": 245,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
       "dealsFound": 116,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 81,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
       "dealsFound": 195,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     },
     {
       "store": "poete",
       "storeName": "Poete",
       "ok": true,
       "dealsFound": 61,
-      "lastRun": "2026-10-31T23:10:12.990Z"
+      "lastRun": "2026-11-01T05:01:07.658Z"
     }
   ]
 }
