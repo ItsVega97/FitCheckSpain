@@ -1,132 +1,131 @@
 {
-  "lastRun": "2026-11-15T20:53:38.443Z",
+  "lastRun": "2026-11-16T05:29:38.106Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
-      "ok": false,
-      "dealsFound": 0,
-      "lastRun": "2026-11-15T20:53:38.443Z",
-      "error": "HTTP 403 al pedir https://www.asos.com/es/mujer/rebajas/cat/?cid=7046"
+      "ok": true,
+      "dealsFound": 129,
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 52,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "dealsFound": 50,
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
-      "dealsFound": 31,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "dealsFound": 32,
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": true,
       "dealsFound": 175,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "desigual",
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
       "dealsFound": 69,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "springfield",
       "storeName": "Springfield",
       "ok": true,
-      "dealsFound": 93,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "dealsFound": 90,
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "pedrodelhierro",
       "storeName": "Pedro del Hierro",
       "ok": true,
-      "dealsFound": 76,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "dealsFound": 80,
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
       "dealsFound": 248,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
       "dealsFound": 53,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 127,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
       "dealsFound": 128,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
       "ok": true,
       "dealsFound": 98,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     },
     {
       "store": "poete",
       "storeName": "Poete",
       "ok": true,
       "dealsFound": 61,
-      "lastRun": "2026-11-15T20:53:38.443Z"
+      "lastRun": "2026-11-16T05:29:38.106Z"
     }
   ]
 }
