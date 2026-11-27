@@ -1,132 +1,131 @@
 {
-  "lastRun": "2026-11-27T13:35:23.136Z",
+  "lastRun": "2026-11-27T23:56:56.680Z",
   "stores": [
     {
       "store": "asos",
       "storeName": "ASOS",
-      "ok": false,
-      "dealsFound": 0,
-      "lastRun": "2026-11-27T13:35:23.136Z",
-      "error": "This operation was aborted"
+      "ok": true,
+      "dealsFound": 139,
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "mango",
       "storeName": "Mango",
       "ok": true,
       "dealsFound": 0,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "zalando",
       "storeName": "Zalando",
       "ok": true,
-      "dealsFound": 65,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "dealsFound": 8,
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "nike",
       "storeName": "Nike",
       "ok": true,
-      "dealsFound": 76,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "dealsFound": 101,
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "puma",
       "storeName": "Puma",
       "ok": true,
       "dealsFound": 24,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "womensecret",
       "storeName": "Womensecret",
       "ok": true,
       "dealsFound": 180,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "desigual",
       "storeName": "Desigual",
       "ok": true,
       "dealsFound": 20,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "cortefiel",
       "storeName": "Cortefiel",
       "ok": true,
-      "dealsFound": 72,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "dealsFound": 73,
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "springfield",
       "storeName": "Springfield",
       "ok": true,
-      "dealsFound": 27,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "dealsFound": 26,
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "pedrodelhierro",
       "storeName": "Pedro del Hierro",
       "ok": true,
-      "dealsFound": 83,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "dealsFound": 82,
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "bimani",
       "storeName": "Bimani",
       "ok": true,
       "dealsFound": 395,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "popa",
       "storeName": "Popa",
       "ok": true,
-      "dealsFound": 379,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "dealsFound": 377,
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "pompeii",
       "storeName": "Pompeii",
       "ok": true,
       "dealsFound": 147,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "bluebanana",
       "storeName": "Blue Banana",
       "ok": true,
       "dealsFound": 478,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "laagam",
       "storeName": "Laagam",
       "ok": true,
       "dealsFound": 272,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "coosy",
       "storeName": "Coosy",
       "ok": true,
       "dealsFound": 74,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "scalpers",
       "storeName": "Scalpers",
       "ok": true,
       "dealsFound": 999,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     },
     {
       "store": "poete",
       "storeName": "Poete",
       "ok": true,
       "dealsFound": 61,
-      "lastRun": "2026-11-27T13:35:23.136Z"
+      "lastRun": "2026-11-27T23:56:56.680Z"
     }
   ]
 }
